@@ -14,7 +14,7 @@ const mapStateToProps = state => {
     requests,
   } = metamask
   const { forgottenPassword } = appState
-  const permissionRequests = requests.permissionsRequests || []
+  const permissionsRequests = requests.permissionsRequests || []
 
   return {
     lostAccounts,
@@ -23,7 +23,7 @@ const mapStateToProps = state => {
     suggestedTokens,
     unconfirmedTransactionsCount: unconfirmedTransactionsCountSelector(state),
     providerRequests,
-    permissionRequests,
+    permissionsRequests,
   }
 }
 

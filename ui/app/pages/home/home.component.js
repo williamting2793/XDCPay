@@ -22,7 +22,7 @@ export default class Home extends PureComponent {
     suggestedTokens: PropTypes.object,
     unconfirmedTransactionsCount: PropTypes.number,
     providerRequests: PropTypes.array,
-    permissionRequests: PropTypes.array,
+    permissionsRequests: PropTypes.array,
   }
 
   componentDidMount () {
@@ -47,7 +47,7 @@ export default class Home extends PureComponent {
       forgottenPassword,
       seedWords,
       providerRequests,
-      permissionRequests,
+      permissionsRequests,
     } = this.props
 
     // seed words
@@ -65,9 +65,15 @@ export default class Home extends PureComponent {
       )
     }
 
-    if (permissionRequests && permissionRequests.length > 0) {
+    if (permissionsRequests && permissionsRequests.length > 0) {
       return (
-        <PermissionApproval permissionRequest={permissionRequests[0]} />
+        <PermissionApproval permissionsRequests={
+          permissionsRequests.filter(
+            // this is unlikely to, but could, contain permissions from
+            // different requests; filter by the id of the first request
+            p => p.metadata.id === permissionsRequests[0].metadata.id
+          )
+        } />
       )
     }
 
