@@ -19,9 +19,7 @@ const { conversionUtil } = require('../../helpers/utils/conversion-util')
 
 const {
   getSelectedAccount,
-  getCurrentAccountWithSendEtherInfo,
   getSelectedAddress,
-  accountsWithSendEtherInfoSelector,
   conversionRateSelector,
 } = require('../../selectors/selectors.js')
 
@@ -33,11 +31,9 @@ const { DEFAULT_ROUTE } = require('../../helpers/constants/routes')
 function mapStateToProps (state) {
   return {
     balance: getSelectedAccount(state).balance,
-    selectedAccount: getCurrentAccountWithSendEtherInfo(state),
     selectedAddress: getSelectedAddress(state),
     requester: null,
     requesterAddress: null,
-    accounts: accountsWithSendEtherInfoSelector(state),
     conversionRate: conversionRateSelector(state),
   }
 }
@@ -95,14 +91,10 @@ module.exports = compose(
   connect(mapStateToProps, mapDispatchToProps, mergeProps)
 )(SignatureRequest)
 
-
 inherits(SignatureRequest, Component)
+
 function SignatureRequest (props) {
   Component.call(this)
-
-  this.state = {
-    selectedAccount: props.selectedAccount,
-  }
 }
 
 SignatureRequest.prototype.componentDidMount = function () {
@@ -138,19 +130,12 @@ SignatureRequest.prototype.renderHeader = function () {
 }
 
 SignatureRequest.prototype.renderAccountDropdown = function () {
-  const { selectedAccount } = this.state
-
-  const {
-    accounts,
-  } = this.props
 
   return h('div.request-signature__account', [
 
     h('div.request-signature__account-text', [this.context.t('account') + ':']),
 
     h(AccountDropdownMini, {
-      selectedAccount,
-      accounts,
       disabled: true,
     }),
 
