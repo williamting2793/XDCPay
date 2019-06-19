@@ -5,9 +5,10 @@ const { getTokenAddressFromTokenObject } = require('../helpers/utils/util')
 const {
   calcTokenBalance,
   estimateGas,
-} = require('../components/app/send/send.utils')
+} = require('../pages/send/send.utils')
 const ethUtil = require('ethereumjs-util')
 const { fetchLocale } = require('../helpers/utils/i18n-helper')
+const { getMethodDataAsync } = require('../helpers/utils/transactions.util')
 const log = require('loglevel')
 const { ENVIRONMENT_TYPE_NOTIFICATION } = require('../../../app/scripts/lib/enums')
 const { hasUnconfirmedTransactions } = require('../helpers/utils/confirm-tx.util')
@@ -239,6 +240,7 @@ var actions = {
   updateAndSetCustomRpc: updateAndSetCustomRpc,
   setRpcTarget: setRpcTarget,
   delRpcTarget: delRpcTarget,
+  editRpc: editRpc,
   setProviderType: setProviderType,
   SET_HARDWARE_WALLET_DEFAULT_HD_PATH: 'SET_HARDWARE_WALLET_DEFAULT_HD_PATH',
   setHardwareWalletDefaultHdPath,
@@ -316,6 +318,7 @@ var actions = {
   UPDATE_PREFERENCES: 'UPDATE_PREFERENCES',
   setUseNativeCurrencyAsPrimaryCurrencyPreference,
   setShowFiatConversionOnTestnetsPreference,
+  setAutoLogoutTimeLimit,
 
   // Migration of users to new UI
   setCompletedUiMigration,
@@ -343,8 +346,8 @@ var actions = {
   createCancelTransaction,
   createSpeedUpTransaction,
 
-  approveProviderRequest,
-  rejectProviderRequest,
+  approveProviderRequestByOrigin,
+  rejectProviderRequestByOrigin,
   clearApprovedOrigins,
 
   // Permissions
@@ -353,6 +356,21 @@ var actions = {
 
   setFirstTimeFlowType,
   SET_FIRST_TIME_FLOW_TYPE: 'SET_FIRST_TIME_FLOW_TYPE',
+
+  SET_SELECTED_SETTINGS_RPC_URL: 'SET_SELECTED_SETTINGS_RPC_URL',
+  setSelectedSettingsRpcUrl,
+  SET_NETWORKS_TAB_ADD_MODE: 'SET_NETWORKS_TAB_ADD_MODE',
+  setNetworksTabAddMode,
+
+  // AppStateController-related actions
+  SET_LAST_ACTIVE_TIME: 'SET_LAST_ACTIVE_TIME',
+  setLastActiveTime,
+
+  getContractMethodData,
+  loadingMethoDataStarted,
+  loadingMethoDataFinished,
+  LOADING_METHOD_DATA_STARTED: 'LOADING_METHOD_DATA_STARTED',
+  LOADING_METHOD_DATA_FINISHED: 'LOADING_METHOD_DATA_FINISHED',
 }
 
 module.exports = actions
@@ -765,7 +783,7 @@ function addNewAccount () {
 
 function checkHardwareStatus (deviceName, hdPath) {
   log.debug(`background.checkHardwareStatus`, deviceName, hdPath)
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(actions.showLoadingIndication())
     return new Promise((resolve, reject) => {
       background.checkHardwareStatus(deviceName, hdPath, (err, unlocked) => {
@@ -786,10 +804,10 @@ function checkHardwareStatus (deviceName, hdPath) {
 
 function forgetDevice (deviceName) {
   log.debug(`background.forgetDevice`, deviceName)
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(actions.showLoadingIndication())
     return new Promise((resolve, reject) => {
-      background.forgetDevice(deviceName, (err, response) => {
+      background.forgetDevice(deviceName, (err) => {
         if (err) {
           log.error(err)
           dispatch(actions.displayWarning(err.message))
@@ -807,7 +825,7 @@ function forgetDevice (deviceName) {
 
 function connectHardware (deviceName, page, hdPath) {
   log.debug(`background.connectHardware`, deviceName, page, hdPath)
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(actions.showLoadingIndication())
     return new Promise((resolve, reject) => {
       background.connectHardware(deviceName, page, hdPath, (err, accounts) => {
@@ -828,10 +846,10 @@ function connectHardware (deviceName, page, hdPath) {
 
 function unlockHardwareWalletAccount (index, deviceName, hdPath) {
   log.debug(`background.unlockHardwareWalletAccount`, index, deviceName, hdPath)
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(actions.showLoadingIndication())
     return new Promise((resolve, reject) => {
-      background.unlockHardwareWalletAccount(index, deviceName, hdPath, (err, accounts) => {
+      background.unlockHardwareWalletAccount(index, deviceName, hdPath, (err) => {
         if (err) {
           log.error(err)
           dispatch(actions.displayWarning(err.message))
@@ -852,7 +870,7 @@ function showInfoPage () {
 }
 
 function showQrScanner (ROUTE) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     return WebcamUtils.checkStatus()
     .then(status => {
       if (!status.environmentReady) {
@@ -991,7 +1009,7 @@ function signTypedMsg (msgData) {
 
 function signTx (txData) {
   return (dispatch) => {
-    global.ethQuery.sendTransaction(txData, (err, data) => {
+    global.ethQuery.sendTransaction(txData, (err) => {
       if (err) {
         return dispatch(actions.displayWarning(err.message))
       }
@@ -1024,7 +1042,6 @@ function setGasTotal (gasTotal) {
 function updateGasData ({
   gasPrice,
   blockGasLimit,
-  recentBlocks,
   selectedAddress,
   selectedToken,
   to,
@@ -1406,7 +1423,7 @@ function cancelTx (txData) {
  * @return {function(*): Promise<void>}
  */
 function cancelTxs (txDataList) {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     window.onbeforeunload = null
     dispatch(actions.showLoadingIndication())
     const txIds = txDataList.map(({id}) => id)
@@ -1811,7 +1828,7 @@ function removeSuggestedTokens () {
   return (dispatch) => {
     dispatch(actions.showLoadingIndication())
     window.onbeforeunload = null
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       background.removeSuggestedTokens((err, suggestedTokens) => {
         dispatch(actions.hideLoadingIndication())
         if (err) {
@@ -1830,7 +1847,7 @@ function removeSuggestedTokens () {
 }
 
 function addKnownMethodData (fourBytePrefix, methodData) {
-  return (dispatch) => {
+  return () => {
     background.addKnownMethodData(fourBytePrefix, methodData)
   }
 }
@@ -1935,7 +1952,7 @@ function setProviderType (type) {
   return (dispatch, getState) => {
     const { type: currentProviderType } = getState().metamask.provider
     log.debug(`background.setProviderType`, type)
-    background.setProviderType(type, (err, result) => {
+    background.setProviderType(type, (err) => {
       if (err) {
         log.error(err)
         return dispatch(actions.displayWarning('Had a problem changing networks!'))
@@ -1962,10 +1979,10 @@ function setPreviousProvider (type) {
   }
 }
 
-function updateAndSetCustomRpc (newRpc, chainId, ticker = 'ETH', nickname) {
+function updateAndSetCustomRpc (newRpc, chainId, ticker = 'ETH', nickname, rpcPrefs) {
   return (dispatch) => {
     log.debug(`background.updateAndSetCustomRpc: ${newRpc} ${chainId} ${ticker} ${nickname}`)
-    background.updateAndSetCustomRpc(newRpc, chainId, ticker, nickname || newRpc, (err, result) => {
+    background.updateAndSetCustomRpc(newRpc, chainId, ticker, nickname || newRpc, rpcPrefs, (err) => {
       if (err) {
         log.error(err)
         return dispatch(actions.displayWarning('Had a problem changing networks!'))
@@ -1978,10 +1995,33 @@ function updateAndSetCustomRpc (newRpc, chainId, ticker = 'ETH', nickname) {
   }
 }
 
+function editRpc (oldRpc, newRpc, chainId, ticker = 'ETH', nickname, rpcPrefs) {
+  return (dispatch) => {
+    log.debug(`background.delRpcTarget: ${oldRpc}`)
+    background.delCustomRpc(oldRpc, (err) => {
+      if (err) {
+        log.error(err)
+        return dispatch(self.displayWarning('Had a problem removing network!'))
+      }
+      dispatch(actions.setSelectedToken())
+      background.updateAndSetCustomRpc(newRpc, chainId, ticker, nickname || newRpc, rpcPrefs, (err) => {
+        if (err) {
+          log.error(err)
+          return dispatch(actions.displayWarning('Had a problem changing networks!'))
+        }
+        dispatch({
+          type: actions.SET_RPC_TARGET,
+          value: newRpc,
+        })
+      })
+    })
+  }
+}
+
 function setRpcTarget (newRpc, chainId, ticker = 'ETH', nickname) {
   return (dispatch) => {
     log.debug(`background.setRpcTarget: ${newRpc} ${chainId} ${ticker} ${nickname}`)
-    background.setCustomRpc(newRpc, chainId, ticker, nickname || newRpc, (err, result) => {
+    background.setCustomRpc(newRpc, chainId, ticker, nickname || newRpc, (err) => {
       if (err) {
         log.error(err)
         return dispatch(actions.displayWarning('Had a problem changing networks!'))
@@ -1994,7 +2034,7 @@ function setRpcTarget (newRpc, chainId, ticker = 'ETH', nickname) {
 function delRpcTarget (oldRpc) {
   return (dispatch) => {
     log.debug(`background.delRpcTarget: ${oldRpc}`)
-    background.delCustomRpc(oldRpc, (err, result) => {
+    background.delCustomRpc(oldRpc, (err) => {
       if (err) {
         log.error(err)
         return dispatch(self.displayWarning('Had a problem removing network!'))
@@ -2004,11 +2044,12 @@ function delRpcTarget (oldRpc) {
   }
 }
 
+
 // Calls the addressBookController to add a new address.
 function addToAddressBook (recipient, nickname = '') {
   log.debug(`background.addToAddressBook`)
   return (dispatch) => {
-    background.setAddressBook(recipient, nickname, (err, result) => {
+    background.setAddressBook(recipient, nickname, (err) => {
       if (err) {
         log.error(err)
         return dispatch(self.displayWarning('Address book failed to update'))
@@ -2277,7 +2318,7 @@ function pairUpdate (coin) {
   }
 }
 
-function shapeShiftSubview (network) {
+function shapeShiftSubview () {
   var pair = 'btc_eth'
   return (dispatch) => {
     dispatch(actions.showSubLoadingIndication())
@@ -2313,7 +2354,7 @@ function coinShiftRquest (data, marketData) {
 }
 
 function buyWithShapeShift (data) {
-  return dispatch => new Promise((resolve, reject) => {
+  return () => new Promise((resolve, reject) => {
     shapeShiftRequest('shift', { method: 'POST', data}, (response) => {
       if (response.error) {
         return reject(response.error)
@@ -2360,7 +2401,7 @@ function shapeShiftRequest (query, options, cb) {
   !options ? options = {} : null
   options.method ? method = options.method : method = 'GET'
 
-  var requestListner = function (request) {
+  var requestListner = function () {
     try {
       queryResponse = JSON.parse(this.responseText)
       cb ? cb(queryResponse) : null
@@ -2441,6 +2482,10 @@ function setUseNativeCurrencyAsPrimaryCurrencyPreference (value) {
 
 function setShowFiatConversionOnTestnetsPreference (value) {
   return setPreference('showFiatInTestnets', value)
+}
+
+function setAutoLogoutTimeLimit (value) {
+  return setPreference('autoLogoutTimeLimit', value)
 }
 
 function setCompletedOnboarding () {
@@ -2684,20 +2729,20 @@ function setPendingTokens (pendingTokens) {
   }
 }
 
-function approveProviderRequest (tabID) {
-  return (dispatch) => {
-    background.approveProviderRequest(tabID)
+function approveProviderRequestByOrigin (origin) {
+  return () => {
+    background.approveProviderRequestByOrigin(origin)
   }
 }
 
-function rejectProviderRequest (tabID) {
-  return (dispatch) => {
-    background.rejectProviderRequest(tabID)
+function rejectProviderRequestByOrigin (origin) {
+  return () => {
+    background.rejectProviderRequestByOrigin(origin)
   }
 }
 
 function clearApprovedOrigins () {
-  return (dispatch) => {
+  return () => {
     background.clearApprovedOrigins()
   }
 }
@@ -2736,5 +2781,64 @@ function setFirstTimeFlowType (type) {
       type: actions.SET_FIRST_TIME_FLOW_TYPE,
       value: type,
     })
+  }
+}
+
+function setSelectedSettingsRpcUrl (newRpcUrl) {
+  return {
+    type: actions.SET_SELECTED_SETTINGS_RPC_URL,
+    value: newRpcUrl,
+  }
+}
+
+function setNetworksTabAddMode (isInAddMode) {
+  return {
+    type: actions.SET_NETWORKS_TAB_ADD_MODE,
+    value: isInAddMode,
+  }
+}
+
+function setLastActiveTime () {
+  return (dispatch) => {
+    background.setLastActiveTime((err) => {
+      if (err) {
+        return dispatch(actions.displayWarning(err.message))
+      }
+    })
+  }
+}
+
+function loadingMethoDataStarted () {
+  return {
+    type: actions.LOADING_METHOD_DATA_STARTED,
+  }
+}
+
+function loadingMethoDataFinished () {
+  return {
+    type: actions.LOADING_METHOD_DATA_FINISHED,
+  }
+}
+
+function getContractMethodData (data = '') {
+  return (dispatch, getState) => {
+    const prefixedData = ethUtil.addHexPrefix(data)
+    const fourBytePrefix = prefixedData.slice(0, 10)
+    const { knownMethodData } = getState().metamask
+    if (knownMethodData && knownMethodData[fourBytePrefix]) {
+      return Promise.resolve(knownMethodData[fourBytePrefix])
+    }
+
+    dispatch(actions.loadingMethoDataStarted())
+    log.debug(`loadingMethodData`)
+
+    return getMethodDataAsync(fourBytePrefix)
+      .then(({ name, params }) => {
+        dispatch(actions.loadingMethoDataFinished())
+
+        background.addKnownMethodData(fourBytePrefix, { name, params })
+
+        return { name, params }
+      })
   }
 }

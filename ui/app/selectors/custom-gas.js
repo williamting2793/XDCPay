@@ -18,7 +18,7 @@ import {
 } from '../helpers/utils/formatters'
 import {
   calcGasTotal,
-} from '../components/app/send/send.utils'
+} from '../pages/send/send.utils'
 import { addHexPrefix } from 'ethereumjs-util'
 
 const selectors = {
@@ -117,6 +117,10 @@ function isCustomPriceSafe (state) {
 
   if (!customGasPrice) {
     return true
+  }
+
+  if (safeLow === null) {
+    return null
   }
 
   const customPriceSafe = conversionGreaterThan(

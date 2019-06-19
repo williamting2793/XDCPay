@@ -1,5 +1,6 @@
 import { NETWORK_TYPES } from '../helpers/constants/common'
-import { stripHexPrefix } from 'ethereumjs-util'
+import { stripHexPrefix, addHexPrefix } from 'ethereumjs-util'
+
 
 const abi = require('human-standard-token-abi')
 import {
@@ -49,6 +50,9 @@ const selectors = {
   getNumberOfTokens,
   isEthereumNetwork,
   getPermissionsDescriptions,
+  getMetaMetricState,
+  getRpcPrefsForCurrentProvider,
+  getKnownMethodData,
 }
 
 module.exports = selectors
@@ -92,7 +96,8 @@ function getAccountType (state) {
 }
 
 function getSelectedAsset (state) {
-  return getSelectedToken(state) || 'ETH'
+  const selectedToken = getSelectedToken(state)
+  return selectedToken && selectedToken.symbol || 'ETH'
 }
 
 function getCurrentNetworkId (state) {
@@ -165,7 +170,7 @@ function getSelectedToken (state) {
   const tokens = state.metamask.tokens || []
   const selectedTokenAddress = state.metamask.selectedTokenAddress
   const selectedToken = tokens.filter(({ address }) => address === selectedTokenAddress)[0]
-  const sendToken = state.metamask.send.token
+  const sendToken = state.metamask.send && state.metamask.send.token
 
   return selectedToken || sendToken || null
 }
@@ -301,9 +306,10 @@ function isEthereumNetwork (state) {
     MAINNET,
     RINKEBY,
     ROPSTEN,
+    GOERLI,
   } = NETWORK_TYPES
 
-  return [ KOVAN, MAINNET, RINKEBY, ROPSTEN].includes(networkType)
+  return [ KOVAN, MAINNET, RINKEBY, ROPSTEN, GOERLI].includes(networkType)
 }
 
 function preferencesSelector ({ metamask }) {
@@ -316,4 +322,34 @@ function getAdvancedInlineGasShown (state) {
 
 function getPermissionsDescriptions (state) {
   return state.metamask.permissionsDescriptions
+}
+
+function getMetaMetricState (state) {
+  return {
+    network: getCurrentNetworkId(state),
+    activeCurrency: getSelectedAsset(state),
+    accountType: getAccountType(state),
+    metaMetricsId: state.metamask.metaMetricsId,
+    numberOfTokens: getNumberOfTokens(state),
+    numberOfAccounts: getNumberOfAccounts(state),
+    participateInMetaMetrics: state.metamask.participateInMetaMetrics,
+  }
+}
+
+function getRpcPrefsForCurrentProvider (state) {
+  const { frequentRpcListDetail, provider } = state.metamask
+  const selectRpcInfo = frequentRpcListDetail.find(rpcInfo => rpcInfo.rpcUrl === provider.rpcTarget)
+  const { rpcPrefs = {} } = selectRpcInfo || {}
+  return rpcPrefs
+}
+
+function getKnownMethodData (state, data) {
+  if (!data) {
+    return null
+  }
+  const prefixedData = addHexPrefix(data)
+  const fourBytePrefix = prefixedData.slice(0, 10)
+  const { knownMethodData } = state.metamask
+
+  return knownMethodData && knownMethodData[fourBytePrefix]
 }

@@ -33,6 +33,9 @@ export default class TransactionListItem extends PureComponent {
     value: PropTypes.string,
     fetchBasicGasAndTimeEstimates: PropTypes.func,
     fetchGasEstimates: PropTypes.func,
+    rpcPrefs: PropTypes.object,
+    data: PropTypes.string,
+    getContractMethodData: PropTypes.func,
   }
 
   static defaultProps = {
@@ -149,6 +152,12 @@ export default class TransactionListItem extends PureComponent {
       )
   }
 
+  componentDidMount () {
+    if (this.props.data) {
+      this.props.getContractMethodData(this.props.data)
+    }
+  }
+
   render () {
     const {
       assetImages,
@@ -161,6 +170,7 @@ export default class TransactionListItem extends PureComponent {
       showRetry,
       tokenData,
       transactionGroup,
+      rpcPrefs,
     } = this.props
     const { txParams = {} } = transaction
     const { showTransactionDetails } = this.state
@@ -177,7 +187,7 @@ export default class TransactionListItem extends PureComponent {
           <Identicon
             className="transaction-list-item__identicon"
             address={toAddress}
-            diameter={34}
+            diameter={36}
             image={assetImages[toAddress]}
           />
           <TransactionAction
@@ -212,10 +222,11 @@ export default class TransactionListItem extends PureComponent {
                 <TransactionListItemDetails
                   transactionGroup={transactionGroup}
                   onRetry={this.handleRetry}
-                  showRetry={showRetry && methodData.done}
+                  showRetry={showRetry}
                   onCancel={this.handleCancel}
                   showCancel={showCancel}
                   cancelDisabled={!hasEnoughCancelGas}
+                  rpcPrefs={rpcPrefs}
                 />
               </div>
             )
