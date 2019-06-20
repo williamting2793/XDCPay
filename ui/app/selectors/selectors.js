@@ -50,6 +50,7 @@ const selectors = {
   getNumberOfTokens,
   isEthereumNetwork,
   getPermissionsDescriptions,
+  getPermissionsRequests,
   getMetaMetricState,
   getRpcPrefsForCurrentProvider,
   getKnownMethodData,
@@ -322,6 +323,10 @@ function getAdvancedInlineGasShown (state) {
 
 function getPermissionsDescriptions (state) {
   return state.metamask.permissionsDescriptions
+}
+
+function getPermissionsRequests (state) {
+  return state.metamask.permissionsRequests
 }
 
 function getMetaMetricState (state) {
