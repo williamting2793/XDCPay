@@ -10,7 +10,6 @@ const mapStateToProps = state => {
     lostAccounts,
     seedWords,
     suggestedTokens,
-    providerRequests,
     permissionsRequests,
   } = metamask
   const { forgottenPassword } = appState
@@ -21,7 +20,6 @@ const mapStateToProps = state => {
     seedWords,
     suggestedTokens,
     unconfirmedTransactionsCount: unconfirmedTransactionsCountSelector(state),
-    providerRequests,
     permissionsRequests,
   }
 }

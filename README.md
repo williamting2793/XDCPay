@@ -11,6 +11,18 @@ To learn how to contribute to the MetaMask project itself, visit our [Internal D
 
 ## Building locally
 
+**NOTE:** For the `LoginPerSite` branch, here's a workaround for an `npm` issue until we fix it:
+- `nvm use` -> `using node v8.15.1 (npm v6.4.1)`
+- `git checkout develop`
+- `git pull`
+- `rm -rf node_modules/`
+- `npm install`
+- `git checkout -- package-lock.json`
+- `git checkout LoginPerSite`
+- ` rm -rf node_modules/ganache-core/node_modules/web3-providers-ws/node_modules/websocket/.git/`
+- `npm install`
+
+**Usual instructions**
 - Install [Node.js](https://nodejs.org) version 8 and the latest available npm@6
     - If you are using [nvm](https://github.com/creationix/nvm#installation) (recommended) running `nvm use` will automatically choose the right node version for you.
     - If you install Node.js manually, ensure you're using npm@6

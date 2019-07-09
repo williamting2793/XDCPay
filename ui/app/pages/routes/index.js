@@ -141,9 +141,9 @@ class Routes extends Component {
     return Boolean(matchPath(location.pathname, { path: CONFIRM_TRANSACTION_ROUTE, exact: false }))
   }
 
-  hasProviderRequests () {
-    const { providerRequests } = this.props
-    return Array.isArray(providerRequests) && providerRequests.length > 0
+  hasPermissionsRequests () {
+    const { permissionsRequests } = this.props
+    return Array.isArray(permissionsRequests) && permissionsRequests.length > 0
   }
 
   hideAppHeader () {
@@ -162,7 +162,7 @@ class Routes extends Component {
     }
 
     if (window.METAMASK_UI_TYPE === ENVIRONMENT_TYPE_POPUP) {
-      return this.onConfirmPage() || this.hasProviderRequests()
+      return this.onConfirmPage() || this.hasPermissionsRequests()
     }
   }
 
@@ -357,7 +357,7 @@ Routes.propTypes = {
   setMouseUserState: PropTypes.func,
   t: PropTypes.func,
   providerId: PropTypes.string,
-  providerRequests: PropTypes.array,
+  permissionsRequests: PropTypes.array,
   autoLogoutTimeLimit: PropTypes.number,
 }
 
@@ -386,7 +386,7 @@ function mapStateToProps (state) {
     unapprovedMsgCount,
     unapprovedPersonalMsgCount,
     unapprovedTypedMessagesCount,
-    providerRequests,
+    permissionsRequests,
   } = metamask
   const selected = address || Object.keys(accounts)[0]
 
@@ -431,7 +431,7 @@ function mapStateToProps (state) {
     identities,
     selected,
     keyrings,
-    providerRequests,
+    permissionsRequests,
   }
 }
 

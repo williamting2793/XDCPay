@@ -4,7 +4,6 @@ import Media from 'react-media'
 import { Redirect } from 'react-router-dom'
 import WalletView from '../../components/app/wallet-view'
 import TransactionView from '../../components/app/transaction-view'
-import ProviderApproval from '../provider-approval'
 import PermissionApproval from '../permission-approval'
 
 import {
@@ -21,7 +20,6 @@ export default class Home extends PureComponent {
     seedWords: PropTypes.string,
     suggestedTokens: PropTypes.object,
     unconfirmedTransactionsCount: PropTypes.number,
-    providerRequests: PropTypes.array,
     permissionsRequests: PropTypes.array,
   }
 
@@ -52,7 +50,6 @@ export default class Home extends PureComponent {
     const {
       forgottenPassword,
       seedWords,
-      providerRequests,
       permissionsRequests,
       history,
     } = this.props
@@ -64,14 +61,6 @@ export default class Home extends PureComponent {
 
     if (forgottenPassword) {
       return <Redirect to={{ pathname: RESTORE_VAULT_ROUTE }} />
-    }
-
-    // TODO:rpc-cap unclear on the difference between provider requests/approval
-    // and permissions requests/approval
-    if (providerRequests && providerRequests.length > 0) {
-      return (
-        <ProviderApproval providerRequest={providerRequests[0]} />
-      )
     }
 
     if (permissionsRequests && permissionsRequests.length > 0) {
