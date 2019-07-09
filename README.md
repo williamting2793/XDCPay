@@ -12,6 +12,7 @@ To learn how to contribute to the MetaMask project itself, visit our [Internal D
 ## Building locally
 
 **NOTE:** For the `LoginPerSite` branch, here's a workaround for an `npm` issue until we fix it:
+- `git checkout LoginPerSite`
 - `nvm use` -> `using node v8.15.1 (npm v6.4.1)`
 - `git checkout develop`
 - `git pull`
@@ -19,7 +20,7 @@ To learn how to contribute to the MetaMask project itself, visit our [Internal D
 - `npm install`
 - `git checkout -- package-lock.json`
 - `git checkout LoginPerSite`
-- ` rm -rf node_modules/ganache-core/node_modules/web3-providers-ws/node_modules/websocket/.git/`
+- `rm -rf node_modules/ganache-core/node_modules/web3-providers-ws/node_modules/websocket/.git/`
 - `npm install`
 
 **Usual instructions**

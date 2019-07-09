@@ -349,6 +349,7 @@ var actions = {
   // Permissions
   approvePermissionsRequest,
   rejectPermissionsRequest,
+  clearPermissions,
 
   setFirstTimeFlowType,
   SET_FIRST_TIME_FLOW_TYPE: 'SET_FIRST_TIME_FLOW_TYPE',
@@ -2732,7 +2733,7 @@ function setPendingTokens (pendingTokens) {
  * @param {Array} requestId 
  */
 function approvePermissionsRequest (requestId) {
-  return (dispatch) => {
+  return () => {
     background.approvePermissionsRequest(requestId)
   }
 }
@@ -2742,26 +2743,21 @@ function approvePermissionsRequest (requestId) {
  * @param {Array} requestId 
  */
 function rejectPermissionsRequest (requestId) {
-  return (dispatch) => {
+  return () => {
     background.rejectPermissionsRequest(requestId)
   }
 }
 
-// TODO:lps:clearPermissions
-// function clearPermissions () {
-//   return () => {
-//     background.clearApprovedOrigins()
-//   }
-// }
+/**
+ * Clears all permissions for all domains.
+ */
+function clearPermissions () {
+  return () => {
+    background.clearPermissions()
+  }
+}
 
-// old
-// function clearApprovedOrigins () {
-//   return () => {
-//     background.clearApprovedOrigins()
-//   }
-// }
-
-//
+//////
 
 function setFirstTimeFlowType (type) {
   return (dispatch) => {
