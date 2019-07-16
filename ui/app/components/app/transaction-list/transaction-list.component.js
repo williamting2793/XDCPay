@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import TransactionListItem from '../transaction-list-item'
 import ShapeShiftTransactionListItem from '../shift-list-item'
+import BackupNotification from '../backup-notification'
 import { TRANSACTION_TYPE_SHAPESHIFT } from '../../../helpers/constants/transactions'
 
 export default class TransactionList extends PureComponent {
@@ -20,6 +21,7 @@ export default class TransactionList extends PureComponent {
     selectedToken: PropTypes.object,
     updateNetworkNonce: PropTypes.func,
     assetImages: PropTypes.object,
+    shouldShowSeedPhraseReminder: PropTypes.bool,
   }
 
   componentDidMount () {
@@ -120,6 +122,7 @@ export default class TransactionList extends PureComponent {
     return (
       <div className="transaction-list">
         { this.renderTransactions() }
+        { this.props.shouldShowSeedPhraseReminder && <BackupNotification /> }
       </div>
     )
   }
