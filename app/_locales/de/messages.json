@@ -1,49 +1,4 @@
 {
-  "privacyMode": {
-    "message": "Datenschutzmodus"
-  },
-  "privacyModeDescription": {
-    "message": "Websites müssen Zugriff anfordern, um Ihre Kontoinformationen anzuzeigen."
-  },
-  "exposeAccounts": {
-    "message": "Expose Konten"
-  },
-  "exposeDescription": {
-    "message": "Expose Konten auf der aktuellen Website. Nützlich für ältere Dapps."
-  },
-  "confirmExpose": {
-    "message": "Möchten Sie Ihre Konten wirklich der aktuellen Website zugänglich machen?"
-  },
-  "confirmClear": {
-    "message": "Möchten Sie die genehmigten Websites wirklich löschen?"
-  },
-  "clearApprovalDataSuccess": {
-    "message": "Genehmigte Website-Daten wurden erfolgreich gelöscht."
-  },
-  "approvalData": {
-    "message": "Genehmigungsdaten"
-  },
-  "approvalDataDescription": {
-    "message": "Löschen Sie die genehmigten Website-Daten, damit alle Websites erneut eine Genehmigung anfordern müssen."
-  },
-  "clearApprovalData": {
-    "message": "Genehmigungsdaten löschen"
-  },
-  "approve": {
-    "message": "Genehmigen"
-  },
-  "reject": {
-    "message": "Ablehnen"
-  },
-  "providerAPIRequest": {
-    "message": "Web3-API-Anfrage"
-  },
-  "reviewProviderRequest": {
-    "message": "Bitte lesen Sie diese Ethereum-API-Anfrage."
-  },
-  "providerRequestInfo": {
-    "message": "Die unten aufgeführte Domäne versucht, Zugriff auf die Ethereum-API anzufordern, damit sie mit der Ethereum-Blockchain interagieren kann. Überprüfen Sie immer, dass Sie sich auf der richtigen Website befinden, bevor Sie den Web3-Zugriff genehmigen."
-  },
   "accept": {
     "message": "Annehmen"
   },
@@ -79,7 +34,7 @@
     "description": "Die Beschreibung der Erweiterung"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "XinFin eWallet",
     "description": "Der Name der Erweiterung"
   },
   "approved": {
@@ -120,7 +75,7 @@
     "message": "Mit Dharma ausleihen (Beta)"
   },
   "builtInCalifornia": {
-    "message": "MetaMask wurde in Kalifornien entwickelt und gebaut."
+    "message": "XinFin eWallet wurde in Kalifornien entwickelt und gebaut."
   },
   "buy": {
     "message": "Kaufen"
@@ -130,12 +85,6 @@
   },
   "buyCoinbaseExplainer": {
     "message": "Coinbase ist die weltweit bekannteste Art und Weise um Bitcoin, Ethereum und Litecoin zu kaufen und verkaufen."
-  },
-  "buyCoinSwitch": {
-    "message": "Auf CoinSwitch kaufen"
-  },
-  "buyCoinSwitchExplainer": {
-    "message": "CoinSwitch ist die One-Stop-Destination, um mehr als 300 Kryptowährungen zum besten Preis zu tauschen."
   },
   "ok": {
     "message": "Ok"
@@ -169,9 +118,6 @@
   },
   "continueToCoinbase": {
     "message": "Zu Coinbase fortfahren"
-  },
-  "continueToCoinSwitch": {
-    "message": "Zu CoinSwitch fortfahren"
   },
   "contractDeployment": {
     "message": "Smart Contract Ausführung"
@@ -241,13 +187,17 @@
     "message": "Das Standardnetzwerk für Ether Transaktionen ist das Main Net."
   },
   "denExplainer": {
-    "message": "Dein DEN ist dein passwortverschlüsselter Speicher innerhalb von MetaMask."
+    "message": "Dein DEN ist dein passwortverschlüsselter Speicher innerhalb von XinFin eWallet."
   },
   "deposit": {
     "message": "Einzahlen"
   },
   "depositBTC": {
     "message": "Zahle dein BTC in die unten stehende Adresse ein:"
+  },
+  "depositCoin": {
+    "message": "Zahle deine $1 in die unten stehende Adresse ein",
+    "description": "Teilt dem Benutzer mit welchen Token er beim Einzahlen mit Shapeshift ausgewählt hat"
   },
   "depositEth": {
     "message": "Eth kaufen"
@@ -265,7 +215,7 @@
     "message": "Mit ShapeShift einzahlen"
   },
   "depositShapeShiftExplainer": {
-    "message": "Wenn du andere Kryptowährungen besitzt, kannst du diese direkt mit Hilfe deiner MetaMask Wallet handeln und einzahlen. Du benötigst keinen Account."
+    "message": "Wenn du andere Kryptowährungen besitzt, kannst du diese direkt mit Hilfe deiner XinFin eWallet Wallet handeln und einzahlen. Du benötigst keinen Account."
   },
   "details": {
     "message": "Details"
@@ -419,7 +369,7 @@
     "message": "Account importieren"
   },
   "importAccountMsg": {
-    "message": " Importierte Accounts werden nicht mit der Seed-Wörterfolge  deines ursprünglichen MetaMask Accounts verknüpft. Erfahre mehr über importierte Accounts."
+    "message": " Importierte Accounts werden nicht mit der Seed-Wörterfolge  deines ursprünglichen XinFin eWallet Accounts verknüpft. Erfahre mehr über importierte Accounts."
   },
   "importAnAccount": {
     "message": "Einen Account importieren"
@@ -515,7 +465,7 @@
     "message": "Nachricht"
   },
   "metamaskDescription": {
-    "message": "MetaMask ist ein sicherer Identitätssafe für Ethereum."
+    "message": "XinFin eWallet ist ein sicherer Identitätssafe für Ethereum."
   },
   "min": {
     "message": "Minimum"
@@ -527,7 +477,7 @@
     "message": "Du musst mindestens 1 Token auswählen."
   },
   "needEtherInWallet": {
-    "message": "Um dezentralisierte Applikationen mit MetaMask verwenden zu können, benötigst du Ether in deiner Wallet."
+    "message": "Um dezentralisierte Applikationen mit XinFin eWallet verwenden zu können, benötigst du Ether in deiner Wallet."
   },
   "needImportFile": {
     "message": "Für den Import musst du eine Datei auswählen.",
@@ -681,6 +631,9 @@
   "rinkeby": {
     "message": "Rinkeby Testnetzwerk"
   },
+  "poa": {
+    "message": "[Not translated]"
+  },
   "ropsten": {
     "message": "Ropsten Testnetzwerk"
   },
@@ -698,6 +651,9 @@
   },
   "connectingToRinkeby": {
     "message": " Verbinde zum Rinkeby Testnetzwerk"
+  },
+  "connectingToPOA": {
+    "message": "[Not translated]"
   },
   "connectingToUnknown": {
     "message": "Verbinde zu einem unbekanntem Netzwerk"
@@ -812,8 +768,8 @@
   "supportCenter": {
     "message": "Gehe zu unserem Support Center"
   },
-  "symbolBetweenZeroTwelve": {
-    "message": "Das Symbol muss zwischen 0 und 12 Zeichen haben."
+  "symbolBetweenZeroTen": {
+    "message": "Das Symbol muss zwischen 0 und 10 Zeichen haben."
   },
   "takesTooLong": {
     "message": "Dauert es zu lang?"
@@ -847,7 +803,7 @@
     "message": "Tokensymbol"
   },
   "tokenWarning1": {
-    "message": "Behalte die Token die du mit deinem MetaMask Account gekauft hast im Blick. Wenn du Token mit einem anderen Account gekauft hast, werden diese hier nicht angezeigt."
+    "message": "Behalte die Token die du mit deinem XinFin eWallet Account gekauft hast im Blick. Wenn du Token mit einem anderen Account gekauft hast, werden diese hier nicht angezeigt."
   },
   "total": {
     "message": "Gesamt"
@@ -869,7 +825,7 @@
     "description": "Gefolgt von einem Link (hier) um die Tokenguthaben anzuzeigen"
   },
   "twelveWords": {
-    "message": "Diese 12 Wörter stellen die einzige Möglichkeit dar deinen MetaMask Account wiederherzustellen. Speichere sie daher an einem sicheren und geheimen Ort."
+    "message": "Diese 12 Wörter stellen die einzige Möglichkeit dar deinen XinFin eWallet Account wiederherzustellen. Speichere sie daher an einem sicheren und geheimen Ort."
   },
   "typePassword": {
     "message": "Passwort eingeben"
@@ -878,7 +834,7 @@
     "message": "Willkommen zur neuen Oberfläche (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "Du verwendest  nun die neue MetaMask Oberfläche. Schau dich um, teste die neuen Features wie z.B. das Senden von Token und lass es uns wissen falls du irgendwelche Probleme hast."
+    "message": "Du verwendest  nun die neue XinFin eWallet Oberfläche. Schau dich um, teste die neuen Features wie z.B. das Senden von Token und lass es uns wissen falls du irgendwelche Probleme hast."
   },
   "unapproved": {
     "message": "Nicht genehmigt"
@@ -923,8 +879,8 @@
   "warning": {
     "message": "Warnung"
   },
-  "welcome": {
-    "message": "Willkommen zu MetaMask"
+  "welcomeBeta": {
+    "message": "Willkommen zu XinFin eWallet Beta"
   },
   "whatsThis": {
     "message": "Was ist das?"

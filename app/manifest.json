@@ -1,9 +1,9 @@
 {
   "name": "__MSG_appName__",
   "short_name": "__MSG_appName__",
-  "version": "6.7.2",
+  "version": "5.0.3",
   "manifest_version": 2,
-  "author": "https://metamask.io",
+  "author": "XinFin Network",
   "description": "__MSG_appDescription__",
   "commands": {
     "_execute_browser_action": {
@@ -21,7 +21,7 @@
   },
   "applications": {
     "gecko": {
-      "id": "webextension@metamask.io"
+      "id": "support@xinfin.org"
     }
   },
   "default_locale": "en",
@@ -37,7 +37,7 @@
       "19": "images/icon-19.png",
       "38": "images/icon-38.png"
     },
-    "default_title": "MetaMask",
+    "default_title": "XinFin eWallet",
     "default_popup": "popup.html"
   },
   "content_scripts": [

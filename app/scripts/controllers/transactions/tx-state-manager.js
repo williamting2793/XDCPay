@@ -1,10 +1,11 @@
 const extend = require('xtend')
-const EventEmitter = require('safe-event-emitter')
+const EventEmitter = require('events')
 const ObservableStore = require('obs-store')
+const ethUtil = require('ethereumjs-util')
 const log = require('loglevel')
 const txStateHistoryHelper = require('./lib/tx-state-history-helper')
 const createId = require('../../lib/random-id')
-const { getFinalStates, normalizeTxParams } = require('./lib/util')
+const { getFinalStates } = require('./lib/util')
 /**
   TransactionStateManager is responsible for the state of a transaction and
   storing the transaction
@@ -44,13 +45,11 @@ class TransactionStateManager extends EventEmitter {
     @returns {txMeta} the default txMeta object
   */
   generateTxMeta (opts) {
-    const netId = this.getNetwork()
-    if (netId === 'loading') throw new Error('MetaMask is having trouble connecting to the network')
     return extend({
       id: createId(),
       time: (new Date()).getTime(),
       status: 'unapproved',
-      metamaskNetworkId: netId,
+      metamaskNetworkId: this.getNetwork(),
       loadingDefaults: true,
     }, opts)
   }
@@ -80,17 +79,6 @@ class TransactionStateManager extends EventEmitter {
       result[tx.id] = tx
       return result
     }, {})
-  }
-
-  /**
-    @param [address] {string} - hex prefixed address to sort the txMetas for [optional]
-    @returns {array} the tx list whos status is approved if no address is provide
-    returns all txMetas who's status is approved for the current network
-  */
-  getApprovedTransactions (address) {
-    const opts = { status: 'approved' }
-    if (address) opts.from = address
-    return this.getFilteredTxList(opts)
   }
 
   /**
@@ -125,15 +113,10 @@ class TransactionStateManager extends EventEmitter {
     @returns {object} the txMeta
   */
   addTx (txMeta) {
-    // normalize and validate txParams if present
-    if (txMeta.txParams) {
-      txMeta.txParams = this.normalizeAndValidateTxParams(txMeta.txParams)
-    }
-
-    this.once(`${txMeta.id}:signed`, function () {
+    this.once(`${txMeta.id}:signed`, function (txId) {
       this.removeAllListeners(`${txMeta.id}:rejected`)
     })
-    this.once(`${txMeta.id}:rejected`, function () {
+    this.once(`${txMeta.id}:rejected`, function (txId) {
       this.removeAllListeners(`${txMeta.id}:signed`)
     })
     // initialize history
@@ -179,9 +162,13 @@ class TransactionStateManager extends EventEmitter {
     @param [note] {string} - a note about the update for history
   */
   updateTx (txMeta, note) {
-    // normalize and validate txParams if present
+    // validate txParams
     if (txMeta.txParams) {
-      txMeta.txParams = this.normalizeAndValidateTxParams(txMeta.txParams)
+      if (typeof txMeta.txParams.data === 'undefined') {
+        delete txMeta.txParams.data
+      }
+
+      this.validateTxParams(txMeta.txParams)
     }
 
     // create txMeta snapshot for history
@@ -214,19 +201,6 @@ class TransactionStateManager extends EventEmitter {
   }
 
   /**
-   * normalize and validate txParams members
-   * @param txParams {object} - txParams
-   */
-  normalizeAndValidateTxParams (txParams) {
-    if (typeof txParams.data === 'undefined') {
-      delete txParams.data
-    }
-    txParams = normalizeTxParams(txParams, false)
-    this.validateTxParams(txParams)
-    return txParams
-  }
-
-  /**
     validates txParams members by type
     @param txParams {object} - txParams to validate
   */
@@ -240,6 +214,7 @@ class TransactionStateManager extends EventEmitter {
           break
         default:
           if (typeof value !== 'string') throw new Error(`${key} in txParams is not a string. got: (${value})`)
+          if (!ethUtil.isHexPrefixed(value)) throw new Error(`${key} in txParams is not hex prefixed. got: (${value})`)
           break
       }
     })
@@ -375,15 +350,13 @@ class TransactionStateManager extends EventEmitter {
     @param err {erroObject} - error object
   */
   setTxStatusFailed (txId, err) {
-    const error = !err ? new Error('Internal metamask failure') : err
-
     const txMeta = this.getTx(txId)
     txMeta.err = {
-      message: error.toString(),
-      rpc: error.value,
-      stack: error.stack,
+      message: (err ? (err.message || err.error || err) : '').toString(),
+      rpc: err.value,
+      stack: err.stack,
     }
-    this.updateTx(txMeta, 'transactions:tx-state-manager#fail - add error')
+    this.updateTx(txMeta)
     this._setTxStatus(txId, 'failed')
   }
 

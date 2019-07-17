@@ -2,13 +2,6 @@
 
 When publishing a new version of MetaMask, we follow this procedure:
 
-## Overview
-
-The below diagram outlines our process for design, development, and release. Building MetaMask is a community affair, and many steps of the process invite participation from external contributors as indicated. All QA, code review, and release of new versions is done by members of the core MetaMask team.
-
-<img width="664" alt="mm-dev-process" src="https://user-images.githubusercontent.com/1016190/56308059-36906000-60fb-11e9-8e61-6655bca0c54f.png">
-
-
 ## Preparation
 
 We try to ensure certain criteria are met before deploying:
@@ -22,11 +15,7 @@ We try to ensure certain criteria are met before deploying:
 
 Version can be automatically incremented [using our bump script](./bumping-version.md).
 
-npm run version:bump `$BUMP_TYPE` where `$BUMP_TYPE` is one of `major`, `minor`, or `patch`.
-
-## Preparing for Sensitive Changes
-
-In the case that a new release has sensitive changes that cannot be fully verified prior to publication, please follow the [sensitive release protocol](./sensitive-release.md).
+npm run version:bump $BUMP_TYPE` where `$BUMP_TYPE` is one of `major`, `minor`, or `patch`.
 
 ## Building
 
@@ -42,16 +31,3 @@ With each pull request, the @MetaMaskBot will comment with a build of that new p
 4. Publish to [Opera store](https://addons.opera.com/en/extensions/details/metamask/).
 5. Post on [Github releases](https://github.com/MetaMask/metamask-extension/releases) page.
 6. Run the `npm run announce` script, and post that announcement in our public places.
-
-## Hotfix Differences
-
-Our `develop` branch is usually not yet fully tested for quality assurance, and so should be treated as if it is in an unstable state.
-
-For this reason, when an urgent change is needed in production, its pull request should:
-
-- Describe it as a hotfix.
-- Use a hotfix tag.
-- Should be proposed against the `master` branch.
-
-The version and changelog bump should then be made off the `master` branch, and then merged to `develop` to bring the two branches back into sync. Further time can be saved by incorporating the version/changelog bump into the PR against `master`, since we rely on @MetaMaskBot to run tests before merging.
-

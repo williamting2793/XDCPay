@@ -1,63 +1,6 @@
 {
-  "privacyMode": {
-    "message": "Modalità privacy"
-  },
-  "privacyModeDescription": {
-    "message": "I siti Web devono richiedere l'accesso per visualizzare le informazioni del tuo account."
-  },
-  "exposeAccounts": {
-    "message": "Esponi Accounts"
-  },
-  "exposeDescription": {
-    "message": "Esporre gli account al sito Web corrente. Utile per dapps legacy."
-  },
-  "chartOnlyAvailableEth": {
-    "message": "Grafico disponibile solo per le reti Ethereum."
-  },
-  "confirmExpose": {
-    "message": "Sei sicuro di voler esporre i tuoi account al sito web corrente?"
-  },
-  "confirmClear": {
-    "message": "Sei sicuro di voler cancellare i siti Web approvati?"
-  },
-  "contractInteraction": {
-    "message": "Interazione Contratto"
-  },
-  "clearApprovalDataSuccess": {
-    "message": "Dati del sito Web approvati cancellati correttamente."
-  },
-  "approvalData": {
-    "message": "Dati di approvazione"
-  },
-  "approvalDataDescription": {
-    "message": "Cancella i dati del sito web approvati, quindi tutti i siti devono richiedere nuovamente l'approvazione."
-  },
-  "clearApprovalData": {
-    "message": "Cancella i dati di approvazione"
-  },
-  "reject": {
-    "message": "Annulla"
-  },
-  "providerRequest": {
-    "message": "$1 vorrebbe connettersi al tuo account"
-  },
-  "providerRequestInfo": {
-    "message": "Il dominio elencato di seguito sta tentando di richiedere l'accesso all'API Ethereum in modo che possa interagire con la blockchain di Ethereum. Controlla sempre di essere sul sito corretto prima di approvare l'accesso a Ethereum."
-  },
-  "about": {
-    "message": "Informazioni"
-  },
-  "aboutSettingsDescription": {
-    "message": "Version, centro di supporto e contatti."
-  },
-  "aboutUs": {
-    "message": "Chi siamo"
-  },
   "accept": {
     "message": "Accetta"
-  },
-  "acceleratingATransaction": {
-    "message": "* Accelerare una transazione usando un prezzo del gas maggiore aumenta la probabilità che la rete la elabori più velocemente, ma non è garantito."
   },
   "accessingYourCamera": {
     "message": "Accesso alla fotocamera..."
@@ -72,7 +15,7 @@
     "message": "Nome Account"
   },
   "accountOptions": {
-    "message": "Opzioni Account"
+    "message": "Account Options"
   },
   "accountSelectionRequired": {
     "message": "Devi selezionare un account!"
@@ -83,18 +26,6 @@
   "address": {
     "message": "Indirizzo"
   },
-  "addNetwork": {
-    "message": "Aggiungi Rete"
-  },
-  "advanced": {
-    "message": "Avanzate"
-  },
-  "advancedSettingsDescription": {
-    "message": "Accedi alle funzionalità sviluppatore, download dei log di Stato, Reset Account, imposta reti di test e RPC personalizzata."
-  },
-  "advancedOptions": {
-    "message": "Opzioni Avanzate"
-  },
   "addCustomToken": {
     "message": "Aggiungi un token personalizzato"
   },
@@ -102,22 +33,13 @@
     "message": "Aggiungi Token"
   },
   "addTokens": {
-    "message": "Aggiungi token"
+    "message": "Aggiungi più token"
   },
   "addSuggestedTokens": {
     "message": "Aggiungi Token Suggeriti"
   },
   "addAcquiredTokens": {
-    "message": "Aggiungi i token che hai acquistato usando MetaMask"
-  },
-  "agreeTermsOfService": {
-    "message": "Accetto i termini di servizio"
-  },
-  "allDone": {
-    "message": "Tutto Fatto"
-  },
-  "alreadyHaveSeedPhrase": {
-    "message": "No, ho già una frase seed"
+    "message": "Aggiungi i token che hai acquistato usando XinFin eWallet"
   },
   "amount": {
     "message": "Importo"
@@ -125,15 +47,12 @@
   "amountPlusGas": {
     "message": "Importo + Gas"
   },
-  "amountPlusTxFee": {
-    "message": "Importo + Costo TX"
-  },
   "appDescription": {
-    "message": "Ethereum Browser Extension",
+    "message": "XinFin eWallet Browser Extension",
     "description": "La descrizione dell'applicazione"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "XinFin eWallet",
     "description": "Il nome dell'applicazione"
   },
   "approve": {
@@ -141,9 +60,6 @@
   },
   "approved": {
     "message": "Approvato"
-  },
-  "asset": {
-    "message": "Asset"
   },
   "attemptingConnect": {
     "message": "Tentativo di connessione alla blockchain."
@@ -157,17 +73,8 @@
   "attributions": {
     "message": "Attribuzioni"
   },
-  "autoLogoutTimeLimit": {
-    "message": "Timer di Logout Automatico (minuti)"
-  },
-  "autoLogoutTimeLimitDescription": {
-    "message": "Imposta il tempo di inattività dopo il quale MetaMask fa il log out automaticamente"
-  },
   "available": {
     "message": "Disponibile"
-  },
-  "average": {
-    "message": "Media"
   },
   "back": {
     "message": "Indietro"
@@ -175,17 +82,11 @@
   "balance": {
     "message": "Bilancio:"
   },
-  "balanceOutdated": {
-    "message": "Il bilancio può essere non aggiornato"
-  },
   "balances": {
     "message": "I tuoi bilanci"
   },
   "balanceIsInsufficientGas": {
     "message": "Bilancio insufficiente per il gas totale corrente"
-  },
-  "basic": {
-    "message": "Base"
   },
   "beta": {
     "message": "BETA"
@@ -193,13 +94,6 @@
   "betweenMinAndMax": {
     "message": "deve essere maggiore o uguale a $1 e minore o uguale a $2.",
     "description": "aiuto per inserire un input esadecimale come decimale"
-  },
-  "blockExplorerUrl": {
-    "message": "Block Explorer"
-  },
-  "blockExplorerView": {
-    "message": "Visualizza account su $1",
-    "description": "$1 replaced by URL for custom block explorer"
   },
   "blockiesIdenticon": {
     "message": "Usa le icone Blockie"
@@ -211,7 +105,7 @@
     "message": "Il tuo Browser non è supportato..."
   },
   "builtInCalifornia": {
-    "message": "MetaMask è progettato e realizzato in California."
+    "message": "XinFin eWallet è progettato e realizzato in California."
   },
   "buy": {
     "message": "Compra"
@@ -222,26 +116,11 @@
   "buyCoinbaseExplainer": {
     "message": "Coinbase è il servizio più popolare al mondo per comprare e vendere Bitcoin, Ethereum e Litecoin."
   },
-  "buyWithWyre": {
-    "message": "Compra ETH con Wyre"
-  },
-  "buyWithWyreDescription": {
-    "message": "Wyre ti consente di usare la carta di credito per depositare ETH direttamente nel tuo account MetaMask."
-  },
-  "buyCoinSwitch": {
-    "message": "Compra su CoinSwitch"
-  },
-  "buyCoinSwitchExplainer": {
-    "message": "CoinSwitch è la destinazione one-stop per lo scambio di oltre 300 criptovalute alla migliore tariffa."
-  },
   "bytes": {
     "message": "Bytes"
   },
   "ok": {
     "message": "Ok"
-  },
-  "optionalBlockExplorerUrl": {
-    "message": "URL del Block Explorer (opzionale)"
   },
   "cancel": {
     "message": "Annulla"
@@ -250,16 +129,10 @@
     "message": "Tentativo di Annullamento"
   },
   "cancellationGasFee": {
-    "message": "Costo di Annullamento in Gas"
-  },
-  "cancelled": {
-    "message": "Cancellata"
+    "message": "Commissione di Annullamento in Gas"
   },
   "cancelN": {
-    "message": "Annulla tutte le transazioni relative a $1"
-  },
-  "chainId": {
-    "message": "Chain ID"
+    "message": "Cancel all $1 transactions"
   },
   "classicInterface": {
     "message": "Usa l'interfaccia classica"
@@ -267,26 +140,14 @@
   "clickCopy": {
     "message": "Clicca per Copiare"
   },
-  "clickToAdd": {
-    "message": "Clicca su $1 per aggiungerli al tuo account"
-  },
-  "clickToRevealSeed": {
-    "message": "Clicca qui per rivelare la tua frase segreta"
-  },
   "close": {
     "message": "Chiudi"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "Devi usare MetaMask con Google Chrome per connettere il tuo Portafoglio Hardware"
-  },
-  "company": {
-    "message": "Azienda"
+    "message": "Devi usare XinFin eWallet con Google Chrome per connettere il tuo Portafoglio Hardware"
   },
   "confirm": {
     "message": "Conferma"
-  },
-  "confirmationTime": {
-    "message": "Tempo di conferma (sec)"
   },
   "confirmed": {
     "message": "Confermata"
@@ -297,14 +158,8 @@
   "confirmPassword": {
     "message": "Conferma Password"
   },
-  "confirmSecretBackupPhrase": {
-    "message": "Conferma la tua Frase di Backup Segreta"
-  },
   "confirmTransaction": {
     "message": "Conferma Transazione"
-  },
-  "congratulations": {
-    "message": "Congratulazioni"
   },
   "connectHardwareWallet": {
     "message": "Connetti Portafoglio Hardware"
@@ -312,14 +167,8 @@
   "connect": {
     "message": "Connetti"
   },
-  "connectRequest": {
-    "message": "Richiesta Connessione"
-  },
   "connecting": {
     "message": "Connessione..."
-  },
-  "connectingTo": {
-    "message": "Connessione in corso a $1"
   },
   "connectingToKovan": {
     "message": "Connessione alla Rete di test Kovan"
@@ -332,12 +181,6 @@
   },
   "connectingToRinkeby": {
     "message": "Connessione alla Rete di test Rinkeby"
-  },
-  "connectingToLocalhost": {
-    "message": "Connessione a Localhost 8545"
-  },
-  "connectingToGoerli": {
-    "message": "Connessione alla Rete di Test Goerli"
   },
   "connectingToUnknown": {
     "message": "Connessione ad una Rete Sconosciuta"
@@ -353,12 +196,6 @@
   },
   "continueToCoinbase": {
     "message": "Continua su Coinbase"
-  },
-  "continueToWyre": {
-    "message": "Continua su Wyre"
-  },
-  "continueToCoinSwitch": {
-    "message": "Continua su CoinSwitch"
   },
   "contractDeployment": {
     "message": "Distribuzione Contratto"
@@ -384,12 +221,6 @@
   "copyAddress": {
     "message": "Copia l'indirizzo"
   },
-  "copyTransactionId": {
-    "message": "Copia ID Transazione"
-  },
-  "copiedTransactionId": {
-    "message": "ID Transazione Copiato"
-  },
   "copyToClipboard": {
     "message": "Copia negli appunti"
   },
@@ -405,21 +236,15 @@
   "createAccount": {
     "message": "Crea Account"
   },
-  "createAWallet": {
-    "message": "Crea un Wallet"
-  },
   "createDen": {
     "message": "Crea"
-  },
-  "createPassword": {
-    "message": "Crea Password"
   },
   "crypto": {
     "message": "Crypto",
     "description": "Tipo di exchange (cryptomonete)"
   },
-  "currencyConversion": {
-    "message": "Conversione Moneta"
+  "currentConversion": {
+    "message": "Cambio Corrente"
   },
   "currentLanguage": {
     "message": "Lingua Corrente"
@@ -432,9 +257,6 @@
   },
   "customGas": {
     "message": "Personalizza Gas"
-  },
-  "customGasSubTitle": {
-    "message": "Incrementare il costo potrebbe diminuire il tempo di elaborazione, ma non è garantito."
   },
   "customToken": {
     "message": "Token Personalizzato"
@@ -455,13 +277,17 @@
     "message": "La rete predefinita per transazioni in Ether è la Rete Ethereum Principale."
   },
   "denExplainer": {
-    "message": "Il DEN è il tuo archivio crittato con password dentro MetaMask."
+    "message": "Il DEN è il tuo archivio crittato con password dentro XinFin eWallet."
   },
   "deposit": {
     "message": "Deposita"
   },
   "depositBTC": {
     "message": "Deposita i tuoi BTC all'indirizzo sotto:"
+  },
+  "depositCoin": {
+    "message": "Deposita $1 all'indirizzo sotto",
+    "description": "Dice all'utente quale moneta ha selezionato per depositare con Shapeshift"
   },
   "depositEth": {
     "message": "Deposita Eth"
@@ -479,7 +305,7 @@
     "message": "Deposita con ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Se possiedi altre criptomonete, puoi scambiare e depositare Ether direttamente nel tuo portafoglio MetaMask. Nessun account richiesto."
+    "message": "Se possiedi altre criptomonete, puoi scambiare e depositare Ether direttamente nel tuo portafoglio XinFin eWallet. Nessun account richiesto."
   },
   "details": {
     "message": "Dettagli"
@@ -499,9 +325,6 @@
   "downloadGoogleChrome": {
     "message": "Scarica Google Chrome"
   },
-  "downloadSecretBackup": {
-    "message": "Scarica questa Frase di Backup Segreta e tienila al sicuro in un hard disk o supporto di memorizzazione esterno criptato."
-  },
   "downloadStateLogs": {
     "message": "Scarica i log di Stato"
   },
@@ -513,9 +336,6 @@
   },
   "edit": {
     "message": "Modifica"
-  },
-  "editNetwork": {
-    "message": "Modifica Rete"
   },
   "editAccountName": {
     "message": "Modifica Nome Account"
@@ -529,30 +349,6 @@
   "encryptNewDen": {
     "message": "Cripta il tuo nuovo DEN"
   },
-  "endOfFlowMessage1": {
-    "message": "Hai passato il test - tieni la tua frase seed al sicuro, è tua responsabilità!"
-  },
-  "endOfFlowMessage2": {
-    "message": "Suggerimenti su come tenerla al sicuro"
-  },
-  "endOfFlowMessage3": {
-    "message": "Salva un backup in più di un posto."
-  },
-  "endOfFlowMessage4": {
-    "message": "Non condividerla mai con nessuno."
-  },
-  "endOfFlowMessage5": {
-    "message": "Stai attento al phishing! MetaMask non ti chiederà mai spontaneamente la tua frase seed."
-  },
-  "endOfFlowMessage6": {
-    "message": "Se vorrai fare nuovamente un backup della frase, la puoi trovare in Impostazioni -> Sicurezza & Privacy."
-  },
-  "endOfFlowMessage7": {
-    "message": "Se hai delle domande o vedi delle attività sospette, manda una mail a support@metamask.io."
-  },
-  "endOfFlowMessage8": {
-    "message": "MetaMask non può recuperare la tua frase seed. Impara di più."
-  },
   "ensNameNotFound": {
     "message": "Nome ENS non trovato"
   },
@@ -565,20 +361,14 @@
   "enterPasswordContinue": {
     "message": "Inserisci la tua password per continuare"
   },
-  "eth": {
-    "message": "ETH"
-  },
   "etherscanView": {
     "message": "Vedi account su Etherscan"
-  },
-  "estimatedProcessingTimes": {
-    "message": "Tempi di Elaborazione Stimati"
   },
   "exchangeRate": {
     "message": "Tasso di cambio"
   },
   "expandView": {
-    "message": "Espandi Vista"
+    "message": "Expand View"
   },
   "exportPrivateKey": {
     "message": "Esporta Chiave Privata"
@@ -588,18 +378,6 @@
   },
   "failed": {
     "message": "Fallita"
-  },
-  "fast": {
-    "message": "Veloce"
-  },
-  "faster": {
-    "message": "Più veloce"
-  },
-  "fastest": {
-    "message": "Velocissima"
-  },
-  "feeChartTitle": {
-    "message": "Previsioni sulle Commissioni per le Transazioni dal Vivo"
   },
   "fiat": {
     "message": "FIAT",
@@ -640,17 +418,11 @@
   "gasLimitCalculation": {
     "message": "Calcoliamo il gas limite suggerito in base al successo delle transazioni in rete."
   },
-  "gasLimitInfoModalContent": {
-    "message": "Il gas limite è il massimo importo di unità di gas che sei disposto a spendere."
-  },
   "gasLimitRequired": {
     "message": "Gas Limite Richiesto"
   },
   "gasLimitTooLow": {
     "message": "Il Gas Limite deve essere almeno 21000"
-  },
-  "gasUsed": {
-    "message": "Gas Utilizzato"
   },
   "generatingSeed": {
     "message": "Generando la frase seed..."
@@ -658,26 +430,11 @@
   "gasPrice": {
     "message": "Prezzo del Gas (GWEI)"
   },
-  "gasPriceExtremelyLow": {
-    "message": "Prezzo del gas estremamente basso"
-  },
-  "gasPriceInfoModalContent": {
-    "message": "Il prezzo del gas specifica il totale di Ether che sei disposto a pagare per ogni unità di gas."
-  },
-  "gasPriceNoDenom": {
-    "message": "Prezzo del Gas"
-  },
   "gasPriceCalculation": {
-    "message": "Calcoliamo il prezzo del gas suggerito in base al successo delle transazioni in rete."
+    "message": "Calcoliamo il gas limite suggerito in base al successo delle transazioni in rete."
   },
   "gasPriceRequired": {
     "message": "Prezzo Gas Richiesto"
-  },
-  "general": {
-    "message": "Generale"
-  },
-  "generalSettingsDescription": {
-    "message": "Conversione moneta, moneta primaria, lingua, icone blockie"
   },
   "generatingTransaction": {
     "message": "Generando la transazione"
@@ -692,15 +449,9 @@
   "getHelp": {
     "message": "Aiuto."
   },
-  "getStarted": {
-    "message": "Inizia"
-  },
   "greaterThanMin": {
     "message": "deve essere maggiore o uguale a $1.",
     "description": "aiuto per inserire un input esadecimale come decimale"
-  },
-  "happyToSeeYou": {
-    "message": "Siamo contenti di vederti."
   },
   "hardware": {
     "message": "hardware"
@@ -712,7 +463,7 @@
     "message": "Connetti portafoglio hardware"
   },
   "hardwareWalletsMsg": {
-    "message": "Selezione un portafoglio hardware che vuoi utilizzare con MetaMask"
+    "message": "Selezione un portafoglio hardware che vuoi utilizzare con XinFin eWallet"
   },
   "havingTroubleConnecting": {
     "message": "Problemi di connessione?"
@@ -743,7 +494,7 @@
     "message": "Come vuoi depositare Ether?"
   },
   "holdEther": {
-    "message": "Ti permette di custodire ether & token, e serve da ponte per le applicazioni decentralizzate."
+    "message": "Ti permette di tenere ether & token, e serve da ponte per le applicazioni decentralizzate."
   },
   "import": {
     "message": "Importa",
@@ -753,10 +504,7 @@
     "message": "Importa Account"
   },
   "importAccountMsg": {
-    "message": " Gli account importati non saranno associati alla frase seed originariamente creata con MetaMask. Scopri di più sugli account importati "
-  },
-  "importAccountSeedPhrase": {
-    "message": "Importa un Account con una Frase Seed"
+    "message": " Gli account importati non saranno associati alla frase seed originariamente creata con XinFin eWallet. Impara di più sugli account importati "
   },
   "importAnAccount": {
     "message": "Importa un account"
@@ -764,21 +512,12 @@
   "importDen": {
     "message": "Importa un DEN Esistente"
   },
-  "importWallet": {
-    "message": "Importa Portafoglio"
-  },
-  "importYourExisting": {
-    "message": "Importa il tuo portafoglio esistente usando la tua frase seed a 12 parole"
-  },
   "imported": {
     "message": "Importato",
     "description": "stato che conferma che un account è stato totalmente caricato nel portachiavi"
   },
   "importUsingSeed": {
     "message": "Importa account con frase seed"
-  },
-  "importWithSeedPhrase": {
-    "message": "Importa con una frase seed"
   },
   "info": {
     "message": "Informazioni"
@@ -789,26 +528,17 @@
   "initialTransactionConfirmed": {
     "message": "La transazione iniziale è stata confermata dalla rete. Clicca OK per tornare indietro."
   },
-  "insufficientBalance": {
-    "message": "Bilancio insufficiente."
-  },
   "insufficientFunds": {
-    "message": "Fondi insufficienti."
+    "message": "Fondi non sufficienti."
   },
   "insufficientTokens": {
-    "message": "Token insufficienti."
+    "message": "Token non sufficienti."
   },
   "invalidAddress": {
     "message": "Indirizzo non valido"
   },
   "invalidAddressRecipient": {
     "message": "Indirizzo destinatario invalido"
-  },
-  "knownAddressRecipient": {
-    "message": "Indirizzo del contratto conosciuto."
-  },
-  "invalidAddressRecipientNotEthNetwork": {
-    "message": "Non rete ETH, inserisci caratteri minuscoli"
   },
   "invalidGasParams": {
     "message": "Parametri del Gas non validi"
@@ -833,7 +563,7 @@
     "description": "formato per importare un account"
   },
   "keepTrackTokens": {
-    "message": "Tieni traccia dei tokens che hai acquistato con il tuo account MetaMask."
+    "message": "Tieni traccia dei tokens che hai acquistato con il tuo account XinFin eWallet."
   },
   "kovan": {
     "message": "Rete di test Kovan"
@@ -850,15 +580,9 @@
   "ledgerAccountRestriction": {
     "message": "E' necessario utilizzare l'ultimo account prima di poterne aggiungere uno nuovo."
   },
-  "legal": {
-    "message": "Informazioni Legali"
-  },
   "lessThanMax": {
     "message": "deve essere minore o uguale a $1.",
     "description": "aiuto per inserire un input esadecimale come decimale"
-  },
-  "letsGoSetUp": {
-    "message": "Si, iniziamo!"
   },
   "likeToAddTokens": {
     "message": "Vorresti aggiungere questi token?"
@@ -868,9 +592,6 @@
   },
   "limit": {
     "message": "Limite"
-  },
-  "liveGasPricePredictions": {
-    "message": "Previsioni sui Prezzi del Gas dal Vivo"
   },
   "loading": {
     "message": "Caricamento..."
@@ -882,7 +603,7 @@
     "message": "Localhost 8545"
   },
   "login": {
-    "message": "Accedi"
+    "message": "Connetti"
   },
   "logout": {
     "message": "Disconnetti"
@@ -896,9 +617,6 @@
   "mainnet": {
     "message": "Rete Ethereum Principale"
   },
-  "memorizePhrase": {
-    "message": "Memorizza questa frase."
-  },
   "menu": {
     "message": "Menu"
   },
@@ -906,28 +624,16 @@
     "message": "Messaggio"
   },
   "metamaskDescription": {
-    "message": "MetaMask è una cassaforte sicura per identità su Ethereum."
+    "message": "XinFin eWallet è una cassaforte sicura per identità su Ethereum."
   },
   "metamaskSeedWords": {
-    "message": "Parole Seed di MetaMask"
+    "message": "Parole Seed di XinFin eWallet"
   },
   "metamaskVersion": {
-    "message": "versione di MetaMask"
+    "message": "versione di XinFin eWallet"
   },
   "min": {
     "message": "Minimo"
-  },
-  "missingYourTokens": {
-    "message": "Non vedi i tuoi token?"
-  },
-  "minutesShorthand": {
-    "message": "Min"
-  },
-  "mobileSyncTitle": {
-    "message": "Sincronizza account con il dispositivo mobile"
-  },
-  "mobileSyncText": {
-    "message": "Per favore inserisci la password per confermare che sei te!"
   },
   "myAccounts": {
     "message": "Miei Account"
@@ -936,7 +642,7 @@
     "message": "Devi selezionare almeno un token."
   },
   "needEtherInWallet": {
-    "message": "Per interagire con applicazioni decentralizzate con MetaMask, devi possedere Ether nel tuo portafoglio."
+    "message": "Per interagire con applicazioni decentralizzate con XinFin eWallet, devi possedere Ether nel tuo portafoglio."
   },
   "needImportFile": {
     "message": "Devi selezionare un file da importare.",
@@ -949,14 +655,8 @@
   "negativeETH": {
     "message": "Non puoi inviare una quantità di ETH negativa."
   },
-  "networkName": {
-    "message": "Nome Rete"
-  },
   "networks": {
     "message": "Reti"
-  },
-  "networkSettingsDescription": {
-    "message": "Aggiungi e modifica reti RPC personalizzate"
   },
   "nevermind": {
     "message": "Non importa"
@@ -980,47 +680,8 @@
   "newRecipient": {
     "message": "Nuovo Destinatario"
   },
-  "newNetwork": {
-    "message": "Nuova Rete"
-  },
-  "newToMetaMask": {
-    "message": "Nuovo a MetaMask?"
-  },
-  "noAlreadyHaveSeed": {
-    "message": "No, ho già una frase seed"
-  },
-  "protectYourKeys": {
-    "message": "Proteggi le tue chiavi!"
-  },
-  "protectYourKeysMessage1": {
-    "message": "Stai attento con la tua frase seed - ci sono stati report di siti web che hanno tentato di imitare MetaMask. MetaMask non ti chiederà mai la tua frase seed!"
-  },
-  "protectYourKeysMessage2": {
-    "message": "Tieni la tua frase al sicuro. Se vedi qualcosa di sospetto, o non sei sicuro di un sito web, manda una mail a support@metamask.io"
-  },
-  "rpcUrl": {
+  "newRPC": {
     "message": "Nuovo URL RPC"
-  },
-  "showAdvancedOptions": {
-    "message": "Mostra Opzioni Avanzate"
-  },
-  "hideAdvancedOptions": {
-    "message": "Nascondi Opzioni Avanzate"
-  },
-  "optionalChainId": {
-    "message": "ChainID (opzionale)"
-  },
-  "optionalSymbol": {
-    "message": "Simbolo (opzionale)"
-  },
-  "optionalNickname": {
-    "message": "Nickname (opzionale)"
-  },
-  "newTotal": {
-    "message": "Nuovo Totale"
-  },
-  "newTransactionFee": {
-    "message": "Costo in gas per la Transazione"
   },
   "next": {
     "message": "Avanti"
@@ -1040,9 +701,6 @@
   "noTransactions": {
     "message": "Nessuna Transazione"
   },
-  "notEnoughGas": {
-    "message": "Gas Non Sufficiente"
-  },
   "notFound": {
     "message": "Non Trovata"
   },
@@ -1054,9 +712,6 @@
   },
   "noWebcamFound": {
     "message": "La webcam del tuo computer non è stata trovata. Per favore riprovaci."
-  },
-  "ofTextNofM": {
-    "message": "di"
   },
   "oldUI": {
     "message": "Vecchia interfaccia"
@@ -1090,15 +745,6 @@
   "parameters": {
     "message": "Parametri"
   },
-  "originalTotal": {
-    "message": "Totale Precedente"
-  },
-  "participateInMetaMetrics": {
-    "message": "Participa in MetaMetrics"
-  },
-  "participateInMetaMetricsDescription": {
-    "message": "Participa in MetaMetrics per aiutarci a rendere MetaMask migliore"
-  },
   "password": {
     "message": "Password"
   },
@@ -1106,7 +752,7 @@
     "message": "Assicurati che la password sia corretta."
   },
   "passwordsDontMatch": {
-    "message": "Le Password Non Corrispondono"
+    "message": "Le Password Non Corrispondonos"
   },
   "passwordMismatch": {
     "message": "le password non corrispondono",
@@ -1140,12 +786,6 @@
   },
   "prev": {
     "message": "Precedente"
-  },
-  "primaryCurrencySetting": {
-    "message": "Moneta Primaria"
-  },
-  "primaryCurrencySettingDescription": {
-    "message": "Seleziona ETH per privilegiare la visualizzazione dei valori nella moneta nativa della blockhain. Seleziona Fiat per privilegiare la visualizzazione dei valori nella moneta selezionata."
   },
   "privacyMsg": {
     "message": "Politica sulla Privacy"
@@ -1184,26 +824,29 @@
   "refundAddress": {
     "message": "Indirizzo di Rimborso"
   },
+  "reject": {
+    "message": "Reject"
+  },
   "rejectAll": {
-    "message": "Respingi Tutto"
+    "message": "Reject All"
   },
   "rejectTxsN": {
-    "message": "Respingi $1 transazioni"
+    "message": "Reject $1 transactions"
   },
   "rejectTxsDescription": {
-    "message": "Stai per respingere in serie $1 transazioni."
+    "message": "You are about to batch reject $1 transactions."
   },
   "rejected": {
     "message": "Respinta"
   },
   "reset": {
-    "message": "Ripristina"
+    "message": "Reset"
   },
   "resetAccount": {
-    "message": "Ripristina Account"
+    "message": "Resetta Account"
   },
   "resetAccountDescription": {
-    "message": "Ripristinare il tuo account cancellerà lo storico delle transazioni."
+    "message": "Resettare il tuo account cancellerà lo storico delle transazioni."
   },
   "restoreFromSeed": {
     "message": "Ripristina da una frase seed"
@@ -1213,9 +856,6 @@
   },
   "restoreAccountWithSeed": {
     "message": "Ripristina Account con la Frase Seed"
-  },
-  "requestsAwaitingAcknowledgement": {
-    "message": "richiedi che l'attesa sia recepita"
   },
   "required": {
     "message": "Richiesto"
@@ -1242,7 +882,7 @@
     "message": "Non ripristinare la tua frase seed in pubblico!. Queste parole possono essere usate per rubare il tuo account."
   },
   "revert": {
-    "message": "Ripristina"
+    "message": "Annulla"
   },
   "remove": {
     "message": "rimuovi"
@@ -1259,11 +899,11 @@
   "rinkeby": {
     "message": "Rete di test Rinkeby"
   },
+  "poa": {
+    "message": "[Not translated]"
+  },
   "ropsten": {
     "message": "Rete di test Ropsten"
-  },
-  "goerli": {
-    "message": "Rete di test Goerli"
   },
   "rpc": {
     "message": "RPC Personalizzata"
@@ -1274,12 +914,6 @@
   },
   "save": {
     "message": "Salva"
-  },
-  "slow": {
-    "message": "Lenta"
-  },
-  "slower": {
-    "message": "Più lenta"
   },
   "saveAsCsvFile": {
     "message": "Salva Come File CSV"
@@ -1303,29 +937,8 @@
   "searchResults": {
     "message": "Risultati Ricerca"
   },
-  "secretBackupPhrase": {
-    "message": "Frase di Backup Segreta"
-  },
-  "secretBackupPhraseDescription": {
-    "message": "La tua frase di backup segreta rende facile fare il backup e ripristinare il tuo account."
-  },
-  "secretBackupPhraseWarning": {
-    "message": "ATTENZIONE: Non dire mai a nessuno questa frase di backup. Chiunque con questa frase può rubare i tuoi Ether per sempre."
-  },
   "secretPhrase": {
     "message": "Inserisci la tua frase segreta di dodici parole per ripristinare la cassaforte."
-  },
-  "securityAndPrivacy": {
-    "message": "Sicurezza & Privacy"
-  },
-  "securitySettingsDescription": {
-    "message": "Impostazioni sulla Privacy e sulla frase seed del portafoglio"
-  },
-  "secondsShorthand": {
-    "message": "Sec"
-  },
-  "seedPhrasePlaceholder": {
-    "message": "Separa ogni parola con un singolo spazio"
   },
   "seedPhraseReq": {
     "message": "le frasi seed sono lunghe 12 parole"
@@ -1335,9 +948,6 @@
   },
   "selectCurrency": {
     "message": "Seleziona Moneta"
-  },
-  "selectEachPhrase": {
-    "message": "Per favore seleziona ogni frase in ordine per assicurarti che sia corretta."
   },
   "selectLocale": {
     "message": "Selezione Lingua"
@@ -1350,9 +960,6 @@
   },
   "send": {
     "message": "Invia"
-  },
-  "sendAmount": {
-    "message": "Invia Importo"
   },
   "sendETH": {
     "message": "Invia ETH"
@@ -1379,13 +986,7 @@
     "message": "Seleziona un Account"
   },
   "selectAnAccountHelp": {
-    "message": "Selezione l'account da visualizzare in MetaMask"
-  },
-  "selectAnAsset": {
-    "message": "Seleziona un Asset"
-  },
-  "selectAHigherGasFee": {
-    "message": "Seleziona un costo in gas maggiore per accelerare l'elaborazione della transazione.*"
+    "message": "Selezione l'account da visualizzare in XinFin eWallet"
   },
   "selectHdPath": {
     "message": "Seleziona Percorso HD"
@@ -1401,18 +1002,6 @@
   },
   "shapeshiftBuy": {
     "message": "Compra con Shapeshift"
-  },
-  "showAdvancedGasInline": {
-    "message": "Controlli gas avanzati"
-  },
-  "showAdvancedGasInlineDescription": {
-    "message": "Seleziona per visualizzare i controlli su prezzo e limite del gas nelle schermate di invio e conferma."
-  },
-  "showFiatConversionInTestnets": {
-    "message": "Mostra conversione nelle reti di test"
-  },
-  "showFiatConversionInTestnetsDescription": {
-    "message": "Seleziona se vuoi vedere la conversione in valuta fiat nelle reti di test"
   },
   "showPrivateKeys": {
     "message": "Mostra Chiave Privata"
@@ -1447,9 +1036,6 @@
   "sigRequested": {
     "message": "Richiesta Firma"
   },
-  "somethingWentWrong": {
-    "message": "Oops! Qualcosa è andato storto."
-  },
   "spaceBetween": {
     "message": "ci può essere solo uno spazio tra le parole"
   },
@@ -1461,15 +1047,6 @@
   },
   "speedUpSubtitle": {
     "message": "Aumenta il prezzo del gas per tentare di sovrascrivere e velocizzare la transazione"
-  },
-  "speedUpCancellation": {
-    "message": "Accelera questo annullamento"
-  },
-  "speedUpTransaction": {
-    "message": "Accelera questa transazione"
-  },
-  "switchNetworks": {
-    "message": "Cambia Reti"
   },
   "status": {
     "message": "Stato"
@@ -1501,9 +1078,6 @@
   "step3HardwareWalletMsg": {
     "message": "Usa il tuo account hardware come utilizzeresti qualsiasi account Ethereum. Accedi alle dApps, invia Eth, compra e conserva token ERC20 e token non fungibili come CryptoKitties"
   },
-  "storePhrase": {
-    "message": "Conserva questa frase in un gestore di password come 1Password."
-  },
   "submit": {
     "message": "Invia"
   },
@@ -1513,32 +1087,8 @@
   "supportCenter": {
     "message": "Visita il nostro Centro di Supporto"
   },
-  "symbol": {
-    "message": "Simbolo"
-  },
-  "symbolBetweenZeroTwelve": {
-    "message": "Il simbolo deve essere lungo tra 0 e 12 caratteri."
-  },
-  "syncWithMobile": {
-    "message": "Sincronizza con dispositivo mobile"
-  },
-  "syncWithMobileTitle": {
-    "message": "Sincronizza con dispositivo mobile"
-  },
-  "syncWithMobileDesc": {
-    "message": "Puoi sincronizzare i tuoi account e le tue informazioni con il tuo dispositivo mobile. Apri l'app di MetaMask, vai su \"Impostazioni\" e tocca \"Sincronizza da Estensione sul Browser\""
-  },
-  "syncWithMobileDescNewUsers": {
-    "message": "Se hai appena aperto l'app di MetaMask per la prima volta, segui i passaggi sul tuo telefono."
-  },
-  "syncWithMobileScanThisCode": {
-    "message": "Scansiona questo codice con l'app di MetaMask"
-  },
-  "syncWithMobileBeCareful": {
-    "message": "Assicurati che nessun'altro stia guardando al tuo schermo quando scansioni questo codice"
-  },
-  "syncWithMobileComplete": {
-    "message": "I tuoi dati sono stati sincronizzati con successo. Goditi l'app di MetaMask!"
+  "symbolBetweenZeroTen": {
+    "message": "Il simbolo deve essere lungo tra 0 e 10 caratteri."
   },
   "takesTooLong": {
     "message": "Ci sta mettendo troppo?"
@@ -1548,12 +1098,6 @@
   },
   "testFaucet": {
     "message": "Prova Faucet"
-  },
-  "thisWillCreate": {
-    "message": "Questo creerà un nuovo portafoglio e frase seed"
-  },
-  "tips": {
-    "message": "Suggerimenti"
   },
   "to": {
     "message": "A"
@@ -1574,9 +1118,6 @@
   "tokenBalance": {
     "message": "Bilancio Token:"
   },
-  "tokenContractAddress": {
-    "message": "Indirizzo Contratto Token"
-  },
   "tokenSelection": {
     "message": "Cerca un token o seleziona dalla lista di token più popolari."
   },
@@ -1584,7 +1125,7 @@
     "message": "Simbolo Token"
   },
   "tokenWarning1": {
-    "message": "Tieni traccia dei token che hai acquistato con il tuo account MetaMask. Se hai acquistato token con un account diverso, quei token non appariranno qui."
+    "message": "Tieni traccia dei token che hai acquistato con il tuo account XinFin eWallet. Se hai acquistato token con un account diverso, quei token non appariranno qui."
   },
   "total": {
     "message": "Totale"
@@ -1593,37 +1134,25 @@
     "message": "transazione"
   },
   "transactionConfirmed": {
-    "message": "Transazione confermata alle $2."
+    "message": "Transazione confermata il $2."
   },
   "transactionCreated": {
-    "message": "Transazione di valore $1 creata alle $2."
+    "message": "Transazione di valore $1 creata il $2."
   },
   "transactionWithNonce": {
     "message": "Transazione $1"
   },
   "transactionDropped": {
-    "message": "Transazione abbandonata alle $2."
+    "message": "Transazione abbandonata il $2."
   },
   "transactionSubmitted": {
-    "message": "Transazione inviata alle $2."
-  },
-  "transactionResubmitted": {
-    "message": "Transazione reinviata con costo in gas aumentato a $1 alle $2"
+    "message": "Transazione inviata il $2."
   },
   "transactionUpdated": {
-    "message": "Transazione aggiornata alle $2."
+    "message": "Transazione aggiornata il $2."
   },
   "transactionUpdatedGas": {
-    "message": "Transazione aggiornata con un prezzo del gas di $1 alle $2."
-  },
-  "transactionErrored": {
-    "message": "La transazione ha riscontrato un errore."
-  },
-  "transactionCancelAttempted": {
-    "message": "Provato l'annullamento della transazione con costo in gas di $1 alle $2"
-  },
-  "transactionCancelSuccess": {
-    "message": "Transazione cancellata alle $2"
+    "message": "Transazione aggiornata con un prezzo del gas di $1 il $2."
   },
   "transactions": {
     "message": "transazioni"
@@ -1631,26 +1160,17 @@
   "transactionError": {
     "message": "Errore Transazione. Eccceziona generata nel codice del contratto."
   },
-  "transactionErrorNoContract": {
-    "message": "Stai provando a chiamare una funzione ad un indirizzo che non è un contratto."
-  },
-  "transactionFee": {
-    "message": "Costo Transazione"
-  },
   "transactionMemo": {
     "message": "Promemoria Transazione (opzionale)"
   },
   "transactionNumber": {
     "message": "Numero Transazione"
   },
-  "transactionTime": {
-    "message": "Tempo Conferma Transazione"
-  },
   "transfer": {
     "message": "Trasferisci"
   },
   "transferFrom": {
-    "message": "Trasferisci Da"
+    "message": "Transfer From"
   },
   "transfers": {
     "message": "Trasferimenti"
@@ -1666,19 +1186,16 @@
     "message": "Prova di nuovo"
   },
   "twelveWords": {
-    "message": "Queste 12 parole sono l'unico modo per ripristinare i tuoi account MetaMask. \nSalvale in un posto sicuro e segreto."
+    "message": "Queste 12 parole sono l'unico modo per ripristinare i tuoi account XinFin eWallet. \nSalvale in un posto sicuro e segreto."
   },
   "typePassword": {
     "message": "Inserisci Password"
-  },
-  "uiMigrationAnnouncement": {
-    "message": "Benvenuto alla nuova interfaccia di MetaMask. Se hai un feedback a proposito dell'interfaccia o richieste di funzionalità, per favore contatta il nostro team di supporto su GitHub."
   },
   "uiWelcome": {
     "message": "Benvenuto alla nuova interfaccia (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "Stai utilizzanto la nuova interfaccia di MetaMask. Guarda in giro, prova nuove funzionalità come inviare token, e facci sapere se hai dei problemi."
+    "message": "Stai utilizzanto la nuova interfaccia di XinFin eWallet. Guarda in giro, prova nuove funzionalità come inviare token, e facci sapere se hai dei problemi."
   },
   "unapproved": {
     "message": "Non approvata"
@@ -1691,6 +1208,9 @@
   },
   "unknown": {
     "message": "Sconosciuto"
+  },
+  "unknownFunction": {
+    "message": "Funzione Sconosciuta"
   },
   "unknownNetwork": {
     "message": "Rete Privata Sconosciuta"
@@ -1738,14 +1258,8 @@
   "viewAccount": {
     "message": "Vedi Account"
   },
-  "viewOnCustomBlockExplorer": {
-    "message": "Vedi su $1"
-  },
   "viewOnEtherscan": {
     "message": "Vedi su Etherscan"
-  },
-  "viewNetworkInfo": {
-    "message": "Visualizza Informazioni Rete"
   },
   "visitWebSite": {
     "message": "Visita il nostro sito web"
@@ -1759,14 +1273,11 @@
   "welcomeBack": {
     "message": "Bentornato!"
   },
-  "welcome": {
-    "message": "Benvenuto nella Beta di MetaMask"
+  "welcomeBeta": {
+    "message": "Benvenuto nella Beta di XinFin eWallet"
   },
   "whatsThis": {
     "message": "Cos'è questo?"
-  },
-  "writePhrase": {
-    "message": "Scrivi questa frase su un foglio di carta e conservala in un posto sicuro. Se vuoi ancora più sicurezza, scrivila su più fogli e conserva ognuno in 2 o 3 posti diversi. "
   },
   "yesLetsTry": {
     "message": "Si, proviamo"
@@ -1782,20 +1293,5 @@
   },
   "yourPrivateSeedPhrase": {
     "message": "La tua frase seed privata"
-  },
-  "yourUniqueAccountImage": {
-    "message": "L'immagine esclusiva del tuo account"
-  },
-  "yourUniqueAccountImageDescription1": {
-    "message": "Questa immagine è stata generata automaticamente per te dal tuo nuovo indirizzo."
-  },
-  "yourUniqueAccountImageDescription2": {
-    "message": "Vedrai questa immagine ogni volta che dovrai confermare una transazione."
-  },
-  "yourUniqueAccountImageDescription3": {
-    "message": "MetaMask non ti chiederà mai la tua frase seed!"
-  },
-  "zeroGasPriceOnSpeedUpError": {
-    "message": "Prezzo del gas maggiore di zero"
   }
 }
