@@ -151,7 +151,7 @@ describe('Transaction Controller', function () {
 
       txController.newUnapprovedTransaction(txParams)
       .catch((err) => {
-        if (err.message === 'XinFin eWallet Tx Signature: User denied transaction signature.') done()
+        if (err.message === 'XinPay Tx Signature: User denied transaction signature.') done()
         else done(err)
       })
     })

@@ -46,7 +46,7 @@ class TokenRatesController {
       const json = await response.json()
       return json && json.length ? json[0].averagePrice : 0
     } catch (error) {
-      warn(`XinFin eWallet - TokenRatesController exchange rate fetch failed for ${address}.`, error)
+      warn(`XinPay - TokenRatesController exchange rate fetch failed for ${address}.`, error)
       return 0
     }
   }

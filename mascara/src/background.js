@@ -38,10 +38,10 @@ const dbController = new DbController({
 start().catch(log.error)
 
 async function start () {
-  log.debug('XinFin eWallet initializing...')
+  log.debug('XinPay initializing...')
   const initState = await loadStateFromPersistence()
   await setupController(initState)
-  log.debug('XinFin eWallet initialization complete.')
+  log.debug('XinPay initialization complete.')
 }
 
 //

@@ -685,7 +685,7 @@ describe('MetaMaskController', function () {
         await metamaskController.newUnsignedPersonalMessage(msgParams)
         assert.fail('should have thrown')
       } catch (error) {
-        assert.equal(error.message, 'XinFin eWallet Message Signature: from field is required.')
+        assert.equal(error.message, 'XinPay Message Signature: from field is required.')
       }
     })
 

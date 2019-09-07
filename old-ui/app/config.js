@@ -153,7 +153,7 @@ ConfigScreen.prototype.render = function () {
                   if (err) {
                     state.dispatch(actions.displayWarning('Error in retrieving state logs.'))
                   } else {
-                    exportAsFile('XinFin eWallet State Logs.json', result)
+                    exportAsFile('XinPay State Logs.json', result)
                   }
                 })
               },

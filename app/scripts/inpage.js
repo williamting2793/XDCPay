@@ -58,9 +58,9 @@ window.ethereum = proxiedInpageProvider
 
 var web3 = new Web3(inpageProvider)
 web3.setProvider = function () {
-  log.debug('XinFin eWallet - overrode web3.setProvider')
+  log.debug('XinPay - overrode web3.setProvider')
 }
-log.debug('XinFin eWallet - injected web3')
+log.debug('XinPay - injected web3')
 
 setupDappAutoReload(web3, inpageProvider.publicConfigStore)
 
@@ -72,7 +72,7 @@ global.web3 = new Proxy(web3, {
   get: (_web3, key) => {
     // show warning once on web3 access
     if (!hasBeenWarned && key !== 'currentProvider') {
-      console.warn('XinFin eWallet: web3 will be deprecated in the near future in favor of the ethereumProvider \nhttps://github.com/MetaMask/faq/blob/master/detecting_metamask.md#web3-deprecation')
+      console.warn('XinPay: web3 will be deprecated in the near future in favor of the ethereumProvider \nhttps://github.com/MetaMask/faq/blob/master/detecting_metamask.md#web3-deprecation')
       hasBeenWarned = true
     }
     // return value normally
@@ -105,7 +105,7 @@ function cleanContextForImports () {
   try {
     global.define = undefined
   } catch (_) {
-    console.warn('XinFin eWallet - global.define could not be deleted.')
+    console.warn('XinPay - global.define could not be deleted.')
   }
 }
 
@@ -116,6 +116,6 @@ function restoreContextAfterImports () {
   try {
     global.define = __define
   } catch (_) {
-    console.warn('XinFin eWallet - global.define could not be overwritten.')
+    console.warn('XinPay - global.define could not be overwritten.')
   }
 }

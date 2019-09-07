@@ -50,7 +50,7 @@ InfoScreen.prototype.render = function () {
           // current version number
 
           h('.info', [
-            h('div', 'XinFin eWallet'),
+            h('div', 'XinPay'),
             h('div', {
               style: {
                 marginBottom: '10px',

@@ -125,7 +125,7 @@ const importContractAccount = async (f, account1, getCreatedAccounts) => {
 
       it("Warning's  text is correct", async () => {
         const field = await f.waitUntilShowUp(screens.importAccounts.warning)
-        assert.equal(await field.getText(), 'Imported accounts will not be associated with your originally created XinFin eWallet account seedphrase.', "incorrect warning's text")
+        assert.equal(await field.getText(), 'Imported accounts will not be associated with your originally created XinPay account seedphrase.', "incorrect warning's text")
       })
 
       it("Select type 'Contract'", async () => {

@@ -1,4 +1,4 @@
-# XinFin eWallet Browser Extension
+# XinPay Browser Extension
 
 ## Introduction
 

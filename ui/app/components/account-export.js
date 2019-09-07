@@ -123,7 +123,7 @@ ExportAccountView.prototype.render = function () {
         style: {
           marginLeft: '10px',
         },
-        onClick: () => exportAsFile(`XinFin eWallet ${nickname} Private Key`, plainKey),
+        onClick: () => exportAsFile(`XinPay ${nickname} Private Key`, plainKey),
       }, this.context.t('saveAsFile')),
     ])
   }

@@ -11,7 +11,7 @@ export default class TokenListPlaceholder extends Component {
       <div className="token-list-placeholder">
         <img src="images/tokensearch.svg" />
         <div className="token-list-placeholder__text">
-          {`Add the tokens you've acquired using XinFin eWallet` /* this.context.t('addAcquiredTokens')*/}
+          {`Add the tokens you've acquired using XinPay` /* this.context.t('addAcquiredTokens')*/}
         </div>
       </div>
     )

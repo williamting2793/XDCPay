@@ -37,7 +37,7 @@ function setupInjection () {
     // append as first child
     container.insertBefore(scriptTag, container.children[0])
   } catch (e) {
-    console.error('XinFin eWallet injection failed.', e)
+    console.error('XinPay injection failed.', e)
   }
 }
 
@@ -59,7 +59,7 @@ function setupStreams () {
     pageStream,
     pluginStream,
     pageStream,
-    (err) => logStreamDisconnectWarning('XinFin eWallet Contentscript Forwarding', err)
+    (err) => logStreamDisconnectWarning('XinPay Contentscript Forwarding', err)
   )
 
   // setup local multistream channels
@@ -70,13 +70,13 @@ function setupStreams () {
     mux,
     pageStream,
     mux,
-    (err) => logStreamDisconnectWarning('XinFin eWallet Inpage', err)
+    (err) => logStreamDisconnectWarning('XinPay Inpage', err)
   )
   pump(
     mux,
     pluginStream,
     mux,
-    (err) => logStreamDisconnectWarning('XinFin eWallet Background', err)
+    (err) => logStreamDisconnectWarning('XinPay Background', err)
   )
 
   // connect ping stream
@@ -85,7 +85,7 @@ function setupStreams () {
     mux,
     pongStream,
     mux,
-    (err) => logStreamDisconnectWarning('XinFin eWallet PingPongStream', err)
+    (err) => logStreamDisconnectWarning('XinPay PingPongStream', err)
   )
 
   // connect phishing warning stream
@@ -203,7 +203,7 @@ function blacklistedDomainCheck () {
  * Redirects the current page to a phishing information page
  */
 function redirectToPhishingWarning () {
-  console.log('XinFin eWallet - routing to Phishing Warning component')
+  console.log('XinPay - routing to Phishing Warning component')
   const extensionURL = extension.runtime.getURL('phishing.html')
   window.location.href = `${extensionURL}#${querystring.stringify({
     hostname: window.location.hostname,

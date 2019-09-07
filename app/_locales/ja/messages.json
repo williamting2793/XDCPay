@@ -34,7 +34,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "XinFin eWallet",
+    "message": "XinPay",
     "description": "The name of the application"
   },
   "attemptingConnect": {
@@ -752,7 +752,7 @@
     "message": "おかえりなさい!"
   },
   "welcomeBeta": {
-    "message": "XinFin eWallet ベータ版へようこそ!"
+    "message": "XinPay ベータ版へようこそ!"
   },
   "whatsThis": {
     "message": "この機能について"

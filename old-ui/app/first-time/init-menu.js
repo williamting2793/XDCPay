@@ -56,7 +56,7 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
           color: '#ffffff',
           marginBottom: 10,
         },
-      }, 'XinFin eWallet'),
+      }, 'XinPay'),
 
 
       h('div', [
@@ -69,7 +69,7 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
         }, 'Encrypt your new DEN'),
 
         h(Tooltip, {
-          title: 'Your DEN is your password-encrypted storage within XinFin eWallet.',
+          title: 'Your DEN is your password-encrypted storage within XinPay.',
         }, [
           h('i.fa.fa-question-circle.pointer', {
             style: {

@@ -39,7 +39,7 @@
     "message": "Add Suggested Tokens"
   },
   "addAcquiredTokens": {
-    "message": "Add the tokens you've acquired using XinFin eWallet"
+    "message": "Add the tokens you've acquired using XinPay"
   },
   "amount": {
     "message": "Amount"
@@ -48,11 +48,11 @@
     "message": "Amount + Gas"
   },
   "appDescription": {
-    "message": "XinFin eWallet Browser Extension",
+    "message": "XinPay Browser Extension",
     "description": "The description of the application"
   },
   "appName": {
-    "message": "XinFin eWallet",
+    "message": "XinPay",
     "description": "The name of the application"
   },
   "approve": {
@@ -105,7 +105,7 @@
     "message": "Your Browser is not supported..."
   },
   "builtInCalifornia": {
-    "message": "XinFin eWallet is designed and built in California."
+    "message": "XinPay is designed and built in California."
   },
   "buy": {
     "message": "Buy"
@@ -147,7 +147,7 @@
     "message": "Close"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "You need to use XinFin eWallet on Google Chrome in order to connect to your Hardware Wallet."
+    "message": "You need to use XinPay on Google Chrome in order to connect to your Hardware Wallet."
   },
   "confirm": {
     "message": "Confirm"
@@ -280,7 +280,7 @@
     "message": "The default network for Ether transactions is Main Net."
   },
   "denExplainer": {
-    "message": "Your DEN is your password-encrypted storage within XinFin eWallet."
+    "message": "Your DEN is your password-encrypted storage within XinPay."
   },
   "deposit": {
     "message": "Deposit"
@@ -308,7 +308,7 @@
     "message": "Deposit with ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your XinFin eWallet wallet. No Account Needed."
+    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your XinPay wallet. No Account Needed."
   },
   "details": {
     "message": "Details"
@@ -472,7 +472,7 @@
     "message": "Connect a hardware wallet"
   },
   "hardwareWalletsMsg": {
-    "message": "Select a hardware wallet you'd like to use with XinFin eWallet"
+    "message": "Select a hardware wallet you'd like to use with XinPay"
   },
   "havingTroubleConnecting": {
     "message": "Having trouble connecting?"
@@ -513,7 +513,7 @@
     "message": "Import Account"
   },
   "importAccountMsg": {
-    "message": " Imported accounts will not be associated with your originally created XinFin eWallet account seedphrase. Learn more about imported accounts "
+    "message": " Imported accounts will not be associated with your originally created XinPay account seedphrase. Learn more about imported accounts "
   },
   "importAnAccount": {
     "message": "Import an account"
@@ -572,7 +572,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Keep track of the tokens you’ve bought with your XinFin eWallet account."
+    "message": "Keep track of the tokens you’ve bought with your XinPay account."
   },
   "kovan": {
     "message": "Kovan Test Network"
@@ -633,13 +633,13 @@
     "message": "Message"
   },
   "metamaskDescription": {
-    "message": "XinFin eWallet is a secure identity vault for Ethereum."
+    "message": "XinPay is a secure identity vault for Ethereum."
   },
   "metamaskSeedWords": {
-    "message": "XinFin eWallet Seed Words"
+    "message": "XinPay Seed Words"
   },
   "metamaskVersion": {
-    "message": "XinFin eWallet Version"
+    "message": "XinPay Version"
   },
   "min": {
     "message": "Minimum"
@@ -654,7 +654,7 @@
     "message": "Must select at least 1 token."
   },
   "needEtherInWallet": {
-    "message": "To interact with decentralized applications using XinFin eWallet, you’ll need Ether in your wallet."
+    "message": "To interact with decentralized applications using XinPay, you’ll need Ether in your wallet."
   },
   "needImportFile": {
     "message": "You must select a file to import.",
@@ -1025,7 +1025,7 @@
     "message": "Select an Account"
   },
   "selectAnAccountHelp": {
-    "message": "Select the account to view in XinFin eWallet"
+    "message": "Select the account to view in XinPay"
   },
   "selectHdPath": {
     "message": "Select HD Path"
@@ -1164,7 +1164,7 @@
     "message": "Token Symbol"
   },
   "tokenWarning1": {
-    "message": "Keep track of the tokens you’ve bought with your XinFin eWallet account. If you bought tokens using a different account, those tokens will not appear here."
+    "message": "Keep track of the tokens you’ve bought with your XinPay account. If you bought tokens using a different account, those tokens will not appear here."
   },
   "total": {
     "message": "Total"
@@ -1225,16 +1225,16 @@
     "message": "Try again"
   },
   "twelveWords": {
-    "message": "These 12 words are the only way to restore your XinFin eWallet accounts.\nSave them somewhere safe and secret."
+    "message": "These 12 words are the only way to restore your XinPay accounts.\nSave them somewhere safe and secret."
   },
   "typePassword": {
-    "message": "Type your XinFin eWallet password"
+    "message": "Type your XinPay password"
   },
   "uiWelcome": {
     "message": "Welcome to the New UI (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "You are now using the new XinFin eWallet UI."
+    "message": "You are now using the new XinPay UI."
   },
   "unapproved": {
     "message": "Unapproved"
@@ -1313,7 +1313,7 @@
     "message": "Welcome Back!"
   },
   "welcomeBeta": {
-    "message": "Welcome to XinFin eWallet Beta"
+    "message": "Welcome to XinPay Beta"
   },
   "whatsThis": {
     "message": "What's this?"
