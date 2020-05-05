@@ -4,7 +4,7 @@ import { Dropdown, DropdownMenuItem } from '../dropdown'
 import actions from '../../../../ui/app/actions'
 import { LOCALHOST } from '../../../../app/scripts/controllers/network/enums'
 import { networks } from '../../../../app/scripts/controllers/network/util'
-import ethNetProps from 'eth-net-props'
+import ethNetProps from 'xdc-net-props'
 import { connect } from 'react-redux'
 
 const LOCALHOST_RPC_URL = 'http://localhost:8545'
