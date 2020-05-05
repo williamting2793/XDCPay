@@ -7,7 +7,7 @@ const netProps = require('../helpers/get-net-properties')
 const chai = require('chai')
 const assert = chai.assert
 
-describe('eth-net-props', () => {
+describe('xdc-net-props', () => {
 	let claimPrefix = 'should return correct explorer link for'
 	describe('gets explorer links', () => {
 		describe ('getExplorerAccountLinkFor()', () => {
