@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ethNetProps from 'eth-net-props'
+import ethNetProps from 'xdc-net-props'
 import { default as Select } from 'react-select'
 import Button from '../../../../ui/app/components/button'
 import { capitalizeFirstLetter } from '../../../../app/scripts/lib/util'

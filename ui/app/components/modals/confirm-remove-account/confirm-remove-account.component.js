@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Modal from '../../modal'
 import { addressSummary } from '../../../util'
 import Identicon from '../../identicon'
-import ethNetProps from 'eth-net-props'
+import ethNetProps from 'xdc-net-props'
 
 export default class ConfirmRemoveAccount extends Component {
   static propTypes = {
