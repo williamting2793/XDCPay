@@ -438,15 +438,15 @@ p.buy-option {
          (min-resolution: 1.3dppx) {
   .logo {
     background-image: url(../images/logo-1@2x.png);
-    background-size: 146px 134px;
+    background-size: 125px 125px;
   }
 }
 
 .logo {
   background-image: url(../images/logo-1.png);
   background-repeat: no-repeat;
-  width: 146px;
-  height: 134px;
+  width: 125px;
+  height: 125px;
   margin-top: 30px;
 }
 
