@@ -176,9 +176,6 @@
   "connectingToKovan": {
     "message": "Connecting to Kovan Test Network"
   },
-  "connectingToMainnet": {
-    "message": "Connecting to Main Ethereum Network"
-  },
   "connectingToRopsten": {
     "message": "Connecting to Ropsten Test Network"
   },
@@ -926,25 +923,10 @@
   "rpc": {
     "message": "Custom RPC"
   },
-  "currentRpc": {
-    "message": "Current RPC"
-  },
   "connectingToMainnet": {
     "message": "Connecting to Main Ethereum Network"
   },
-  "connectingToRopsten": {
-    "message": "Connecting to Ropsten Test Network"
-  },
-  "connectingToKovan": {
-    "message": "Connecting to Kovan Test Network"
-  },
-  "connectingToRinkeby": {
-    "message": "Connecting to Rinkeby Test Network"
-  },
   "connectingToPOA": {
-    "message": "Connecting to XinFin Network"
-  },
-  "connectingToUnknown": {
     "message": "Connecting to XinFin Network"
   },
   "sampleAccountName": {
