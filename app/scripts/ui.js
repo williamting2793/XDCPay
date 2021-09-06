@@ -76,7 +76,7 @@ async function start () {
   }
 
   function displayCriticalError (err) {
-    container.innerHTML = '<div class="critical-error">The XinPay app failed to load: please open and close XinPay again to restart.</div>'
+    container.innerHTML = '<div class="critical-error">The XDCPay app failed to load: please open and close XDCPay again to restart.</div>'
     container.style.height = '80px'
     log.error(err.stack)
     throw err

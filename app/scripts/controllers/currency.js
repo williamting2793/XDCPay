@@ -145,7 +145,7 @@ class CurrencyController {
       this.setConversionRate(conversionRate)
       this.setConversionDate(conversionDate)
     } catch (err) {
-      log.warn(`XinPay - Failed to query currency conversion:`, currentCoin, currentCurrency, err)
+      log.warn(`XDCPay - Failed to query currency conversion:`, currentCoin, currentCurrency, err)
       this.setConversionRate(0)
       this.setConversionDate('N/A')
     }

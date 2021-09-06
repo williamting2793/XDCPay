@@ -34,7 +34,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "XinPay",
+    "message": "XDCPay",
     "description": "The name of the application"
   },
   "attemptingConnect": {
@@ -752,7 +752,7 @@
     "message": "おかえりなさい!"
   },
   "welcomeBeta": {
-    "message": "XinPay ベータ版へようこそ!"
+    "message": "XDCPay ベータ版へようこそ!"
   },
   "whatsThis": {
     "message": "この機能について"

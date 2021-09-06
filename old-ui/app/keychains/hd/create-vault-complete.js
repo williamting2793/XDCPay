@@ -51,7 +51,7 @@ CreateVaultCompleteScreen.prototype.render = function () {
           textAlign: 'center',
         },
       }, [
-        h('div.error', 'These 12 words are the only way to restore your XinPay accounts.\nSave them somewhere safe and secret.'),
+        h('div.error', 'These 12 words are the only way to restore your XDCPay accounts.\nSave them somewhere safe and secret.'),
       ]),
 
       h('textarea.twelve-word-phrase', {
@@ -70,7 +70,7 @@ CreateVaultCompleteScreen.prototype.render = function () {
       }, 'I\'ve copied it somewhere safe'),
 
       h('button', {
-        onClick: () => exportAsFile(`XinPay Seed Words`, seed),
+        onClick: () => exportAsFile(`XDCPay Seed Words`, seed),
         style: {
           margin: '10px',
           fontSize: '0.9em',

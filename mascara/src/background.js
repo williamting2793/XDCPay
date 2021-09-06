@@ -38,10 +38,10 @@ const dbController = new DbController({
 start().catch(log.error)
 
 async function start () {
-  log.debug('XinPay initializing...')
+  log.debug('XDCPay initializing...')
   const initState = await loadStateFromPersistence()
   await setupController(initState)
-  log.debug('XinPay initialization complete.')
+  log.debug('XDCPay initialization complete.')
 }
 
 //

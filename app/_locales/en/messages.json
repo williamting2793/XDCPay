@@ -39,7 +39,7 @@
     "message": "Add Suggested Tokens"
   },
   "addAcquiredTokens": {
-    "message": "Add the tokens you've acquired using XinPay"
+    "message": "Add the tokens you've acquired using XDCPay"
   },
   "amount": {
     "message": "Amount"
@@ -48,11 +48,11 @@
     "message": "Amount + Gas"
   },
   "appDescription": {
-    "message": "XinPay Browser Extension",
+    "message": "XDCPay Browser Extension",
     "description": "The description of the application"
   },
   "appName": {
-    "message": "XinPay",
+    "message": "XDCPay",
     "description": "The name of the application"
   },
   "approve": {
@@ -105,7 +105,7 @@
     "message": "Your Browser is not supported..."
   },
   "builtInCalifornia": {
-    "message": "XinPay is designed and built in California."
+    "message": "XDCPay is designed and built in California."
   },
   "buy": {
     "message": "Buy"
@@ -147,7 +147,7 @@
     "message": "Close"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "You need to use XinPay on Google Chrome in order to connect to your Hardware Wallet."
+    "message": "You need to use XDCPay on Google Chrome in order to connect to your Hardware Wallet."
   },
   "confirm": {
     "message": "Confirm"
@@ -277,7 +277,7 @@
     "message": "The default network for Ether transactions is Main Net."
   },
   "denExplainer": {
-    "message": "Your DEN is your password-encrypted storage within XinPay."
+    "message": "Your DEN is your password-encrypted storage within XDCPay."
   },
   "deposit": {
     "message": "Deposit"
@@ -305,7 +305,7 @@
     "message": "Deposit with ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your XinPay wallet. No Account Needed."
+    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your XDCPay wallet. No Account Needed."
   },
   "details": {
     "message": "Details"
@@ -469,7 +469,7 @@
     "message": "Connect a hardware wallet"
   },
   "hardwareWalletsMsg": {
-    "message": "Select a hardware wallet you'd like to use with XinPay"
+    "message": "Select a hardware wallet you'd like to use with XDCPay"
   },
   "havingTroubleConnecting": {
     "message": "Having trouble connecting?"
@@ -510,7 +510,7 @@
     "message": "Import Account"
   },
   "importAccountMsg": {
-    "message": " Imported accounts will not be associated with your originally created XinPay account seedphrase. Learn more about imported accounts "
+    "message": " Imported accounts will not be associated with your originally created XDCPay account seedphrase. Learn more about imported accounts "
   },
   "importAnAccount": {
     "message": "Import an account"
@@ -569,7 +569,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Keep track of the tokens you’ve bought with your XinPay account."
+    "message": "Keep track of the tokens you’ve bought with your XDCPay account."
   },
   "kovan": {
     "message": "Kovan Test Network"
@@ -630,13 +630,13 @@
     "message": "Message"
   },
   "metamaskDescription": {
-    "message": "XinPay is a secure identity vault for Ethereum."
+    "message": "XDCPay is a secure identity vault for Ethereum."
   },
   "metamaskSeedWords": {
-    "message": "XinPay Seed Words"
+    "message": "XDCPay Seed Words"
   },
   "metamaskVersion": {
-    "message": "XinPay Version"
+    "message": "XDCPay Version"
   },
   "min": {
     "message": "Minimum"
@@ -651,7 +651,7 @@
     "message": "Must select at least 1 token."
   },
   "needEtherInWallet": {
-    "message": "To interact with decentralized applications using XinPay, you’ll need Ether in your wallet."
+    "message": "To interact with decentralized applications using XDCPay, you’ll need Ether in your wallet."
   },
   "needImportFile": {
     "message": "You must select a file to import.",
@@ -1007,7 +1007,7 @@
     "message": "Select an Account"
   },
   "selectAnAccountHelp": {
-    "message": "Select the account to view in XinPay"
+    "message": "Select the account to view in XDCPay"
   },
   "selectHdPath": {
     "message": "Select HD Path"
@@ -1146,7 +1146,7 @@
     "message": "Token Symbol"
   },
   "tokenWarning1": {
-    "message": "Keep track of the tokens you’ve bought with your XinPay account. If you bought tokens using a different account, those tokens will not appear here."
+    "message": "Keep track of the tokens you’ve bought with your XDCPay account. If you bought tokens using a different account, those tokens will not appear here."
   },
   "total": {
     "message": "Total"
@@ -1207,16 +1207,16 @@
     "message": "Try again"
   },
   "twelveWords": {
-    "message": "These 12 words are the only way to restore your XinPay accounts.\nSave them somewhere safe and secret."
+    "message": "These 12 words are the only way to restore your XDCPay accounts.\nSave them somewhere safe and secret."
   },
   "typePassword": {
-    "message": "Type your XinPay password"
+    "message": "Type your XDCPay password"
   },
   "uiWelcome": {
     "message": "Welcome to the New UI (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "You are now using the new XinPay UI."
+    "message": "You are now using the new XDCPay UI."
   },
   "unapproved": {
     "message": "Unapproved"
@@ -1295,7 +1295,7 @@
     "message": "Welcome Back!"
   },
   "welcomeBeta": {
-    "message": "Welcome to XinPay Beta"
+    "message": "Welcome to XDCPay Beta"
   },
   "whatsThis": {
     "message": "What's this?"

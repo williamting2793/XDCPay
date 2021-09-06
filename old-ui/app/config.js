@@ -153,7 +153,7 @@ ConfigScreen.prototype.render = function () {
                   if (err) {
                     state.dispatch(actions.displayWarning('Error in retrieving state logs.'))
                   } else {
-                    exportAsFile('XinPay State Logs.json', result)
+                    exportAsFile('XDCPay State Logs.json', result)
                   }
                 })
               },

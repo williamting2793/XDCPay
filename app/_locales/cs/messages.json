@@ -34,7 +34,7 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "XinPay",
+    "message": "XDCPay",
     "description": "The name of the application"
   },
   "approved": {
@@ -75,7 +75,7 @@
     "message": "Pújčit si přes Dharma (Beta)"
   },
   "builtInCalifornia": {
-    "message": "XinPay je navržen a vytvořen v Kalifornii."
+    "message": "XDCPay je navržen a vytvořen v Kalifornii."
   },
   "buy": {
     "message": "Koupit"
@@ -218,7 +218,7 @@
     "message": "Vklad přes ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "Pokud vlastníte jiné kryptoměny, můžete je směnit Ether a vložit ho přímo do peněženky XinPay. Bez založení účtu."
+    "message": "Pokud vlastníte jiné kryptoměny, můžete je směnit Ether a vložit ho přímo do peněženky XDCPay. Bez založení účtu."
   },
   "details": {
     "message": "Podrobnosti"
@@ -474,7 +474,7 @@
     "message": "Zpráva"
   },
   "metamaskDescription": {
-    "message": "XinPay je bezpečný osobní trezor pro Ethereum."
+    "message": "XDCPay je bezpečný osobní trezor pro Ethereum."
   },
   "min": {
     "message": "Minimum"
@@ -849,7 +849,7 @@
     "description": "Followed by a link (here) to view token balances"
   },
   "twelveWords": {
-    "message": "Těchto 12 slov je jedinou možností, jak obnovit XinPay účet. \nUložte je na bezpečné a neveřejné místo."
+    "message": "Těchto 12 slov je jedinou možností, jak obnovit XDCPay účet. \nUložte je na bezpečné a neveřejné místo."
   },
   "typePassword": {
     "message": "Zadejte své heslo"
@@ -904,7 +904,7 @@
     "message": "Varování"
   },
   "welcomeBeta": {
-    "message": "Vítejte v XinPay Beta"
+    "message": "Vítejte v XDCPay Beta"
   },
   "whatsThis": {
     "message": "Co to je?"

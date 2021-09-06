@@ -1325,7 +1325,7 @@ module.exports = class MetamaskController extends EventEmitter {
   setupUntrustedCommunication (connectionStream, originDomain) {
     // Check if new connection is blacklisted
     if (this.blacklistController.checkForPhishing(originDomain)) {
-      log.debug('XinPay - sending phishing warning for', originDomain)
+      log.debug('XDCPay - sending phishing warning for', originDomain)
       this.sendPhishingWarning(connectionStream, originDomain)
       return
     }
