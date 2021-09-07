@@ -49,22 +49,23 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
 
       h('.logo'),
 
-      h('h1', {
-        style: {
-          paddingTop: '50px',
-          fontSize: '1.3em',
-          color: '#ffffff',
-          marginBottom: 10,
-        },
-      }, 'XDCPay'),
+      // h('h1', {
+      //   style: {
+      //     paddingTop: '50px',
+      //     fontSize: '1.3em',
+      //     color: '#ffffff',
+      //     marginBottom: 10,
+      //   },
+      // }, 'XDCPay'),
 
 
       h('div', [
         h('h3', {
           style: {
-            fontSize: '0.8em',
-            color: '#ffffff',
+            fontSize: '15px',
+            color: '#2a2a2a',
             display: 'inline',
+            
           },
         }, 'Encrypt your new DEN'),
 
@@ -100,7 +101,7 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
         style: {
           width: 260,
           marginTop: 12,
-          border: 'none',
+          borderColor: '#C7CDD8',
         },
       }),
 
@@ -110,10 +111,11 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
         id: 'password-box-confirm',
         placeholder: 'Confirm Password',
         onKeyPress: this.createVaultOnEnter.bind(this),
+        
         style: {
           width: 260,
           marginTop: 16,
-          border: 'none',
+          borderColor: '#C7CDD8',
         },
       }),
 
@@ -130,7 +132,7 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
           onClick: this.showRestoreVault.bind(this),
           style: {
             fontSize: '0.8em',
-            color: '#60db97',
+            color: '#2149B9',
           },
         }, 'Import Existing DEN'),
       ]),
@@ -155,7 +157,7 @@ InitializeMenuScreen.prototype.componentWillUnmount = function () {
 }
 
 InitializeMenuScreen.prototype.showRestoreVault = function () {
-  this.props.dispatch(actions.showRestoreVault())
+  this.props.dispatch(actions.showRestoreVault(password))
 }
 
 InitializeMenuScreen.prototype.createNewVaultAndKeychain = function () {

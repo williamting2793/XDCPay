@@ -32,8 +32,8 @@ const RINKEBY_DISPLAY_NAME = 'Rinkeby'
 const KOVAN_DISPLAY_NAME = 'Kovan'
 const GOERLI_TESTNET_DISPLAY_NAME = 'Görli Testnet'
 const CLASSIC_DISPLAY_NAME = 'Ethereum Classic'
-const XDC_DISPLAY_NAME = 'XinFin MainNet'
-const XDC_TESTNET_DISPLAY_NAME = 'XinFin Apothem TestNet'
+const XDC_DISPLAY_NAME = 'XDC MainNet'
+const XDC_TESTNET_DISPLAY_NAME = 'XDC Apothem TestNet'
 
 const DROPDOWN_POA_DISPLAY_NAME = POA_DISPLAY_NAME
 const DROPDOWN_DAI_DISPLAY_NAME = DAI_DISPLAY_NAME
@@ -44,8 +44,8 @@ const DROPDOWN_RINKEBY_DISPLAY_NAME = 'Rinkeby Test Net'
 const DROPDOWN_KOVAN_DISPLAY_NAME = 'Kovan Test Net'
 const DROPDOWN_GOERLI_TESTNET_DISPLAY_NAME = 'Görli Test Net'
 const DROPDOWN_CLASSIC_DISPLAY_NAME = 'Ethereum Classic'
-const DROPDOWN_XDC_DISPLAY_NAME = 'XinFin MainNet'
-const DROPDOWN_XDC_TESTNET_DISPLAY_NAME = 'XinFin Apothem TestNet'
+const DROPDOWN_XDC_DISPLAY_NAME = 'XDC MainNet'
+const DROPDOWN_XDC_TESTNET_DISPLAY_NAME = 'XDC Apothem TestNet'
 
 const chainTypes = {
   TEST: 1,

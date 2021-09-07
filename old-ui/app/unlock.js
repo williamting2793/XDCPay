@@ -33,13 +33,13 @@ UnlockScreen.prototype.render = function () {
 
         h('.logo'),
 
-        h('h1', {
-          style: {
-            paddingTop: '50px',
-            fontSize: '30px',
-            color: '#ffffff',
-          },
-        }, 'XDCPay'),
+        // h('h1', {
+        //   style: {
+        //     paddingTop: '50px',
+        //     fontSize: '30px',
+        //     color: '#ffffff',
+        //   },
+        // }, 'XDCPay'),
 
         h('div', [
           h('input.large-input', {
@@ -73,7 +73,7 @@ UnlockScreen.prototype.render = function () {
           onClick: () => this.props.dispatch(actions.forgotPassword()),
           style: {
             fontSize: '14px',
-            color: '#60db97',
+            color: '#2149B9',
           },
         }, 'Restore from seed phrase'),
       ]),

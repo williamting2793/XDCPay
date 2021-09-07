@@ -127,7 +127,7 @@ App.prototype.render = function () {
         overflow: 'hidden',
         position: 'relative',
         alignItems: 'center',
-        background: (props.isUnlocked || props.currentView.name === 'restoreVault' || props.currentView.name === 'config') ? 'white' : '#2050fd',
+        background: (props.isUnlocked || props.currentView.name === 'restoreVault' || props.currentView.name === 'config') ? 'white' : '#ffffff',
       },
     }, [
       h(AppBar, {

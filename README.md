@@ -1,4 +1,4 @@
-# XDCPay Browser Extension
+# XinPay Browser Extension
 
 ## Introduction
 

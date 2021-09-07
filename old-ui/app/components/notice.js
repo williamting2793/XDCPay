@@ -63,7 +63,7 @@ Notice.prototype.render = function () {
         }
          
         .markdown::-webkit-scrollbar-thumb {
-          background-color: #411a6a;
+          background-color: #ffffff;
           border-radius: 2px;
           border: 6px solid transparent;
           background-clip: content-box;
@@ -73,7 +73,7 @@ Notice.prototype.render = function () {
         h('h3.flex-center.terms-header', {
           key: 'notice-key',
           style: {
-            color: '#ffffff',
+            color: '#2a2a2a',
             width: '100%',
             fontSize: '16px',
             textAlign: 'center',
@@ -91,8 +91,8 @@ Notice.prototype.render = function () {
             }
           },
           style: {
-            background: '#1740d5',
-            color: '#ffffff',
+            background: '#f8f8f8',
+            color: '#2a2a2a',
             height: '430px',
             width: '90%',
             overflowY: 'scroll',
