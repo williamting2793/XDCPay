@@ -251,6 +251,7 @@ class AddTokenScreen extends Component {
           h('button', {
             onClick: (event) => {
               const valid = this.validateInputs()
+              console.log("Run")
               if (!valid) return
 
               const { customAddress, customSymbol, customDecimals } = this.state
@@ -342,7 +343,7 @@ class AddTokenScreen extends Component {
 
   validateInputs () {
     let msg = ''
-    const { network, keyrings, identities } = this.props
+    const { network, keyrings, identities, tokens } = this.props
     const state = this.state
     const identitiesList = Object.keys(this.props.identities)
     const { customAddress: address, customSymbol: symbol, customDecimals: decimals } = state
@@ -352,6 +353,13 @@ class AddTokenScreen extends Component {
     if (!validAddress) {
       msg += 'Address is invalid.'
     }
+    const customAdd = address.replace('xdc', '0x').toLowerCase();
+    const check = checkExistingAddresses(customAdd, tokens)
+    console.log("Check working", check)
+    if (check) {
+           msg += 'Token has already been added.'
+    }
+   
 
     const validDecimals = decimals >= 0 && decimals < 36
     if (!validDecimals) {
@@ -374,7 +382,7 @@ class AddTokenScreen extends Component {
       }
     }
 
-    const isValid = validAddress && validDecimals && validSymbol && !ownAddress
+    const isValid = validAddress && validDecimals && validSymbol && !ownAddress && !check
 
     if (!isValid) {
       this.setState({

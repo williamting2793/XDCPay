@@ -70,13 +70,19 @@ CreateVaultCompleteScreen.prototype.render = function () {
       }, 'I\'ve copied it somewhere safe'),
 
       h('button', {
-        onClick: () => exportAsFile(`XDCPay Seed Words`, seed),
+        onClick: () => this.confirmSeedWords()
+        .then(account => {
+          exportAsFile(`XDCPay Seed Words`, seed)
+          this.showAccountDetail(account)
+        }),
+        // exportAsFile(`XDCPay Seed Words`, seed)
+        // .then(account => this.showAccountDetail(account)),
         style: {
           margin: '10px',
           fontSize: '0.9em',
         },
       }, 'Save Seed Words As File'),
-    ])
+    ])                          
   )
 }
 
@@ -87,3 +93,8 @@ CreateVaultCompleteScreen.prototype.confirmSeedWords = function () {
 CreateVaultCompleteScreen.prototype.showAccountDetail = function (account) {
   return this.props.dispatch(actions.showAccountDetail(account))
 }
+
+CreateVaultCompleteScreen.prototype.exportAsFile = function (seed) {
+  return this.props.dispatch(actions.exportAsFile(`XDCPay Seed Words`, seed))
+}
+

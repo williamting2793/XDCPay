@@ -131,11 +131,11 @@ TokenCell.prototype.renderTokenOptions = function (menuToTop, ind) {
         {
           closeMenu: () => {},
           onClick: () => {
-            const checkSumAddress = address && toChecksumAddress(network, address)
+            const checkSumAddress = userAddress && toChecksumAddress(network, userAddress)
             copyToClipboard(checkSumAddress)
           },
         },
-        'Copy address to clipboard',
+        'Copy account address to clipboard',
       ),
       h(
         DropdownMenuItem,

@@ -33,9 +33,9 @@ function getNetworkDisplayName(network) {
 	case XDAI_CODE:
 		return 'xDai Chain'
 	case XDC_CODE:
-		return 'XinFin Mainnet'
+		return 'XDC MainNet'
 	case XDC_TESTNET_CODE:
-		return 'XinFin Apothem Testnet'
+		return 'XDC Apothem TestNet'
 	case CLASSIC_CODE:
 		return 'Ethereum Classic'
 	default:

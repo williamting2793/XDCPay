@@ -23,7 +23,7 @@ ConfirmChangePassword.prototype.render = function () {
   const passwordInputAdditionalStyle = {
     width: '100%',
     marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   }
   return h('.flex-column.flex-grow', {
     style: {
@@ -46,7 +46,7 @@ ConfirmChangePassword.prototype.render = function () {
     ]),
     h('div', {
       style: {
-        margin: '0 30px',
+        margin: '0 22px',
       },
     }, [
       h('.error', {
