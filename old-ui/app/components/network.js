@@ -40,7 +40,7 @@ Network.prototype.render = function () {
       displayName = networks[networkNumber].displayNameDropdown
       hoverText = ethNetProps.props.getNetworkDisplayName(networkNumber)
     } else {
-      displayName = 'XinFin Private Network'
+      displayName = 'XDC Private Network'
       hoverText = `Private Network (${provider.rpcTarget})`
     }
   }

@@ -46,7 +46,7 @@ ConfirmChangePassword.prototype.render = function () {
     ]),
     h('div', {
       style: {
-        margin: '0 0px',
+        margin: '0 22px',
       },
     }, [
       h('.error', {

@@ -157,7 +157,7 @@ InitializeMenuScreen.prototype.componentWillUnmount = function () {
 }
 
 InitializeMenuScreen.prototype.showRestoreVault = function () {
-  this.props.dispatch(actions.showRestoreVault(password))
+  this.props.dispatch(actions.showRestoreVault())
 }
 
 InitializeMenuScreen.prototype.createNewVaultAndKeychain = function () {
