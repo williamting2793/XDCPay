@@ -143,7 +143,7 @@ ExportAccountView.prototype.render = function () {
         },
       }, [
         h('button.btn-violet', {
-          onClick: () => exportAsFile(`XinPay ${nickname} Private Key`, plainKey),
+          onClick: () => exportAsFile(`XDCPay ${nickname} Private Key`, plainKey),
         }, 'Save as File'),
         h('button', {
           style: {

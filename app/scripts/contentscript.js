@@ -37,7 +37,7 @@ function setupInjection () {
     // append as first child
     container.insertBefore(scriptTag, container.children[0])
   } catch (e) {
-    console.error('XinPay injection failed.', e)
+    console.error('XDCPay injection failed.', e)
   }
 }
 
@@ -59,7 +59,7 @@ function setupStreams () {
     pageStream,
     pluginStream,
     pageStream,
-    (err) => logStreamDisconnectWarning('XinPay Contentscript Forwarding', err)
+    (err) => logStreamDisconnectWarning('XDCPay Contentscript Forwarding', err)
   )
 
   // setup local multistream channels
@@ -70,13 +70,13 @@ function setupStreams () {
     mux,
     pageStream,
     mux,
-    (err) => logStreamDisconnectWarning('XinPay Inpage', err)
+    (err) => logStreamDisconnectWarning('XDCPay Inpage', err)
   )
   pump(
     mux,
     pluginStream,
     mux,
-    (err) => logStreamDisconnectWarning('XinPay Background', err)
+    (err) => logStreamDisconnectWarning('XDCPay Background', err)
   )
 
   // connect ping stream
@@ -85,7 +85,7 @@ function setupStreams () {
     mux,
     pongStream,
     mux,
-    (err) => logStreamDisconnectWarning('XinPay PingPongStream', err)
+    (err) => logStreamDisconnectWarning('XDCPay PingPongStream', err)
   )
 
   // connect phishing warning stream
@@ -203,7 +203,7 @@ function blacklistedDomainCheck () {
  * Redirects the current page to a phishing information page
  */
 function redirectToPhishingWarning () {
-  console.log('XinPay - routing to Phishing Warning component')
+  console.log('XDCPay - routing to Phishing Warning component')
   const extensionURL = extension.runtime.getURL('phishing.html')
   window.location.href = `${extensionURL}#${querystring.stringify({
     hostname: window.location.hostname,

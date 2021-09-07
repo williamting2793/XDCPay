@@ -117,7 +117,7 @@ class CreatePasswordScreen extends Component {
         })}>
           {isMascara && <div className="mascara-info first-view-phone-invisible">
             <div className="info">
-              XinPay is a secure identity vault for XinFin Network.
+              XDCPay is a secure identity vault for XinFin Network.
             </div>
             <div className="info">
               It allows you to hold ether & tokens, and interact with decentralized applications.

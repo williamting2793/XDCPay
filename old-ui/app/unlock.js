@@ -39,7 +39,7 @@ UnlockScreen.prototype.render = function () {
             fontSize: '30px',
             color: '#ffffff',
           },
-        }, 'XinPay'),
+        }, 'XDCPay'),
 
         h('div', [
           h('input.large-input', {
