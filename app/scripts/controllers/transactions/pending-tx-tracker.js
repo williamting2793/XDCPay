@@ -148,7 +148,7 @@ class PendingTransactionTracker extends EventEmitter {
 
     // get latest transaction status
     try {
-      const txParams = await this.query.getTransactionByHash(txHash)
+      const txParams = await this.query.getTransactionReceipt(txHash)
       if (!txParams) return
       if (txParams.blockNumber) {
         this.emit('tx:confirmed', txId)

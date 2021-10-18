@@ -3,6 +3,7 @@ const ethNetProps = require('xdc-net-props')
 const {
   XDC_CODE,
   XDC_TESTNET_CODE,
+  XDC_DEVNET_CODE
 } = require('../../app/scripts/controllers/network/enums')
 
 var valueTable = {
@@ -61,13 +62,13 @@ function valuesFor (obj) {
     .map(function (key) { return obj[key] })
 }
 
-function addressSummary (network, address, firstSegLength = 10, lastSegLength = 4, includeHex = true) {
+function addressSummary (network, address, firstSegLength = 7, lastSegLength = 4, includeHex = true) {
   if (!address) return ''
   let checked = toChecksumAddress(network, address)
   if (!includeHex) {
     checked = ethUtil.stripHexPrefix(checked)
   }
-  return checked ? checked.slice(0, firstSegLength) + '...' + checked.slice(checked.length - lastSegLength) : '...'
+  return checked ? checked.slice(0, firstSegLength) + '...' + checked.slice(checked.length - lastSegLength) : ' '
 }
 
 function accountSummary (acc, firstSegLength = 6, lastSegLength = 4) {
@@ -176,21 +177,26 @@ function generateBalanceObject (formattedBalance, decimalsToKeep = 1) {
 
 function shortenBalance (balance, decimalsToKeep = 1) {
   var truncatedValue
+  
   var convertedBalance = parseFloat(balance)
-  if (convertedBalance > 1000000) {
+  if (convertedBalance >= 999999 && convertedBalance < 999999999 ) {
     truncatedValue = (balance / 1000000).toFixed(decimalsToKeep)
-    return `${truncatedValue}m`
-  } else if (convertedBalance > 1000) {
+    return `${truncatedValue}M`
+  } else if (convertedBalance >= 99999 && convertedBalance < 999999 ) {
     truncatedValue = (balance / 1000).toFixed(decimalsToKeep)
-    return `${truncatedValue}k`
-  } else if (convertedBalance === 0) {
+    return `${truncatedValue}K`
+  } else if (convertedBalance >= 1000000000) {
+    truncatedValue = (balance / 1000000000).toFixed(decimalsToKeep)
+    return `${truncatedValue}B`
+  }
+  else if (convertedBalance === 0) {
     return '0'
   } else if (convertedBalance < 0.001) {
     return '<0.001'
   } else if (convertedBalance < 1) {
     var stringBalance = convertedBalance.toString()
-    if (stringBalance.split('.')[1].length > 3) {
-      return convertedBalance.toFixed(3)
+    if (stringBalance.split('.')[1].length > 9) {
+      return convertedBalance.toFixed(9)
     } else {
       return stringBalance
     }
@@ -246,7 +252,7 @@ function readableDate (ms) {
   var minutes = '0' + date.getMinutes()
   var seconds = '0' + date.getSeconds()
 
-  var dateStr = `${month}/${day}/${year}`
+  var dateStr = `${day}/${month}/${year}`
   var time = `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`
   return `${dateStr} ${time}`
 }
@@ -384,7 +390,7 @@ function getAllKeyRingsAccounts (keyrings, network) {
 function ifXDC (network) {
   if (!network) return false
   const numericNet = isNaN(network) ? network : parseInt(network)
-  return numericNet === XDC_CODE || numericNet === XDC_TESTNET_CODE
+  return numericNet === XDC_CODE || numericNet === XDC_TESTNET_CODE || numericNet === XDC_DEVNET_CODE 
 }
 
 function toChecksumAddressXDC (address, chainId = null) {

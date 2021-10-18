@@ -13,7 +13,7 @@
     "unapprovedTxs": {},
     "noActiveNotices": true,
     "frequentRpcList": [
-      "http://192.168.1.34:7545/"
+      "https://192.168.1.34:7545/"
     ],
     "addressBook": [],
     "tokenExchangeRates": {},

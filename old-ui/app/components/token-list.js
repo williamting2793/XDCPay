@@ -113,7 +113,7 @@ TokenList.prototype.render = function () {
         }
 
         li.token-cell > h3 {
-          margin-left: 12px;
+          margin-left: 22px;
         }
 
         li.token-cell:hover {
@@ -140,42 +140,106 @@ TokenList.prototype.renderTokenStatusBar = function () {
   } else if (tokensFromCurrentNetwork.length > 1) {
     msg = `You own ${tokensFromCurrentNetwork.length} tokens`
   } else {
-    msg = `No tokens found`
+    msg = `No token balance`
     noTokens = true
   }
-
-  return h('div', [
+  
+  if (msg === "No token balance") {
+    return h('div', [
       h('div', {
-      style: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        minHeight: '70px',
-        padding: '30px 30px 10px',
-      },
-    }, [
-      h('span', msg),
-      h('button.btn-primary.wallet-view__add-token-button', {
-        key: 'reveal-account-bar',
-        onClick: (event) => {
-          event.preventDefault()
-          this.props.addToken()
-        },
         style: {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          minHeight: '70px',
+          flexFlow: 'column',
+          padding: '0px 30px 10px',
+          // borderBottom: '1px solid #E3E7EB',
+          margin: '0 6px',
         },
       }, [
-        'Add Token',
+        h('span', {
+          style: {
+            fontSize: '14px',
+            margin: '65px 0 10px 0',
+            // fontFamily: 'Inter',
+            color: '#9FA9BA',
+          },
+        },
+          msg),
+        h('button.btn-primary.wallet-view__add-token-button', {
+          key: 'reveal-account-bar',
+          onClick: (event) => {
+            event.preventDefault()
+            this.props.addToken()
+          },
+          style: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '34px',
+            // fontFamily: 'Inter',
+            width: '148px',
+          },
+        }, [
+          'Add Token',
+        ]),
       ]),
-    ]),
-    noTokens ? h('div', {
-      style: {
-        height: '70px',
-      },
-    }) : null,
-  ])
+      noTokens ? h('div', {
+        style: {
+          height: '70px',
+        },
+      }) : null,
+    ])
+  }
+  else {
+    return h('div', [
+      h('div', {
+        style: {
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          minHeight: '70px',
+          // flexFlow: 'column',
+          padding: '0px 18px ',
+          margin: '0 13px',
+          borderBottom: '1px solid #E3E7EB',
+        },
+      }, [
+        h('span', {
+          style: {
+            fontSize: '14px',
+            // fontFamily: 'Inter',
+            color: '#9FA9BA',
+          },
+        },
+          msg),
+        h('button.btn-primary.wallet-view__add-token-button', {
+          key: 'reveal-account-bar',
+          onClick: (event) => {
+            event.preventDefault()
+            this.props.addToken()
+          },
+          style: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            // fontFamily: 'Inter',
+            height: '34px',
+            width: '108px',
+          },
+        }, [
+          'Add Token',
+        ]),
+      ]),
+      noTokens ? h('div', {
+        style: {
+          height: '70px',
+        },
+      }) : null,
+    ])
+    
+  }
 }
 
 TokenList.prototype.message = function (body) {

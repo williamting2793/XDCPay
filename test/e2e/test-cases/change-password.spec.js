@@ -16,7 +16,7 @@ const changePassword = async (f, password, newPassword) => {
         const settings = await f.waitUntilShowUp(menus.sandwich.settings)
         await settings.click()
         const field = await f.waitUntilShowUp(screens.settings.currentNetwork)
-        assert.equal(await field.getText(), 'http://localhost:8545', 'current network is incorrect')
+        assert.equal(await field.getText(), 'https://localhost:8545', 'current network is incorrect')
       })
 
       it('error should not be displayed', async () => {

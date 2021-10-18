@@ -93,6 +93,8 @@ class AddTokenScreen extends Component {
 
   render () {
     const { network } = this.props
+    const props = this.props
+    const {goHome} = props
     const networkID = parseInt(network)
     let views = []
     const isProdNetworkWithKnownTokens = networkID === MAINNET_CODE ||
@@ -117,17 +119,32 @@ class AddTokenScreen extends Component {
         },
       }, [
         // subtitle and nav
-        h('.section-title.flex-row.flex-center', {
-          style: {
-            background: '#4188fe',
-            borderTop: 'none',
-          },
-        }, [
+      
           h('h2.page-subtitle', {
             style: {
-              color: '#ffffff',
+              display: 'flex',
+              justifyContent: 'Center',
+              color: '#2A2A2A',
+              marginTop: '26px',
+              fontWeight: 'bold',
             },
-          }, 'Add Token'),
+          },
+          [ h('img',{
+            onClick: () => {
+              goHome()
+            },
+            style: {
+              position: 'absolute',
+              left: '18px',
+              cursor: 'pointer',
+              width: '14px',
+            },
+            src:"/images/Assets/Close.svg",
+            
+          } ),
+          
+          'Add Token'
+        
         ]),
 
         ...views,
@@ -164,24 +181,26 @@ class AddTokenScreen extends Component {
           h('.error', {
             style: {
               display: 'block',
+              width: '265px',
+              marginLeft: '16px'
             },
           }, warning),
         ]) : null,
       h('.flex-space-around', {
         style: {
-          padding: '30px',
+          padding: '0 46px',
         },
       }, [
 
-        h('div', [
-          h(Tooltip, {
-            position: 'top',
-            title: 'The contract of the actual token contract.',
-          }, [
+        h('div', {style:{marginTop: '24px'}},[
+          // h(Tooltip, {
+          //   position: 'top',
+          //   title: 'The contract of the actual token contract.',
+          // }, [
             h('span', {
-              style: { fontWeight: 'bold'},
+              style: { fontWeight: 'bold',fontSize: '12px',},
             }, 'Token Address' /* this.context.t('tokenAddress')*/),
-          ]),
+          // ]),
         ]),
 
         h('section.flex-row.flex-center', [
@@ -191,45 +210,52 @@ class AddTokenScreen extends Component {
             value: customAddress,
             style: {
               width: '100%',
-              margin: '10px 0',
+              marginTop: '-4px',
+              border: '2px solid #c7cdd8',
+              borderRadius: '4px',
             },
             onChange: e => this.handleCustomAddressChange(e.target.value),
           }),
         ]),
 
-        h('div', [
+        h('div', {style:{marginTop: '30px'}}, [
           h('span', {
-            style: { fontWeight: 'bold', paddingRight: '10px'},
+            style: { fontWeight: 'bold', fontSize: '12px'},
           }, 'Token Symbol' /* this.context.t('tokenSymbol')*/),
         ]),
 
         h('div', { style: {display: 'flex'} }, [
           h('input.large-input#token_symbol', {
-            placeholder: `Like "XDC"`,
+            placeholder: `Like 'XDC'`,
             value: customSymbol,
             style: {
               width: '100%',
-              margin: '10px 0',
+              marginTop: '-4px',
+              border: '2px solid #c7cdd8',
+              borderRadius: '4px',
             },
             onChange: e => this.handleCustomSymbolChange(e.target.value),
           }),
         ]),
 
-        h('div', [
+        h('div', {style:{marginTop: '30px'}}, [
           h('span', {
-            style: { fontWeight: 'bold', paddingRight: '10px'},
+            style: { fontWeight: 'bold', fontSize: '12px' },
           }, 'Decimals of Precision' /* this.context.t('decimal')*/),
         ]),
 
         h('div', { style: {display: 'flex'} }, [
           h('input.large-input#token_decimals', {
+            placeholder: '0',
             value: customDecimals,
             type: 'number',
             min: 0,
             max: 36,
             style: {
               width: '100%',
-              margin: '10px 0',
+              marginTop: '-4px',
+              border: '2px solid #c7cdd8',
+              borderRadius: '4px',
             },
             onChange: e => this.handleCustomDecimalsChange(e.target.value),
           }),
@@ -238,17 +264,17 @@ class AddTokenScreen extends Component {
         h('div', {
           key: 'buttons',
           style: {
-            alignSelf: 'center',
-            float: 'right',
-            marginTop: '10px',
+            // alignSelf: 'center',
+            // float: 'right',
+            marginTop: '36px',
           },
         }, [
-          h('button.btn-violet', {
-            onClick: () => {
-              goHome()
-            },
-          }, 'Cancel' /* this.context.t('cancel')*/),
-          h('button', {
+          // h('button.btn-violet', {
+          //   onClick: () => {
+          //     goHome()
+          //   },
+          // }, 'Cancel'),
+          h('button', { style: {width: '265px', height: '40px'},
             onClick: (event) => {
               const valid = this.validateInputs()
               console.log("Run")
@@ -351,7 +377,7 @@ class AddTokenScreen extends Component {
 
     const validAddress = isValidAddress(address.replace('xdc', '0x'), network)
     if (!validAddress) {
-      msg += 'Address is invalid.'
+      msg += 'Address is invalid. '
     }
     const customAdd = address.replace('xdc', '0x').toLowerCase();
     const check = checkExistingAddresses(customAdd, tokens)
@@ -361,9 +387,9 @@ class AddTokenScreen extends Component {
     }
    
 
-    const validDecimals = decimals >= 0 && decimals < 36
+    const validDecimals = decimals >= 0 && decimals <= 36
     if (!validDecimals) {
-      msg += 'Decimals must be at least 0, and not over 36. '
+      msg += 'Decimals must be at least 0 and not over 36. '
     }
 
     const symbolLen = symbol.trim().length
@@ -542,7 +568,7 @@ class AddTokenScreen extends Component {
     let customDecimalsError = null
 
     if (!validDecimals) {
-      customDecimalsError = 'Decimals must be at least 0, and not over 36.' /* this.context.t('decimalsMustZerotoTen')*/
+      customDecimalsError = 'Decimals must be at least 0 and not over 36.' /* this.context.t('decimalsMustZerotoTen')*/
     }
 
     this.setState({ customDecimals, customDecimalsError })
@@ -559,7 +585,7 @@ class AddTokenScreen extends Component {
     const validDecimals = customDecimals !== null &&
       customDecimals !== '' &&
       customDecimals >= 0 &&
-      customDecimals < 36
+      customDecimals <= 36
     return validDecimals
   }
 }

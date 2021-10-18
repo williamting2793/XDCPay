@@ -6,6 +6,18 @@ const {connect} = require('react-redux')
 const {isHexPrefixed} = require('ethereumjs-util')
 const CopyButton = require('./components/copy/copy-button')
 const { toChecksumAddress, ifXDC } = require('./util')
+import ethNetProps from "xdc-net-props";
+
+function shorten(b, amountL = 7, /*amountR = 4,*/ stars = 3) {
+
+  return `${b.slice(0, amountL)}${".".repeat(stars)}${b.slice(
+
+      b.length - 4,
+
+      b.length
+
+  )}`;
+}
 
 class AccountQrScreen extends PureComponent {
   static defaultProps = {
@@ -19,11 +31,11 @@ class AccountQrScreen extends PureComponent {
   }
 
   render () {
-    const {Qr, warning, network} = this.props
+    const {Qr, warning, network,} = this.props
     const addressChecksum = toChecksumAddress(network, Qr.data)
     const address = ifXDC ? addressChecksum : `${isHexPrefixed(Qr.data) ? 'ethereum:' : ''}${Qr.data}`
     const qrImage = qrCode(4, 'M')
-
+    const url = ethNetProps.explorerLinks.getExplorerAccountLinkFor(addressChecksum,network)
     qrImage.addData(address)
     qrImage.make()
 
@@ -42,19 +54,25 @@ class AccountQrScreen extends PureComponent {
 
       h('#qr-container.flex-column', {
         style: {
-          marginTop: '15px',
+          marginTop: '33px',
         },
         dangerouslySetInnerHTML: {
           __html: qrImage.createTableTag(4),
         },
       }),
-      h('.qr-header', Qr.message),
+      h('.flex-row', [
+        h('h3',"Share QR Code"),
+        h(CopyButton, {
+          value: url,
+        }),
+      ]),
+      h('.qr-header1', Qr.message),
       h('.flex-row', [
         h('h3.ellip-address', {
           style: {
-            width: '247px',
+            width: '8em',
           },
-        }, addressChecksum),
+        }, shorten(addressChecksum)),
         h(CopyButton, {
           value: addressChecksum,
         }),

@@ -42,7 +42,7 @@ class AccountsDropdownItemView extends Component {
     const accountName = (
       <span
         className="accs-dd-menu-item-account-name"
-        style={{ color: isSelected ? 'white' : '' }}
+        style={{ color: isSelected ? '#2149B9' : '' }}
       >{name || ''}
       </span>
     )
@@ -62,7 +62,7 @@ class AccountsDropdownItemView extends Component {
         closeMenu={() => {}}
         onClick={() => this.accountOnClick(keyring, address)}
         style={{
-          padding: '8px 0px',
+          padding: '8px 16px',
         }}
       >
         {leftBorder}

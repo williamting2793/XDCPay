@@ -21,32 +21,34 @@ function ConfirmChangePassword () {
 ConfirmChangePassword.prototype.render = function () {
   const state = this.props
   const passwordInputAdditionalStyle = {
-    width: '100%',
-    marginTop: 10,
-    marginBottom: 10,
+    width: '265px',
+    border: '2px solid #C7CDD8',
+    // marginTop: 10,
+    marginBottom: 20,
   }
   return h('.flex-column.flex-grow', {
     style: {
       overflowX: 'auto',
       overflowY: 'hidden',
+      padding: '30px 46px 30px'
     },
   }, [
     // subtitle and nav
-    h('.section-title.flex-row.flex-center', [
-      h('i.fa.fa-arrow-left.fa-lg.cursor-pointer', {
+    h('.flex-row.flex-center', [
+      h('img.cursor-pointer', { src: '/images/Assets/BackArrow.svg',
         onClick: () => {
           this.props.dispatch(actions.showConfigPage())
         },
         style: {
           position: 'absolute',
-          left: '30px',
+          left: '15px',
         },
       }),
       h('h2.page-subtitle', 'Change Password'),
     ]),
     h('div', {
       style: {
-        margin: '0 22px',
+        marginTop: '26px',
       },
     }, [
       h('.error', {
@@ -54,21 +56,21 @@ ConfirmChangePassword.prototype.render = function () {
           display: state.warning ? 'block' : 'none',
         },
       }, state.warning),
-      h('span', 'Old password'),
+      h('span', {style:{fontSize: '12px', fontWeight: 'bold'}}, 'Old password'),
       h('input.large-input', {
         type: 'password',
         id: 'old-password-box',
         ref: 'OldPasswordBox',
         style: passwordInputAdditionalStyle,
       }),
-      h('span', 'New password'),
+      h('span', {style:{fontSize: '12px', fontWeight: 'bold'}}, 'New password'),
       h('input.large-input', {
         type: 'password',
         id: 'new-password-box',
         ref: 'NewPasswordBox',
         style: passwordInputAdditionalStyle,
       }),
-      h('span', 'Confirm new password'),
+      h('span', {style:{fontSize: '12px', fontWeight: 'bold'}}, 'Confirm new password'),
       h('input.large-input', {
         type: 'password',
         id: 'password-box-confirm',
@@ -80,17 +82,33 @@ ConfirmChangePassword.prototype.render = function () {
     h('p.confirm-label', {
         style: {
           textAlign: 'center',
-          margin: '0px 30px 20px ',
+          marginTop: '15px',
+          background: '#FFF2F5',
+          color: '#FF0035',
+          border: '1px solid',
+          padding: '20px 20px',
+          fontSize: '12px',
+          fontFamily: 'Inter-Regular'
         },
       },
       `Are you sure you want to change the password for unlocking of your wallet?`),
     h('.flex-row.flex-right', {
       style: {
-        marginRight: '30px',
+        marginTop: '35px',
       },
     }, [
       h('button.btn-violet',
         {
+          style:{
+            display: 'flex',
+            position: 'absolute',
+            left: '46px',
+            height: '40px',
+            width: '119px',
+            paddingLeft: '51px',
+            paddingTop: '12px',
+            background: '#FF0035',
+          },
           onClick: () => {
             this.props.dispatch(actions.showConfigPage())
           },
@@ -98,6 +116,15 @@ ConfirmChangePassword.prototype.render = function () {
         'No'),
       h('button',
         {
+          style:{
+            display: 'flex',
+                  position: 'absolute',
+                  right: '46px',
+                  height: '40px',
+                  width: '119px',
+                  paddingLeft: '49px',
+                  paddingTop: '12px',
+          },
           onClick: () => {
             this.ChangePassword()
           },

@@ -36,19 +36,27 @@ class Dropdown extends Component {
     } = this.props
 
     const innerStyleDefaults = extend({
-      padding: '15px 30px',
+      padding: '0',
       background: 'transparent',
+      // filter: 'contrast(0.6)',
       boxShadow: 'rgba(0, 0, 0, 0.15) 0px 2px 2px 2px',
+      color: '#2A2A2A',
     }, innerStyle)
 
     const styleDefaults = extend({
-      borderRadius: '4px',
-      background: 'rgba(23, 64, 213, 0.95)',
+      borderRadius: '8px',
+      background: '#ffffff',
+      
+      boxShadow: 'rgb(0 0 0 / 50%) 0px 0px 1px',
       overflowY: 'auto',
       transition: 'max-height 300ms ease-in-out',
+      marginLeft: '19px',
     }, style)
 
     return (
+      <div className="container">
+        
+
       <MenuDroppo
         useCssTransition={useCssTransition}
         isOpen={isOpen}
@@ -57,15 +65,17 @@ class Dropdown extends Component {
         onClickOutside={onClickOutside}
         style={styleDefaults}
         innerStyle={innerStyleDefaults}
-      >
+        >
         <style>
         {`
-          li.dropdown-menu-item:hover { color:#ffffff; }
-          li.dropdown-menu-item { color: rgba(255, 255, 255, 0.5); position: relative }
+          li.dropdown-menu-item:hover { color:#2A2A2A; }
+          li.dropdown-menu-item { color: #2A2A2A; position: relative }
         `}
         </style>
         {children}
       </MenuDroppo>
+        
+      </div>
     )
   }
 }
@@ -83,14 +93,15 @@ class DropdownMenuItem extends Component {
     const { onClick, closeMenu, children } = this.props
     const style = Object.assign({
       listStyle: 'none',
-      padding: (this.props.style && this.props.style.padding) ? this.props.style.padding : '15px 0px',
-      fontSize: '16px',
+      padding: (this.props.style && this.props.style.padding) ? this.props.style.padding : '9px 0px',
+      fontSize: '14px',
       fontStyle: 'normal',
-      fontFamily: 'Nunito Regular',
+      fontFamily: 'Inter-Regular',
       cursor: 'pointer',
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'center',
+      borderTop: '1px solid #E3E7EB'
     }, this.props.style)
 
     return (

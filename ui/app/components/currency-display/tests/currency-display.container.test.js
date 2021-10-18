@@ -70,7 +70,7 @@ describe('CurrencyDisplay container', () => {
           props: {
             value: '0x1193461d01595930',
             currency: 'ETH',
-            numberOfDecimals: 3,
+            numberOfDecimals: 6,
             hideLabel: true,
           },
           result: {

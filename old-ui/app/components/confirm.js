@@ -24,11 +24,13 @@ class ConfirmScreen extends Component {
 			}}
 		>
 			<div className="section-title flex-row flex-center">
-				<i className="fa fa-arrow-left fa-lg cursor-pointer"
+				<img className="cursor-pointer"
+					src='/images/Assets/Close.svg'
 					onClick={() => this.props.onCancelClick()}
 					style={{
 					position: 'absolute',
-					left: '30px',
+					left: '18px',
+					width: '14px'
 				}}
 				/>
 				<h2 className="page-subtitle">{this.props.subtitle}</h2>
@@ -44,7 +46,11 @@ class ConfirmScreen extends Component {
 			<p className="confirm-label"
 				style={{
 					textAlign: 'center',
-					margin: '0px 30px 20px ',
+					margin: '30px 46px 33px',
+					background: '#FFF2F5',
+					color: '#FF0035',
+					border: '1px solid',
+					padding: '20px 20px',
 				}}
 			>{this.props.question}
 			</p>
@@ -54,11 +60,31 @@ class ConfirmScreen extends Component {
 				}}
 			>
 				<button className="btn-violet"
-					onClick={() => this.props.onNoClick()}>
+					onClick={() => this.props.onNoClick()}
+					style={{
+						display: 'flex',
+            			position: 'absolute',
+            			left: '46px',
+            			height: '40px',
+        			    width: '119px',
+        			    paddingLeft: '51px',
+        			    paddingTop: '12px',
+            			background: '#FF0035',
+					}}
+					>
 					No
 				</button>
 				<button
 					onClick={() => this.props.onYesClick()}
+					style={{
+						display: 'flex',
+            			position: 'absolute',
+            			right: '46px',
+            			height: '40px',
+        			    width: '119px',
+        			    paddingLeft: '49px',
+        			    paddingTop: '12px',
+					}}
 				>
 					Yes
 				</button>

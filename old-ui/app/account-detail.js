@@ -15,7 +15,10 @@ const TokenList = require('./components/token-list')
 const AccountDropdowns = require('./components/account-dropdowns/account-dropdowns.component').AccountDropdowns
 const CopyButton = require('./components/copy/copy-button')
 const ToastComponent = require('./components/toast')
+import { url } from 'inspector'
 import { getMetaMaskAccounts } from '../../ui/app/selectors'
+// import {useEffect,useState} from 'react'
+
 
 module.exports = connect(mapStateToProps)(AccountDetailScreen)
 
@@ -45,6 +48,7 @@ function mapStateToProps (state) {
 inherits(AccountDetailScreen, Component)
 function AccountDetailScreen () {
   Component.call(this)
+  
 }
 
 AccountDetailScreen.prototype.render = function () {
@@ -61,6 +65,17 @@ AccountDetailScreen.prototype.render = function () {
 
   const currentKeyring = getCurrentKeyring(props.address, network, props.keyrings, props.identities)
 
+  function shorten(b, amountL = 7, /*amountR = 4,*/ stars = 3) {
+
+    return `${b.slice(0, amountL)}${".".repeat(stars)}${b.slice(
+  
+      b.length - 4,
+  
+      b.length
+  
+    )}`;
+  }
+
   return (
 
     h('.account-detail-section.full-flex-height', [
@@ -69,12 +84,12 @@ AccountDetailScreen.prototype.render = function () {
         isSuccess: false,
       }),
 
-    // identicon, label, balance, etc
+      // identicon, label, balance, etc
       h('.account-data-subsection', {
         style: {
-          padding: '30px',
+          padding: '8px 0 0',
           flex: '1 0 auto',
-          background: '#2050fd',
+          background: '#ffffff',
           width: '100%',
         },
       }, [
@@ -82,23 +97,25 @@ AccountDetailScreen.prototype.render = function () {
         // header - identicon + nav
         h('div', {
           style: {
+           
             display: 'flex',
-            justifyContent: 'flex-start',
+            justifyContent: 'center',
             alignItems: 'flex-start',
+            borderBottom: '1px solid #E3E7EB',
           },
         }, [
 
           // large identicon and addresses
-          h('.identicon-wrapper.select-none', [
-            h(Identicon, {
-              diameter: 60,
-              address: selected,
-            }),
-          ]),
+          // h('.identicon-wrapper.select-none', [
+          //   h(Identicon, {
+          //     diameter: 60,
+          //     address: selected,
+          //   }),
+          // ]),
           h('flex-column', {
             style: {
-              lineHeight: '10px',
-              marginLeft: '20px',
+              lineHeight: '7px',
+              // marginLeft: '107px',
               width: '100%',
             },
           }, [
@@ -113,13 +130,17 @@ AccountDetailScreen.prototype.render = function () {
             }, [
 
               // What is shown when not editing + edit text:
-              h('label.editing-label', [h('.edit-text', 'edit')]),
+              h('label.editing-label', [h('.edit-text', {
+                style: {
+                  cursor: 'pointer',
+                },
+              }, 'edit')]),
               h(
                 'div',
                 {
                   style: {
                     display: 'flex',
-                    justifyContent: 'flex-start',
+                    justifyContent: 'center',
                     alignItems: 'center',
                   },
                 },
@@ -127,31 +148,82 @@ AccountDetailScreen.prototype.render = function () {
                   h(
                     'div.font-medium.color-forest',
                     {
+                      
                       name: 'edit',
-                      style: {
-                      },
                     },
                     [
                       h('h2', {
                         style: {
-                          maxWidth: '180px',
+                          // maxWidth: '180px',
                           overflow: 'hidden',
                           textOverflow: 'ellipsis',
-                          padding: '5px 0px',
-                          lineHeight: '25px',
-                          color: '#ffffff',
+                          padding: '8px 0 6px 0',
+                          fontWeight: '600',
+                          textAlign: 'left',
+                          
+                          // lineHeight: '25px',
+                          fontSize: '14px',
+                          // fontFamily: 'Inter',
+                          color: '#1F1F1F',
                         },
                       }, [
                         identity && identity.name,
                       ]),
                     ]
                   ),
+                  
+                ],
+                
+              ),
+            
+              h('.flex-row', {
+                style: {
+                  width: '100%',
+                  justifyContent: 'space-between',
+                  // alignItems: 'baseline',
+                  marginTop: '3px',
+                },
+              }, [
+
+                // address
+
+                h('div', {
+                  style: {
+                    width: '8em',
+                    display: 'inline-flex',
+                    margin: ' 0 0 15px 112px',
+                  },
+                }, [
+                  h('span', {
+                    style: {
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      paddingTop: '5px',
+                      width: '8em',
+                      height: '15px',
+                      fontSize: '12px',
+                      fontFamily: 'Inter-Regular',
+                      textRendering: 'geometricPrecision',
+                      color: '#848484',
+                      marginLeft: '18px',
+                    }
+                  }, shorten(checksumAddress)),
+                  h(CopyButton, { style: {
+                    marginLeft: "-11px",
+                  },
+                    value: checksumAddress,
+                    isWhite: true,
+                  }),
+                ]),
+                [
                   h(
                     AccountDropdowns,
                     {
                       style: {
-                        marginRight: '10px',
-                        marginLeft: 'auto',
+                        // marginRight: '10px',
+                        // margintop: '10px',
+                        // marginLeft: '73px',
+
                         cursor: 'pointer',
                       },
                       selected,
@@ -162,54 +234,24 @@ AccountDetailScreen.prototype.render = function () {
                     },
                   ),
                 ]
-              ),
-            ]),
-            h('.flex-row', {
-              style: {
-                width: '15em',
-                justifyContent: 'space-between',
-                alignItems: 'baseline',
-              },
-            }, [
-
-              // address
-
-              h('div', {
-                style: {
-                  width: '8em',
-                  display: 'inline-flex',
-                  marginBottom: '15px',
-                },
-              }, [
-                h('span', {style: {
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  paddingTop: '3px',
-                  width: '5em',
-                  height: '15px',
-                  fontSize: '14px',
-                  fontFamily: 'Nunito Bold',
-                  textRendering: 'geometricPrecision',
-                  color: 'rgba(255, 255, 255, 0.7)',
-                }}, checksumAddress),
-                h(CopyButton, {
-                  value: checksumAddress,
-                  isWhite: true,
-                }),
               ]),
+
+              // account ballance
+
             ]),
-
-            // account ballance
-
           ]),
         ]),
+
+        
         h('.flex-row', {
           style: {
             justifyContent: 'space-between',
-            alignItems: 'flex-start',
+            alignItems: 'center',
+            flexFlow: 'column',
+            margin: '45px 0 45px 0',
           },
         }, [
-
+        
           h(EthBalance, {
             value: account && account.balance,
             conversionRate,
@@ -217,34 +259,83 @@ AccountDetailScreen.prototype.render = function () {
             network,
             style: {
               lineHeight: '7px',
+              // marginBottom: '42px',
             },
           }),
-
-          h('.flex-grow'),
-
-          !ifContractAcc(currentKeyring) ? h('button', {
-            onClick: () => props.dispatch(actions.buyEthView(selected)),
-            style: { marginRight: '10px' },
-          }, 'Buy') : null,
-
-          h('button', {
-            onClick: () => {
-              if (ifContractAcc(currentKeyring)) {
-                return props.dispatch(actions.showSendContractPage({}))
-              } else {
-                return props.dispatch(actions.showSendPage())
-              }
-            },
-          }, ifContractAcc(currentKeyring) ? 'Execute methods' : 'Send'),
-
         ]),
-      ]),
-
-      // subview (tx history, pk export confirm, buy eth warning)
-      this.subview(),
-
-    ])
-  )
+        
+        h('.flex-grow'),
+                
+          
+          !ifContractAcc(currentKeyring) ? h('button',
+        
+          
+        
+          {
+            onClick: () => props.dispatch(actions.buyEthView(selected)),
+          
+            style: {
+            margin: '0 10px 20px 100px',
+            width: '74px',
+            height: '29px',
+            background: '#2149B9',
+            borderRadius: '4px',
+            opacity: '1',
+            // image: 'url(/images/Assets/downarrow-2.svg)',
+            // img:'/images/Assets/downarrow-2.svg',
+          },
+        }, [ h('img',
+              {
+                style: {
+                  marginRight: '8px',
+                  marginTop: '0.5px',
+              
+                }, src: "/images/Assets/downarrow-2.svg" },
+                ),'Buy']) : null,
+                
+                
+                
+            // h('img',
+            //   {src: "/images/Assets/downarrow-2.svg" },
+            // ),
+            
+            
+            
+            h('button', {
+              onClick: () => {
+                if (ifContractAcc(currentKeyring)) {
+                  return props.dispatch(actions.showSendContractPage({}))
+                } else {
+                  return props.dispatch(actions.showSendPage())
+                }
+              },
+              style: {
+                
+                width: '74px',
+                height: '29px',
+                background: '#2149B9', 
+                borderRadius: '4px',
+                opacity: '1',
+                
+                
+            },
+          },[ h('img',
+          {
+            style: {
+              marginRight: '8px',
+              
+            }, src: "/images/Assets/downarrow-2-1.svg" },
+            ), ifContractAcc(currentKeyring) ? 'Execute methods' : 'Send']),
+            
+            // ]),
+          ]),
+          
+          // subview (tx history, pk export confirm, buy eth warning)
+          this.subview(),
+          
+        ])
+        )
+      
 }
 
 AccountDetailScreen.prototype.subview = function () {

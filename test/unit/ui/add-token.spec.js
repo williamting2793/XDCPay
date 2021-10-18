@@ -27,7 +27,7 @@ describe('Add Token Screen', function () {
     it('Default State', function () {
       addTokenComponent.instance().validateInputs()
       const state = addTokenComponent.state()
-      assert.equal(state.warning, 'Address is invalid.Symbol must be between 0 and 10 characters.')
+      assert.equal(state.warning, 'Address is invalid. Symbol must be between 0 and 10 characters.')
     })
 
     it('Address is a Metamask Identity', function () {
@@ -60,21 +60,21 @@ describe('Add Token Screen', function () {
       addTokenComponent.instance().handleCustomDecimalsChange('test')
       const state = addTokenComponent.state()
       assert.equal(state.customDecimals, '')
-      assert.equal(state.customDecimalsError, 'Decimals must be at least 0, and not over 36.')
+      assert.equal(state.customDecimalsError, 'Decimals must be at least 0 and not over 36.')
     })
 
     it('sets customDecimalsError for input object', () => {
       addTokenComponent.instance().handleCustomDecimalsChange({})
       const state = addTokenComponent.state()
       assert.equal(state.customDecimals, '')
-      assert.equal(state.customDecimalsError, 'Decimals must be at least 0, and not over 36.')
+      assert.equal(state.customDecimalsError, 'Decimals must be at least 0 and not over 36.')
     })
 
     it('sets customDecimalsError for empty input', () => {
       addTokenComponent.instance().handleCustomDecimalsChange()
       const state = addTokenComponent.state()
       assert.equal(state.customDecimals, '')
-      assert.equal(state.customDecimalsError, 'Decimals must be at least 0, and not over 36.')
+      assert.equal(state.customDecimalsError, 'Decimals must be at least 0 and not over 36.')
     })
   })
 
@@ -84,10 +84,10 @@ describe('Add Token Screen', function () {
       assert.equal(addTokenComponent.instance().isValidDecimals(1), true)
       assert.equal(addTokenComponent.instance().isValidDecimals(18), true)
       assert.equal(addTokenComponent.instance().isValidDecimals(35), true)
+      assert.equal(addTokenComponent.instance().isValidDecimals(36), true)
     })
 
     it('returns invalid status of token decimals', () => {
-      assert.equal(addTokenComponent.instance().isValidDecimals(36), false)
       assert.equal(addTokenComponent.instance().isValidDecimals(-1), false)
       assert.equal(addTokenComponent.instance().isValidDecimals('test'), false)
       assert.equal(addTokenComponent.instance().isValidDecimals({}), false)

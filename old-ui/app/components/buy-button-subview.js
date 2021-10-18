@@ -1,190 +1,273 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
-import actions from '../../../ui/app/actions'
-import CoinbaseForm from './coinbase-form'
-import ShapeshiftForm from './shapeshift-form'
-import Loading from './loading'
-import AccountPanel from './account-panel'
-import RadioList from './custom-radio-list'
-import { getNetworkDisplayName } from '../../../app/scripts/controllers/network/util'
-import { getFaucets, getExchanges } from '../../../app/scripts/lib/buy-eth-url'
-import { MAINNET_CODE } from '../../../app/scripts/controllers/network/enums'
-import ethNetProps from 'xdc-net-props'
-import PropTypes from 'prop-types'
-import { getMetaMaskAccounts } from '../../../ui/app/selectors'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import actions from "../../../ui/app/actions";
+import CoinbaseForm from "./coinbase-form";
+import ShapeshiftForm from "./shapeshift-form";
+import Loading from "./loading";
+import AccountPanel from "./account-panel";
+import RadioList from "./custom-radio-list";
+import { getNetworkDisplayName } from "../../../app/scripts/controllers/network/util";
+import { getFaucets, getExchanges } from "../../../app/scripts/lib/buy-eth-url";
+import { MAINNET_CODE } from "../../../app/scripts/controllers/network/enums";
+import ethNetProps from "xdc-net-props";
+import PropTypes from "prop-types";
+import { getMetaMaskAccounts } from "../../../ui/app/selectors";
+import { transform } from "lodash";
+// import { toChecksumAddress } from "ethereumjs-util";
+const { toChecksumAddress } = require('../util')
+
 
 class BuyButtonSubview extends Component {
-  render () {
+  render() {
     return (
-      <div style={{ width: '100%' }}>
-        { this.headerSubview() }
-        { this.primarySubview() }
+      <div style={{ width: "100%" }}>
+        {this.headerSubview()}
+        {this.primarySubview()}
       </div>
-    )
+    );
   }
 
-  headerSubview () {
-    const props = this.props
-    const { network } = props
-    const isLoading = props.isSubLoading
-    const coinName = ethNetProps.props.getNetworkCoinName(network)
+  headerSubview() {
+    const props = this.props;
+    const { network, conversionRate, currentCurrency } = props;
+    var selected = props.address || Object.keys(props.accounts)[0]
+    var checksumAddress = selected && toChecksumAddress(network, selected)
+    const isLoading = props.isSubLoading;
+    const coinName = ethNetProps.props.getNetworkCoinName(network);
+    
     return (
       <div className="flex-column">
-        { /* loading indication*/ }
+        {/* loading indication*/}
+
         <div>
           <Loading isLoading={isLoading} />
         </div>
-        { /* account panel*/ }
-        <div>
-          <AccountPanel {...{
-            showFullAddress: true,
-            identity: props.identity,
-            account: props.account,
-            network: props.network,
-          }} />
-        </div>
-        { /* header bar (back button, label)*/ }
         <div
           className="flex-row section-title"
           style={{
-            alignItems: 'center',
+            alignItems: "center",
           }}
         >
-          <i
-            className="fa fa-arrow-left fa-lg cursor-pointer"
+          <img
+            src="/images/Assets/Close.svg"
             onClick={() => this.backButtonContext()}
             style={{
-              position: 'absolute',
-              left: '30px',
+              position: "absolute",
+              left: "15px",
+              cursor: "pointer",
+              transformOrigin: "center center",
+              transition: "transform 50ms ease-in-out",
+              width: "14px",
             }}
           />
-          <h2 className="flex-center buy-title">{`Buy ${coinName}`}</h2>
+
+
+
+          <h2
+            className="flex-center buy-title"
+            style={{
+              fontWeight: "700",
+              // fontFamily: "Inter",
+              fontSize: "15px",
+            }}
+          >{`Buy `}</h2>
         </div>
+        {/* account panel*/}
         <div>
-          <h3 className="flex-center select-service">Select Service</h3>
+          <AccountPanel
+            {...{
+              showFullAddress: true,
+              identity: props.identity,
+              account: props.account,
+              network: props.network,
+              // value: account && account.balance,
+              conversionRate,
+              currentCurrency,
+              checksumAddress,
+              
+              // network,
+            }}
+          />
+        </div>
+        {/* header bar (back button, label)*/}
+
+        <div>
+          <h3
+            className="flex-center select-service"
+            style={{
+              fontSize: "12px",
+              fontWeight: "600",            
+            }}
+          >
+            Select Service
+          </h3>
         </div>
       </div>
-    )
+    );
   }
 
-  primarySubview () {
-    const props = this.props
-    const network = props.network
+  primarySubview() {
+    const props = this.props;
+    const network = props.network;
 
     switch (network) {
-      case 'loading':
-        return
+      case "loading":
+        return;
 
-      case '1':
-        return this.mainnetSubview()
+      case "1":
+        return this.mainnetSubview();
 
       default:
         return (
-          <div className="flex-column" style={{ margin: '0px 30px 20px 30px' }}>
-            { this._getBuyOptionsView(network) }
+          <div className="flex-column" style={{ margin: "0px 20px 20px 20px" }}>
+            {this._getBuyOptionsView(network)}
           </div>
-        )
+        );
     }
   }
 
-  _getBuyOptionsView (network) {
-    const isTestnet = ethNetProps.props.isTestnet(network)
+  _getBuyOptionsView(network) {
+    const isTestnet = ethNetProps.props.isTestnet(network);
     if (isTestnet) {
-      return this._getFaucetsView(network)
+      return this._getFaucetsView(network);
     } else {
-      return this._getExchangesView(network)
+      return this._getExchangesView(network);
     }
   }
 
-  _getExchangesView (network) {
-    const exchanges = getExchanges({network})
+  _getExchangesView(network) {
+    const exchanges = getExchanges({ network });
     return exchanges.map((exchange, ind) => {
-      return <p
-        key={`buy-option${ind}`}
-        className="buy-option cursor-pointer"
-        onClick={() => this.props.dispatch(actions.buyEth({ network, ind }))}
-      >
-        { exchange.name }
-      </p>
-    })
+      return (
+        <p
+          style={{
+            border: "1px solid #C7CDD8",
+            height: "57px",
+            borderRadius: "9px",
+            padding: "11px",
+            // fontFamily: "Inter",
+            fontSize: "14px",
+            color: "black",
+            textAlign: "left",
+            fontFamily: "Inter-Semibold",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+          key={`buy-option${ind}`}
+          className="buy-option cursor-pointer"
+          onClick={() => this.props.dispatch(actions.buyEth({ network, ind }))}
+        >
+          {exchange.name}
+          <img
+            style={{width: "7px" }}
+            src="/images/Assets/RightArrow.svg"
+          />
+        </p>
+      );
+    });
   }
 
-  _getFaucetsView (network) {
-    const faucets = getFaucets(network)
+  _getFaucetsView(network) {
+    const faucets = getFaucets(network);
     if (faucets.length === 0) {
-      return <h2 className="error">Unknown network ID</h2>
+      return <h2 className="error">Unknown network ID</h2>;
     }
-    const networkName = getNetworkDisplayName(network)
+    const networkName = getNetworkDisplayName(network);
     return faucets.map((faucet, ind) => {
-      const faucetNum = faucets.length > 1 ? (ind + 1) : ''
-      const faucetLabel = `${networkName} Test Faucet ${faucetNum}`
-      return <p
-        key={`buy-option${ind}`}
-        className="buy-option cursor-pointer"
-        onClick={() => this.props.dispatch(actions.buyEth({ network, ind }))}
-      >
-        { faucetLabel }
-      </p>
-    })
+      const faucetNum = faucets.length > 1 ? ind + 1 : "";
+      const faucetLabel = `${networkName} Test Faucet ${faucetNum}`;
+      return (
+        <p
+          key={`buy-option${ind}`}
+          style={{
+            border: "1px solid #C7CDD8",
+            height: "57px",
+            borderRadius: "9px",
+            padding: "11px",
+            // fontFamily: "Inter",
+            color: "black",
+            fontSize: "14px",
+            textAlign: "left",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+          className="buy-option cursor-pointer"
+          onClick={() => this.props.dispatch(actions.buyEth({ network, ind }))}
+        >
+          {faucetLabel}
+          <img
+            style={{width: "7px" }}
+            src="/images/Assets/RightArrow.svg"
+          />
+        </p>
+      );
+    });
   }
 
-  mainnetSubview () {
-    const props = this.props
+  mainnetSubview() {
+    const props = this.props;
 
     return (
       <div className="flex-column">
         <div className="flex-row selected-exchange">
           <RadioList
             defaultFocus={props.buyView.subview}
-            labels={[
-              'Coinbase',
-              'ShapeShift',
-            ]}
+            labels={["Coinbase", "ShapeShift"]}
             subtext={{
-              'Coinbase': 'Crypto/FIAT (USA only)',
-              'ShapeShift': 'Crypto',
+              Coinbase: "Crypto/FIAT (USA only)",
+              ShapeShift: "Crypto",
             }}
             onClick={(event) => this.radioHandler(event)}
           />
         </div>
-        <h3 className="select-service" style={{
-          borderTop: '1px solid #e2e2e2',
-          paddingTop: '20px',
-        }}>
-          { props.buyView.subview }
+        <h3
+          className="select-service"
+          style={{
+            borderTop: "1px solid #e2e2e2",
+            paddingTop: "20px",
+          }}
+        >
+          {props.buyView.subview}
         </h3>
-        { this.formVersionSubview() }
+        {this.formVersionSubview()}
       </div>
-    )
+    );
   }
 
-  formVersionSubview () {
-    const { network } = this.props
+  formVersionSubview() {
+    const { network } = this.props;
     if (Number(network) === MAINNET_CODE) {
       if (this.props.buyView.formView.coinbase) {
-        return <CoinbaseForm { ...this.props } />
+        return <CoinbaseForm {...this.props} />;
       } else if (this.props.buyView.formView.shapeshift) {
-        return <ShapeshiftForm { ...this.props } />
+        return <ShapeshiftForm {...this.props} />;
       }
     }
   }
 
-  backButtonContext () {
-    if (this.props.context === 'confTx') {
-      this.props.dispatch(actions.showConfTxPage({
-        isContractExecutionByUser: this.props.isContractExecutionByUser,
-      }))
+  backButtonContext() {
+    if (this.props.context === "confTx") {
+      this.props.dispatch(
+        actions.showConfTxPage({
+          isContractExecutionByUser: this.props.isContractExecutionByUser,
+        })
+      );
     } else {
-      this.props.dispatch(actions.goHome())
+      this.props.dispatch(actions.goHome());
     }
   }
 
-  radioHandler (event) {
+  radioHandler(event) {
     switch (event.target.title) {
-      case 'Coinbase':
-        return this.props.dispatch(actions.coinBaseSubview())
-      case 'ShapeShift':
-        return this.props.dispatch(actions.shapeShiftSubview(this.props.provider.type))
+      case "Coinbase":
+        return this.props.dispatch(actions.coinBaseSubview());
+      case "ShapeShift":
+        return this.props.dispatch(
+          actions.shapeShiftSubview(this.props.provider.type)
+        );
     }
   }
 }
@@ -196,10 +279,10 @@ BuyButtonSubview.propTypes = {
   context: PropTypes.string,
   provider: PropTypes.object,
   isContractExecutionByUser: PropTypes.bool,
-}
+};
 
-function mapStateToProps (state) {
-  const accounts = getMetaMaskAccounts(state)
+function mapStateToProps(state) {
+  const accounts = getMetaMaskAccounts(state);
   return {
     identity: state.appState.identity,
     account: accounts[state.appState.buyView.buyAddress],
@@ -207,10 +290,14 @@ function mapStateToProps (state) {
     buyView: state.appState.buyView,
     network: state.metamask.network,
     provider: state.metamask.provider,
+    address: state.metamask.selectedAddress,
     context: state.appState.currentView.context,
+    conversionRate: state.metamask.conversionRate,
+    currentCurrency: state.metamask.currentCurrency,
     isSubLoading: state.appState.isSubLoading,
+
     isContractExecutionByUser: state.appState.buyView.isContractExecutionByUser,
-  }
+  };
 }
 
-module.exports = connect(mapStateToProps)(BuyButtonSubview)
+module.exports = connect(mapStateToProps)(BuyButtonSubview);

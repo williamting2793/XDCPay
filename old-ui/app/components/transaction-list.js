@@ -45,7 +45,7 @@ TransactionList.prototype.render = function () {
         style: {
           overflowY: 'auto',
           height: '100%',
-          padding: '0 30px',
+          padding: '0 13px',
           textAlign: 'center',
         },
       }, [
@@ -77,9 +77,12 @@ TransactionList.prototype.render = function () {
         }, [
           h('p', {
             style: {
-              margin: '50px 0',
+              margin: '95px 0',
+              color: '#9FA9BA',
+              // fontFamily: 'Inter',
+              fontSize: '14px',
             },
-          }, 'No transaction history.'),
+          }, 'No transaction history'),
         ]),
       ]),
     ])

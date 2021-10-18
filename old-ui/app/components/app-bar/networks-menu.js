@@ -54,15 +54,19 @@ class NetworksMenu extends Component {
         zIndex={11}
         style={{
           position: 'absolute',
-          left: '2px',
-          top: '38px',
-          width: '270px',
+          bottom: '18px',
+          width: '317px',
           maxHeight: isOpen ? '524px' : '0px',
         }}
         innerStyle={{
-          padding: '2px 16px 2px 0px',
+          // padding: '2px 16px 2px 0px',
+          padding: 0
         }}
       >
+        <div className='select-network-list'>
+          Select Network
+          <img className='select-network-close-icon' onClick={() => this.props.updateNetworksMenuOpenState(!isOpen)} src='/images/Assets/Close.svg'></img>
+        </div>
 
         {networksView}
 
@@ -70,13 +74,13 @@ class NetworksMenu extends Component {
           key={'default'}
           closeMenu={() => this.props.updateNetworksMenuOpenState(!isOpen)}
           onClick={() => {
-            props.setRpcTarget('http://localhost:8545')
+            props.setRpcTarget('https://localhost:8545')
             props.setProviderType(LOCALHOST)
           }}
           style={{
             paddingLeft: '20px',
-            fontSize: '16px',
-            color: providerType === LOCALHOST ? 'white' : '',
+            fontSize: '14px',
+            color: providerType === LOCALHOST ? '#2A2A2A' : '',
           }}
         >
           {providerType === LOCALHOST ? <div className="selected-network" /> : null}
@@ -111,7 +115,7 @@ class NetworksMenu extends Component {
           onClick={() => props.setProviderType(networkObj.providerName)}
           style={{
             paddingLeft: '20px',
-            color: providerType === networkObj.providerName ? 'white' : '',
+            color: providerType === networkObj.providerName ? '#2149B9' : '',
           }}
         >
           {providerType === networkObj.providerName ? <div className="selected-network" /> : null}
@@ -211,7 +215,7 @@ class NetworksMenu extends Component {
             closeMenu={() => this.props.updateNetworksMenuOpenState(false)}
             style={{
               paddingLeft: '20px',
-              color: 'white',
+              color: '#2149B9',
             }}
           >
             <div className="selected-network" />

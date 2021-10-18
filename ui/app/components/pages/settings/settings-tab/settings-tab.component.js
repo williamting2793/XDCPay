@@ -165,7 +165,7 @@ export default class SettingsTab extends PureComponent {
     if (validUrl.isWebUri(newRpc)) {
       setRpcTarget(newRpc)
     } else {
-      const appendedRpc = `http://${newRpc}`
+      const appendedRpc = `https://${newRpc}`
 
       if (validUrl.isWebUri(appendedRpc)) {
         displayWarning(this.context.t('uriErrorMsg'))

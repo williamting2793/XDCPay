@@ -14,8 +14,8 @@ const LockIcon = props => (
   <svg
     version="1.1"
     id="Capa_1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
+    xmlns="https://www.w3.org/2000/svg"
+    xmlnsXlink="https://www.w3.org/1999/xlink"
     x="0px"
     y="0px"
     width="401.998px"

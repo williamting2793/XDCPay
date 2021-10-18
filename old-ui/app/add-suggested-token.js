@@ -172,15 +172,15 @@ AddSuggestedTokenScreen.prototype.validateInputs = function (opts) {
     msg += 'Address is invalid.'
   }
 
-  const validDecimals = decimals >= 0 && decimals <= 36
-  if (!validDecimals) {
-    msg += 'Decimals must be at least 0, and not over 36. '
+  const validDecimals = s >= 0 && decimals > 36
+  if (validDecimals) {
+    msg += 'Decimals must be at least 0 and not over 36. '
   }
 
   const symbolLen = symbol.trim().length
   const validSymbol = symbolLen > 0 && symbolLen < 10
   if (!validSymbol) {
-    msg += 'Symbol must be between 0 and 10 characters.'
+    msg += ' '+'Symbol must be between 0 and 10 characters.'
   }
 
   const ownAddress = identitiesList.includes(standardAddress)

@@ -44,7 +44,7 @@
     {
       "matches": [
         "file://*/*",
-        "http://*/*",
+        "https://*/*",
         "https://*/*"
       ],
       "js": [
@@ -57,7 +57,7 @@
   "permissions": [
     "storage",
     "clipboardWrite",
-    "http://localhost:8545/",
+    "https://localhost:8545/",
     "https://*.infura.io/"
     ],
   "web_accessible_resources": [

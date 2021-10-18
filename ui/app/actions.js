@@ -757,10 +757,11 @@ function addNewAccount() {
           dispatch(actions.displayWarning(err.message));
           return reject(err);
         }
+        console.log(newIdentities,'+++++')
         const newAccountAddress = Object.keys(newIdentities).find(
           (address) => !oldIdentities[address]
         );
-
+      
         dispatch(actions.hideLoadingIndication());
 
         forceUpdateMetamaskState(dispatch);
@@ -1246,6 +1247,7 @@ function sendTx(txData) {
   log.info(`actions - sendTx: ${JSON.stringify(txData.txParams)}`);
   return (dispatch, getState) => {
     log.debug(`actions calling background.approveTransaction`);
+    dispatch(actions.clearSend());
     background.approveTransaction(txData.id, (err) => {
       if (err) {
         err = err.message || err.error || err;
@@ -2827,7 +2829,7 @@ function removeCustomRPC(url, provider) {
     return new Promise((resolve, reject) => {
       background.removeRpcUrl(url, (err, _url) => {
         if (provider.type === "rpc" && url === provider.rpcTarget) {
-          dispatch(actions.setProviderType("poa"));
+          dispatch(actions.setProviderType("xdc"));
         }
         dispatch(actions.hideLoadingIndication());
         if (err) {

@@ -10,6 +10,7 @@ const {
   // CLASSIC,
   XDC,
   XDC_TESTNET,
+  // XDC_DEVNET,
   // POA_CODE,
   // DAI_CODE,
   // POA_SOKOL_CODE,
@@ -21,6 +22,7 @@ const {
   // CLASSIC_CODE,
   XDC_CODE,
   XDC_TESTNET_CODE,
+  // XDC_DEVNET_CODE,
   // POA_DISPLAY_NAME,
   // DAI_DISPLAY_NAME,
   // POA_SOKOL_DISPLAY_NAME,
@@ -32,6 +34,7 @@ const {
   // CLASSIC_DISPLAY_NAME,
   XDC_DISPLAY_NAME,
   XDC_TESTNET_DISPLAY_NAME,
+  // XDC_DEVNET_DISPLAY_NAME,
   // DROPDOWN_POA_DISPLAY_NAME,
   // DROPDOWN_DAI_DISPLAY_NAME,
   // DROPDOWN_POA_SOKOL_DISPLAY_NAME,
@@ -43,10 +46,11 @@ const {
   // DROPDOWN_CLASSIC_DISPLAY_NAME,
   DROPDOWN_XDC_DISPLAY_NAME,
   DROPDOWN_XDC_TESTNET_DISPLAY_NAME,
+  // DROPDOWN_XDC_DEVNET_DISPLAY_NAME,
   chainTypes,
 } = require('./enums')
 
-const { TEST, PROD } = chainTypes
+const { TEST, PROD, TEST1} = chainTypes
 const networks = {}
 
 // const POA_OBJ = {
@@ -169,6 +173,16 @@ const XDC_TESTNET_OBJ = {
 networks[XDC_TESTNET_CODE] = XDC_TESTNET_OBJ
 networks[XDC_TESTNET] = XDC_TESTNET_OBJ
 
+// const XDC_DEVNET_OBJ = {
+//   order: 3,
+//   chainType: TEST1,
+//   providerName: XDC_DEVNET,
+//   networkID: XDC_DEVNET_CODE,
+//   displayName: XDC_DEVNET_DISPLAY_NAME,
+//   displayNameDropdown: DROPDOWN_XDC_DEVNET_DISPLAY_NAME,
+// }
+// networks[XDC_DEVNET_CODE] = XDC_DEVNET_OBJ
+// networks[XDC_DEVNET] = XDC_DEVNET_OBJ
 const getNetworkDisplayName = key => networks[key].displayName
 
 module.exports = {

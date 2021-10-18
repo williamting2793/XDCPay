@@ -3,7 +3,7 @@ const h = require('react-hyperscript')
 const inherits = require('util').inherits
 const ethNetProps = require('xdc-net-props')
 const { networks } = require('../../../app/scripts/controllers/network/util')
-
+// const { rcpName } = require(ui/app/actions)
 module.exports = Network
 
 inherits(Network, Component)
@@ -33,14 +33,16 @@ Network.prototype.render = function () {
         },
         src: 'images/loading.svg',
       }),
-      h('i.fa.fa-caret-down'),
+      h('img',{className: '', src: "/images/Assets/DownArrow.svg"}),
     ])
   } else {
     if (networkNumber && networks[networkNumber]) {
       displayName = networks[networkNumber].displayNameDropdown
       hoverText = ethNetProps.props.getNetworkDisplayName(networkNumber)
     } else {
-      displayName = 'XDC Private Network'
+      // networkName = provider.rpcName,
+      // networkName = networkName.replace(https.'')
+      displayName = `XDC Private Network`
       hoverText = `Private Network (${provider.rpcTarget})`
     }
   }
@@ -55,7 +57,7 @@ Network.prototype.render = function () {
         return h(props.isUnlocked ? '.network-indicator' : '.network-indicator.hidden', [
           h('.network-name',
           displayName),
-          props.onClick && h('i.fa.fa-caret-down.fa-lg'),
+          props.onClick && h('img',{className: '', src: "/images/Assets/DownArrow.svg"}),
         ])
       })(),
     ])

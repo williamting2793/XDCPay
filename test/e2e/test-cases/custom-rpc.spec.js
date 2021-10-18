@@ -2,9 +2,9 @@ const assert = require('assert')
 const { screens, menus, NETWORKS } = require('../elements')
 
 const customRPC = async (f) => {
-	const invalidStringUrl = 'http://lwkdfowi**&#v er'
+	const invalidStringUrl = 'https://lwkdfowi**&#v er'
     const urlWithoutHttp = 'infura.com'
-    const invalidEndpoint = 'http://abrakadabrawdjkwjeciwkasuhlvflwe.com'
+    const invalidEndpoint = 'https://abrakadabrawdjkwjeciwkasuhlvflwe.com'
     const correctRpcUrl = 'https://core.poa.network/test'
 
     it('switches to settings screen through menu \'Network -> Custom RPC\'', async function () {

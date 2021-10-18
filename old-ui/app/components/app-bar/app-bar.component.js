@@ -82,22 +82,35 @@ module.exports = class AppBar extends Component {
       <div
         className="full-width"
         height="38px"
+        style={{
+          visibility: isUnlocked ? 'visible' : 'hidden',
+        }}
       >
         <div className="app-header flex-row flex-space-between"
           style={{
             alignItems: 'center',
-            visibility: isUnlocked ? 'visible' : 'none',
-            background: 'white',
+            // visibility: isUnlocked ? 'visible' : 'none',
+            background: '#E3E7EB',
             height: '38px',
             position: 'relative',
             zIndex: 12,
           }}
         >
-          <div className="app-bar-left-menu-section">
+          <div className="app-bar-left-menu-section"
+            style={{
+              background: '#ffffff',
+              borderRadius: '15px',
+              width: '118px',
+              height: '29px',
+            }}
+          >
             <img
               height={24}
               width={24}
-              src={'./images/icon-128.png'}
+              src={'./images/Assets/XDC-Icon@2x.png'}
+              style={{
+                marginLeft: '3px',
+              }}
             />
             <NetworkIndicator
               network={network}
@@ -111,7 +124,7 @@ module.exports = class AppBar extends Component {
             />
           </div>
           {isUnlocked && (
-            <div className="app-bar-right-menus-section">
+            <div style={{visibility: isOnboarding ? 'hidden' : 'visible'}} className="app-bar-right-menus-section">
               <AccountDropdowns
                 enableAccountsSelector={true}
                 identities={identities}
@@ -145,23 +158,32 @@ module.exports = class AppBar extends Component {
     } = this.state
 
     return (
-      <div className="full-width app-bar-header-container">
+      <div className="full-width app-bar-header-container"
+      style={{
+        visibility: isUnlocked ? 'visible' : 'none',
+      }}
+      >
+        
         <div
           className="app-header flex-row flex-space-between"
           style={{
             alignItems: 'center',
-            visibility: isUnlocked ? 'visible' : 'none',
-            background: isUnlocked ? 'white' : 'none',
+            // visibility: isUnlocked ? 'visible' : 'none',
+            // background: isUnlocked ? 'white' : 'none',
             height: '38px',
             position: 'relative',
             zIndex: 12,
           }}
         >
-          <div className="app-bar-left-menu-section">
+          <div className="app-bar-left-menu-section"
+            style={{
+              visibility: isUnlocked ? 'visible' : 'none',
+            }}
+          >
             <img
               height={24}
               width={24}
-              src={'./images/icon-128.png'}
+              src={'./images/Assets/XDC-Icon-16X16.png'}
             />
             <NetworkIndicator
               network={network}

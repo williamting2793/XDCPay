@@ -52,13 +52,14 @@ BnAsDecimalInput.prototype.render = function () {
           max: newMax,
           style: extend({
             display: 'block',
-            textAlign: 'right',
+            textAlign: 'left',
             backgroundColor: 'transparent',
             height: '32px',
-            borderRadius: '3px',
-            border: '1px solid #e2e2e2',
+            borderRadius: '4px',
+            border: '2px solid #C7CDD8',
             fontFamily: 'Nunito Regular',
             fontSize: '14px',
+            paddingLeft: '10px',
           }, style),
           value: newValue,
           onBlur: (event) => {
@@ -83,31 +84,34 @@ BnAsDecimalInput.prototype.render = function () {
             return false
           },
         }),
-        h('div', {
-          style: {
-            color: ' #333333',
-            fontFamily: 'Nunito Regular',
-            fontSize: '14px',
-            marginLeft: '5px',
-            width: '29px',
-            lineHeight: '32px',
-          },
-        }, suffix),
+        // h('div', {
+        //   style: {
+        //     color: ' #333333',
+        //     fontFamily: 'Nunito Regular',
+        //     fontSize: '14px',
+        //     marginLeft: '5px',
+        //     width: '29px',
+        //     lineHeight: '32px',
+        //   },
+        // }, suffix),
       ]),
 
       state.invalid ? h('div', {
         style: {
-          paddingLeft: '30px',
-          paddingRight: '30px',
-          background: 'rgba(255, 255, 255, 0.85)',
-          position: 'absolute',
-          top: props.id === 'gas_limit' ? '180px' : '250px',
-          left: '0px',
+          // paddingLeft: '30px',
+          // paddingRight: '30px',
+          // background: 'rgba(255, 255, 255, 0.85)',
+          // position: 'absolute',
+          // top: props.id === 'gas_limit' ? '180px' : '250px',
+          // left: '0px',
+          marginTop: '10px',
         },
       }, [
         h('div.error', {
           style: {
             zIndex: props.id === 'gas_limit' ? '1' : '2',
+            backgroundPosition: 'left',
+            backgroundPositionX: '15px'
           },
         }, state.invalid),
       ]) : null,
@@ -125,7 +129,7 @@ BnAsDecimalInput.prototype.updateValidity = function (event) {
   const newValue = target.value
 
   if (value === newValue) {
-    return
+    return 
   }
 
   const valid = target.checkValidity()
@@ -142,11 +146,11 @@ BnAsDecimalInput.prototype.constructWarning = function () {
   let message = name ? name + ' ' : ''
 
   if (min && max) {
-    message += `must be greater than or equal to  ${newMin} ${suffix} and less than or equal to ${newMax} ${suffix}.`
+    message += `must be greater than ${newMin} and less than ${newMax}.`
   } else if (min) {
-    message += `must be greater than or equal to ${newMin} ${suffix}.`
+    message += `must be greater than ${newMin}.`
   } else if (max) {
-    message += `must be less than or equal to ${newMax} ${suffix}.`
+    message += `must be less than or equal to ${newMax}.`
   } else {
     message += 'Invalid input.'
   }

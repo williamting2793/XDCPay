@@ -10,6 +10,7 @@ const networkIDs = {
 	XDAI_CODE: 100,
 	XDC_CODE: 50,
 	XDC_TESTNET_CODE: 51,
+	XDC_DEVNET_CODE: 551,
 }
 
 module.exports = {

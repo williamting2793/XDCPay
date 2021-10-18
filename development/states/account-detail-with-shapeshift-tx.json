@@ -98,7 +98,7 @@
       "0xeb9e64b93097bc15f01f13eae97015c57ab64823": {
         "name": "Wallet 3",
         "address": "0xeb9e64b93097bc15f01f13eae97015c57ab64823",
-        "mayBeFauceting": false
+        "mayBeing": false
       },
       "0x704107d04affddd9b66ab9de3dd7b095852e9b69": {
         "name": "Wallet 4",

@@ -56,31 +56,45 @@ class SendTransactionScreen extends PersistentForm {
     return (
 
       <div className="send-screen flex-column flex-grow">
-        <SendProfile isToken={true} token={token} />
         <SendHeader title={`Send ${this.state.token.symbol} Tokens`} />
+        <SendProfile isToken={true} token={token} />
+        
         <ErrorComponent error={error} />
         <section className="flex-row flex-center">
           <EnsInput
             name="address"
-            placeholder="Recipient Address"
+            placeholder="Wallet Address"
             onChange={() => this.recipientDidChange.bind(this)}
             network={network}
             identities={identities}
             addressBook={addressBook}
           />
         </section>
-        <section className="flex-row flex-center">
+        
+        <section className="flex-column flex-center">
+        <div style={{ 
+          marginTop:'16px',
+          fontSize: '12px', 
+          fontWeight: 'bold',
+          lineHeight: 1,
+          marginRight: '219px',
+          }}>Amount
+        </div>
           <input className="large-input"
             name="amount"
             value={amount}
             onChange={(e) => this.amountDidChange(e.target.value)}
-            placeholder="Amount"
+            placeholder="0.00"
             type="number"
             style={{
-              marginRight: '6px',
+              width: '265px',
             }}
           />
-          <button
+          <button style={{
+              width: '265px',
+              height: '40px',
+              marginTop: '35px',
+            }}
             onClick={() => this.onSubmit()}
             disabled={nextDisabled}
           >Next

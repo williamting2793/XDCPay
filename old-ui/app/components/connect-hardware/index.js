@@ -221,11 +221,12 @@ class ConnectHardwareForm extends Component {
     return (
       <div style={{width: '100%'}}>
         <div className="section-title flex-row flex-center">
-          <i className="fa fa-arrow-left fa-lg cursor-pointer"
+          <img className="cursor-pointer"
+            src="/images/Assets/BackArrow.svg"
             onClick={() => this.props.goHome() }
             style={{
               position: 'absolute',
-              left: '30px',
+              left: '15px',
           }}/>
           <h2>Connect to hardware wallet</h2>
         </div>
