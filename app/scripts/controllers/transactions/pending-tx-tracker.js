@@ -1,6 +1,7 @@
 const EventEmitter = require('events')
 const log = require('loglevel')
 const EthQuery = require('ethjs-query')
+const Web3 = require('web3');
 
 /**
 
@@ -28,6 +29,7 @@ class PendingTransactionTracker extends EventEmitter {
     this.getCompletedTransactions = config.getCompletedTransactions
     this.publishTransaction = config.publishTransaction
     this.confirmTransaction = config.confirmTransaction
+    this.web3Query = new Web3(config.provider)
   }
 
   /**
@@ -148,7 +150,18 @@ class PendingTransactionTracker extends EventEmitter {
 
     // get latest transaction status
     try {
-      const txParams = await this.query.getTransactionReceipt(txHash)
+      // const txParams = await this.query.getTransactionReceipt(txHash)
+      const txParams = await this.web3Query.eth.getTransaction(txHash , (error, data) => {
+        if (data && data.blockNumber) {
+          this.emit('tx:confirmed', txId)
+        } else if (error){
+          txMeta.warning = {
+            error: error.message,
+            message: 'There was a problem loading this transaction.',
+          }
+          this.emit('tx:warning', txMeta, error)
+        }
+      })
       if (!txParams) return
       if (txParams.blockNumber) {
         this.emit('tx:confirmed', txId)

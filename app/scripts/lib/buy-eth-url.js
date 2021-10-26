@@ -117,17 +117,17 @@ function getExchanges ({network, amount, address}) {
       ]
     case XDC_CODE:
       return [
-        {
-          name: 'AlphaEx',
-          link: 'https://www.alphaex.net/',
-        },
+        // {
+        //   name: 'AlphaEx',
+        //   link: 'https://www.alphaex.net/',
+        // },
         {
           name: 'Indodax',
-          link: 'https://indodax.com/market/XDCEIDR',
+          link: 'https://indodax.com/market/XDCIDR',
         },
         {
           name: 'Mercatox',
-          link: 'https://mercatox.com/exchange/XDCE/BTC',
+          link: 'https://mercatox.com/exchange/XDC/BTC',
         },
       ]
     default:
