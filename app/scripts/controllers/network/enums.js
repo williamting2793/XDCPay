@@ -9,6 +9,7 @@ const GOERLI_TESTNET = 'goerli_testnet'
 const CLASSIC = 'classic'
 const XDC = 'xdc'
 const XDC_TESTNET = 'xdc_testnet'
+const XDC_DEVNET = 'xdc_devnet'
 const LOCALHOST = 'localhost'
 
 const POA_CODE = 99
@@ -22,6 +23,7 @@ const GOERLI_TESTNET_CODE = 5
 const CLASSIC_CODE = 61
 const XDC_CODE = 50
 const XDC_TESTNET_CODE = 51
+const XDC_DEVNET_CODE =  551
 
 const POA_DISPLAY_NAME = 'POA Core'
 const DAI_DISPLAY_NAME = 'xDai Chain'
@@ -32,8 +34,9 @@ const RINKEBY_DISPLAY_NAME = 'Rinkeby'
 const KOVAN_DISPLAY_NAME = 'Kovan'
 const GOERLI_TESTNET_DISPLAY_NAME = 'Görli Testnet'
 const CLASSIC_DISPLAY_NAME = 'Ethereum Classic'
-const XDC_DISPLAY_NAME = 'XDC MainNet'
-const XDC_TESTNET_DISPLAY_NAME = 'XDC Apothem TestNet'
+const XDC_DISPLAY_NAME = 'XDC Mainnet'
+const XDC_TESTNET_DISPLAY_NAME = 'XDC Apothem Testnet'
+const XDC_DEVNET_DISPLAY_NAME = 'XDC Devnet'
 
 const DROPDOWN_POA_DISPLAY_NAME = POA_DISPLAY_NAME
 const DROPDOWN_DAI_DISPLAY_NAME = DAI_DISPLAY_NAME
@@ -44,12 +47,15 @@ const DROPDOWN_RINKEBY_DISPLAY_NAME = 'Rinkeby Test Net'
 const DROPDOWN_KOVAN_DISPLAY_NAME = 'Kovan Test Net'
 const DROPDOWN_GOERLI_TESTNET_DISPLAY_NAME = 'Görli Test Net'
 const DROPDOWN_CLASSIC_DISPLAY_NAME = 'Ethereum Classic'
-const DROPDOWN_XDC_DISPLAY_NAME = 'XDC MainNet'
-const DROPDOWN_XDC_TESTNET_DISPLAY_NAME = 'XDC Apothem TestNet'
+const DROPDOWN_XDC_DISPLAY_NAME = 'XDC Mainnet'
+const DROPDOWN_XDC_TESTNET_DISPLAY_NAME = 'XDC Apothem Testnet'
+const DROPDOWN_XDC_DEVNET_DISPLAY_NAME = 'XDC Devnet'
 
 const chainTypes = {
   TEST: 1,
   PROD: 2,
+  TEST1: 3,
+
 }
 
 module.exports = {
@@ -64,6 +70,7 @@ module.exports = {
   CLASSIC,
   XDC,
   XDC_TESTNET,
+  XDC_DEVNET,
   LOCALHOST,
   POA_CODE,
   DAI_CODE,
@@ -76,6 +83,7 @@ module.exports = {
   CLASSIC_CODE,
   XDC_CODE,
   XDC_TESTNET_CODE,
+  XDC_DEVNET_CODE,
   POA_DISPLAY_NAME,
   DAI_DISPLAY_NAME,
   POA_SOKOL_DISPLAY_NAME,
@@ -87,6 +95,7 @@ module.exports = {
   CLASSIC_DISPLAY_NAME,
   XDC_DISPLAY_NAME,
   XDC_TESTNET_DISPLAY_NAME,
+  XDC_DEVNET_DISPLAY_NAME,
   DROPDOWN_POA_DISPLAY_NAME,
   DROPDOWN_DAI_DISPLAY_NAME,
   DROPDOWN_POA_SOKOL_DISPLAY_NAME,
@@ -98,5 +107,6 @@ module.exports = {
   DROPDOWN_CLASSIC_DISPLAY_NAME,
   DROPDOWN_XDC_DISPLAY_NAME,
   DROPDOWN_XDC_TESTNET_DISPLAY_NAME,
+  DROPDOWN_XDC_DEVNET_DISPLAY_NAME,
   chainTypes,
 }

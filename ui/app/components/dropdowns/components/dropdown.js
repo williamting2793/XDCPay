@@ -41,7 +41,7 @@ class Dropdown extends Component {
           'style',
           `
           li.dropdown-menu-item:hover {
-            color:rgb(225, 225, 225);
+            color:#2A2A2A;
             background-color: rgba(255, 255, 255, 0.05);
             border-radius: 4px;
           }
@@ -91,7 +91,7 @@ class DropdownMenuItem extends Component {
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'center',
-          color: 'white',
+          color: '#2A2A2A',
         }, style),
       },
       children

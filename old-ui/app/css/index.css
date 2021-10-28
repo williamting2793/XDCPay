@@ -14,7 +14,7 @@ application specific styles
 }
 
 html, body {
-  font-family: 'Nunito Regular';
+  font-family: 'Inter-Regular';
   color: #333333;
   font-weight: 300;
   line-height: 1.4em;
@@ -37,9 +37,10 @@ html {
 }
 
 .address-dropdown {
-  background-image: url(../images/more.svg);
-  width: 30px;
+  background-image: url(/images/Assets/options.svg);
+  width: 45px;
   height: 24px;
+  margin-top: -15px;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -50,6 +51,7 @@ html {
  
 .account-detail-section::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: none;
 }
  
 .account-detail-section::-webkit-scrollbar-thumb {
@@ -100,18 +102,14 @@ input:focus, textarea:focus {
 }
 
 button, input[type="submit"] {
-  font-family: 'Nunito Bold';
+  font: normal normal medium 14px/17px Inter-Regular;
   outline: none;
   cursor: pointer;
-  padding-left: 15px;
-  padding-right: 15px;
-  height: 32px;
-  /* width: 265px; */
   border: none;
   color: white;
   transform-origin: center center;
   transition: transform 50ms ease-in;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 14px;
   /* default green */
   background: #03BE46;
@@ -119,7 +117,7 @@ button, input[type="submit"] {
 }
 
 .btn-green, input[type="submit"].btn-green {
-  background: #03BE46;
+  background: #60db97;
 }
 
 .btn-red {
@@ -141,9 +139,9 @@ button.spaced {
   margin: 2px;
 }
 
-button:not([disabled]):hover, input[type="submit"]:not([disabled]):hover {
+/* button:not([disabled]):hover, input[type="submit"]:not([disabled]):hover {
   transform: scale(1.1);
-}
+} */
 button:not([disabled]):active, input[type="submit"]:not([disabled]):active {
   transform: scale(0.95);
 }
@@ -182,25 +180,24 @@ button.btn-thin {
 }
 
 .app-header {
-  padding: 6px 8px;
+  padding: 4px 5px;
 }
 
 .app-header h1 {
-  font-family: 'Nunito Regular';
+  font-family: 'Inter-Regular';
   text-transform: uppercase;
   color: #AEAEAE;
   background: #ffffff;
 }
 
 .notice-box {
-  margin: 20px;
+  margin: 16px 17px 6px 17px;
 }
 
 h2.page-subtitle {
-  font-family: 'Nunito Regular';
+  font-family: 'Inter-Bold';
   color: #333333;
   font-size: 1em;
-  margin: 12px;
 }
 
 .app-footer {
@@ -217,15 +214,27 @@ h2.page-subtitle {
 }
 
 textarea {
-  border: 1px solid #e2e2e2;
-  border-radius: 3px;
+  border: 2px solid #C7CDD8;
+  border-radius: 4px;
 }
 
 textarea.twelve-word-phrase {
-  font-family: 'Nunito Regular';
+  font-family: 'Inter-Regular';
   padding: 12px;
-  width: 300px;
-  height: 140px;
+  margin-top: 17px;
+  width: 265px;
+  height: 128px;
+  font-size: 14px;
+  background: white;
+  resize: none;
+}
+
+input.textarea.recipient-address {
+  font-family: 'Nunito Regular';
+  width: 265px;
+  padding-top: 4px;
+  padding-left: 8px;
+  padding-right: 32px;
   font-size: 14px;
   background: white;
   resize: none;
@@ -234,16 +243,16 @@ textarea.twelve-word-phrase {
 .network-indicator {
   display: flex;
   align-items: center;
-  font-size: 0.6em;
+  font-size: 9px;
 
 }
 
 .network-name {
-  width: 5.2em;
+  width: 68px;
   line-height: 9px;
   text-rendering: geometricPrecision;
-  padding-left: 9px;
-  color: #6729a8;
+  padding-left: 5px;
+  color: #2A2A2A;
 }
 
 .check {
@@ -321,18 +330,51 @@ app sections
 
 .error {
   margin-bottom: 9px;
-  border: 1px solid #ff1345 !important;
-  color: #ff1345 !important;
+  /* border: 1px solid #ff1345 !important; */
+  color: #FF0035 !important;
   font-size: 12px;
-  background: rgba(255,19,69, 0.1);
-  border-radius: 3px;
+  background: #FFF2F5;
+  border-radius: 4px;
   text-align: left;
-  padding: 10px 10px 10px 34px;
+  padding: 8px 9px 9px 39px;
   background-image: url('../images/warning.svg');
-  background-position: 10px 10px;
+  background-position: 15px;
+  background-repeat: no-repeat;
+  /* width: 100%; */
+  line-height: 14px;
+  font-family: Inter-Regular;
+}
+
+.error1 {
+  margin-bottom: 9px;
+  /* border: 1px solid #ff1345 !important; */
+  color: #FF0035 !important;
+  font-size: 12px;
+  background: #FFF2F5;
+  border-radius: 4px;
+  text-align: left;
+  padding: 8px 9px 9px 42px;
+  background-image: url('../images/warning.svg');
+  background-position: 15px;
   background-repeat: no-repeat;
   width: 100%;
   line-height: 14px;
+  font-family: Inter-Regular;
+}
+
+.error-login {
+  color: #FF0035 !important;
+  font-size: 12px;
+  background: #FFF2F5;
+  border-radius: 4px;
+  text-align: left;
+  padding: 8px 9px 9px 39px;
+  background-image: url(../images/warning.svg);
+  background-position: 15px;
+  background-repeat: no-repeat;
+  width: 265px;
+  line-height: 14px;
+  font-family: Inter-Regular;
 }
 
 .warning {
@@ -341,10 +383,18 @@ app sections
 
 p.buy-option {
   margin-bottom: 10px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   color: #6729a8;
 }
 
+/* .buy-arrow{
+  background-image: url('/images/Assets/downarrow-2.svg');
+}
+
+.send-arrow{
+  background-image: url('/images/Assets.downarrow-2-1.svg');
+
+} */
 .new-tx {
   background-image: url('../images/new-tx.svg');
   width: 21px;
@@ -397,25 +447,25 @@ p.buy-option {
 }
 
 .clipboard::before {
-  content: url('../images/copy.svg');
+  content: url('../images/Assets/Copy.svg');
   width: 14px;
   height: 14px;
 }
 
 .clipboard.white::before {
-  content: url('../images/copy-white.svg');
+  content: url('/images/Assets/copy.svg');
 }
 
 .sandwich-expando {
-  background-image: url('../images/menu.svg');
-  background-size: 14px 12px;
+  background-image: url('../images/Assets/BlueMenu.svg');
+  background-size: 20px 21px;
   background-repeat: no-repeat;
   background-position: right;
 }
 
 .sandwich-expando.expanded {
-  background-image: url('../images/close.svg');
-  background-size: 12px 12px;
+  /* background-image: url('../images/Assets/BlueClose.png'); */
+  background-size: 20px 21px;
   background-repeat: no-repeat;
   background-position: right;
 }
@@ -438,31 +488,108 @@ p.buy-option {
          (min-device-pixel-ratio: 1.3),
          (min-resolution: 1.3dppx) {
   .logo {
-    background-image: url(../images/XDCPay.svg);
-    background-size: 83px 125px;
+    background-image: url(../images/Assets/XDCPay.png);
+    background-size: 78px 92px;
   }
 }
 
 .logo {
-  background-image: url(../images/XDCPay.svg);
+  background-image: url(../images/Assets/XDCPay.png);
   background-repeat: no-repeat;
-  width: 83px;
-  height: 125px;
-  margin-top: 30px;
+  width: 78px;
+  height: 92px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-network-list {
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 12px;
+    padding-top: 15px;
+    padding-left: 114px;
+}
+.select-network-close-icon {
+  margin-left: 86px;
+  cursor: pointer;
+}
+
+.my-accounts-list {
+  font-size: 12px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  padding-top: 15px;
+  padding-left: 120px;
+}
+.my-accounts-close-icon {
+  margin-left: 95px;
+  cursor: pointer;
+}
+.my-accounts-icon {
+  margin-right: 10px;
+}
+
+.wallet-options-list {
+  font-size: 12px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  padding-top: 15px;
+  padding-left: 115px;
+}
+.wallet-options-close-icon {
+  margin-left: 90px;
+  cursor: pointer;
+}
+.wallet-options-icon {
+  margin-left: 13px;
+  margin-right: 8px;
+}
+
+.account-options-list {
+  font-size: 12px;
+  font-weight: 600;
+  padding-bottom: 17px;
+  padding-top: 20px;
+  padding-left: 109px;
+}
+.account-options-close-icon {
+  margin-left: 86px;
+  cursor: pointer;
+}
+.account-options-icon {
+  margin-left: 13px;
+  margin-right: 8px;
+}
+
+.token-options-list {
+  font-size: 12px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  padding-top: 15px;
+  padding-left: 116px;
+}
+.token-options-close-icon {
+  margin-left: 92px;
+  cursor: pointer;
+}
+.token-options-icon {
+  margin-left: 13px;
+  margin-right: 13px;
 }
 
 .selected-network {
-  width: 4px;
-  height: 26px;
-  background: #60db97;
+  width: 17px;
+  height: 17px;
+  background-Image: url(../images/Assets/Check-Blue.svg);
   position: absolute;
-  left: 0;
+  object-fit: cover;
+  right: 21px;
 }
 
 .section-title {
-  border-top: 1px solid #e2e2e2;
-  height: 80px;
-  font-family: 'Nunito Semibold';
+  margin-top: 20px;
+  /* font-family: 'Inter'; */
 }
 
 .trash:after {
@@ -471,9 +598,9 @@ p.buy-option {
   height: 12px;
 }
 
-.section-title .fa-arrow-left {
+/* .section-title .fa-arrow-left { */
   /*margin: -2px 8px 0px -8px;*/
-}
+/* } */
 
 .unlock-screen #metamask-mascot-container {
   margin-top: 80px;
@@ -481,13 +608,13 @@ p.buy-option {
 
 .unlock-screen h1 {
   margin-top: -28px;
-  margin-bottom: 42px;
+  margin-bottom: 15px;
 }
 
 .unlock-screen input[type=password] {
   width: 210px;
   border-radius: 3px;
-  borderColor:darkgrey;
+  border: none;
   /*height: 36px;
   margin-bottom: 24px;
   padding: 8px;*/
@@ -515,7 +642,7 @@ p.buy-option {
 /* Firefox 18- */
 .unlock-screen input:-moz-placeholder {
   text-align: left;
-  font-size: 14pxm;
+  font-size: 14px;
 }
 /* Firefox 19+ */
 .unlock-screen input::-moz-placeholder {
@@ -533,7 +660,7 @@ input.large-input, textarea.large-input {
   padding: 0px 10px;
   border-radius: 3px;
   border: 1px solid #e2e2e2;
-  font-family: 'Nunito Regular';
+  font-family: 'Inter-Regular';
   font-size: 14px;
 }
 
@@ -604,7 +731,7 @@ input.large-input {
 }
 
 .identity-panel .identity-data {
-  margin: 8px 8px 8px 18px;
+  /* margin: 8px 8px 8px 18px; */
 }
 
 .identity-panel i {
@@ -626,13 +753,13 @@ input.large-input {
 
 /* accounts screen */
 
-.identity-section {
+/* .identity-section {
 
-}
+} */
 
 .identity-section .identity-panel {
   background: #E9E9E9;
-  border-bottom: 1px solid #B1B1B1;
+  border-bottom: 1px solid #E3E7EB;
   cursor: pointer;
 }
 
@@ -667,6 +794,7 @@ input.large-input {
 }
 
 .name-label{
+  /* margin-left: 18px; */
 
 }
 
@@ -692,13 +820,15 @@ input.large-input {
 }
 
 .cell.label {
-  font-family: 'Nunito Regular';
-  font-size: 14px;
+  font-family: 'Inter-Regular';
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
   white-space: nowrap;
 }
 
 .cell.value {
-  font-family: 'Nunito Bold';
+  font-family: 'Inter-Bold';
   font-size: 14px;
 }
 
@@ -708,11 +838,11 @@ input.large-input {
 }
 .editing-label {
   display: flex;
-  justify-content: flex-start;
-  margin-left: 50px;
+  justify-content: center;
+  /* margin-left: 50px; */
   font-size: 11px;
   text-rendering: geometricPrecision;
-  color: #60db97;
+  color: #2149B9;
 }
 .name-label:hover .edit-text {
   visibility: visible;
@@ -731,9 +861,9 @@ input.large-input {
 
 /* Send Screen */
 
-.send-screen {
+/* .send-screen {
 
-}
+} */
 
 .send-screen section {
   margin: 10px 30px;
@@ -742,8 +872,13 @@ input.large-input {
 .send-screen input {
   width: 100%;
   font-size: 14px;
-  border: 1px solid #e2e2e2;
-  border-radius: 3px;
+  border: 2px solid #C7CDD8;
+  border-radius: 4px;
+}
+
+.send-eth-container {
+  display: flex;
+  justify-content: right;
 }
 
 /* Ether Balance Widget */
@@ -757,7 +892,7 @@ input.large-input {
 }
 
 .info{
-  font-family: 'Nunito Regular';
+  font-family: 'Inter-Regular';
   padding-bottom: 10px;
   display: inline-block;
 }
@@ -801,7 +936,7 @@ input.large-input {
 
 .radio-titles-subtext {
   color: #777777;
-  font-family: 'Nunito SemiBold';
+  font-family: 'Inter-SemiBold';
 }
 
 .selected-exchange {
@@ -820,14 +955,14 @@ input.large-input {
 
 .select-service {
   color: #333333;
-  padding: 0px 0px 20px 30px;
+  padding: 29px 0px 0px 21px;
   justify-content: left;
-  font-family: Nunito Semibold;
+  /* font-family: 'Inter'; */
 }
 
-.buy-radio {
+/* .buy-radio {
 
-}
+} */
 
 .eth-warning{
   transition: opacity 400ms ease-in, transform 400ms ease-in;
@@ -842,7 +977,7 @@ input.large-input {
 }
 
 .buy-inputs{
-  font-family: 'Nunito Light';
+  font-family: 'Inter-Light';
   font-size: 13px;
   height: 20px;
   background: transparent;
@@ -870,11 +1005,13 @@ input.large-input {
 
 .activeForm {
   background: #ffffff;
-  color: #333333;
-  border: none;
-  border-radius: 8px 8px 0px 0px;
+  color: #2149B9;
+  border-bottom: 3px solid #2149B9;
   width: 50%;
+  /* font-family: Inter; */
   text-align: center;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .activeForm.left {
@@ -886,16 +1023,20 @@ input.large-input {
 }
 
 .inactiveForm {
-  background: #4188fe;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px 8px 0px 0px;
+  background: #ffffff;
+  color: #848484;
+  /* border: none;
+  border-radius: 8px 8px 0px 0px; */
+  border-bottom: 1px solid #E3E7EB;
   width: 50%;
+  /* font-family: 'Inter'; */
   text-align: center;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .ex-coins {
-  font-family: 'Nunito SemiBold';
+  font-family: 'Inter-SemiBold';
   text-align: center;
   font-size: 16px;
   width: 70px;
@@ -904,7 +1045,7 @@ input.large-input {
 }
 
 .marketinfo{
-  font-family: 'Nunito SemiBold';
+  font-family: 'Inter-SemiBold';
   color: #777777;
   font-size: 14px;
   line-height: 17px;
@@ -938,7 +1079,7 @@ input.large-input {
 
 .inactive button{
     background: #AEAEAE;
-    color: white;
+    color: 'blue';
 }
 
 .ellip-address {
@@ -946,15 +1087,20 @@ input.large-input {
   text-overflow: ellipsis;
   width: 5em;
   font-size: 14px;
-  font-family: "Nunito Regular";
+  font-family: "Inter-Regular";
   margin-left: 5px;
   color: #777777;
 }
 
 .qr-header {
+  font-family: "Inter-SemiBold";
+  font-size: 16px;
+  margin-top: 25px;
+}
+.qr-header1 {
   font-family: "Nunito SemiBold";
   font-size: 16px;
-  margin-bottom: 30px;
+  margin-top: 17px;
 }
 
 .qr-message {
@@ -1129,7 +1275,7 @@ div.message-container > div:first-child {
   position: relative;
   border: 1px solid #dedede;
   box-shadow: 0 0 2px 2px #dedede;
-  font-family: Roboto;
+  font-family: 'Inter';
 }
 
 .notification-modal__header {
@@ -1204,4 +1350,53 @@ div.message-container > div:first-child {
 
 input[disabled],textarea[disabled] {
   background: #FFFADE
+}
+
+.xdc-logo {
+  margin-top: 20px;
+}
+
+.success-logo {
+  margin-right: 5px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+ 
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 223px;
+  background-color: #ffffff;
+  color: #2A2A2A;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 9px;
+  position: absolute;
+  z-index: 1;
+  top: 143%;
+  left: 50%;
+  margin-left: -180px;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 1px solid #E3E7EB;
+  font-family: Inter-Medium;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  background-image: "/images/Assets/QuestionMarkActive.svg";
+  position: absolute;
+  bottom: 102%;
+  left: 87%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #E3E7EB transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  
 }

@@ -304,7 +304,7 @@ NetworkDropdown.prototype.renderCommonRpc = function (rpcList, provider) {
   return reversedRpcList.map((rpc) => {
     const currentRpcTarget = provider.type === 'rpc' && rpc === provider.rpcTarget
 
-    if ((rpc === 'http://localhost:8545') || currentRpcTarget) {
+    if ((rpc === 'https://localhost:8545') || currentRpcTarget) {
       return null
     } else {
       return h(
@@ -348,7 +348,7 @@ NetworkDropdown.prototype.renderCustomOption = function (provider) {
 
   switch (rpcTarget) {
 
-    case 'http://localhost:8545':
+    case 'https://localhost:8545':
       return null
 
     default:

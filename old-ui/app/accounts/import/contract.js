@@ -70,8 +70,10 @@ class ContractImportView extends Component {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        padding: '5px 0px 0px 0px',
+        padding: '0 20px',
+        fontSize: '12px',
+        fontFamily: 'Inter-SemiBold',
+        marginTop: '-15px',
       }}>
         <ErrorComponent error={error} />
         <span>Paste address of contract here</span>
@@ -82,7 +84,8 @@ class ContractImportView extends Component {
           onChange={(e) => this.addressOnChange(e.target.value)}
           style={{
             width: '100%',
-            marginTop: '12px',
+            border: '2px solid #C7CDD8',
+            // marginTop: '12px',
           }}
         />
         <span style={{ marginTop: '20px' }}>Paste ABI of contract here
@@ -100,7 +103,7 @@ class ContractImportView extends Component {
           value={this.state.abi}
           onChange={(e) => this.abiOnChange(e.target.value) }
           style={{
-            marginTop: '12px',
+            // marginTop: '12px',
             width: '100%',
             height: '50px',
           }}
@@ -109,9 +112,9 @@ class ContractImportView extends Component {
         <button
           disabled={this.state.importDisabled}
           onClick={(e) => this.createNewKeychain(e)}
-          style={{ margin: '20px' }}
+          style={{ marginTop: '25px', height: '40px' }}
         >Import</button>
-        {error ? <span className="error">{error}</span> : null}
+        {/* {error ? <span className="error">{error}</span> : null} */}
       </div>
     )
   }

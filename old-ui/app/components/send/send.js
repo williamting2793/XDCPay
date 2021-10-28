@@ -61,30 +61,28 @@ SendTransactionScreen.prototype.render = function () {
         isSuccess: false,
       }),
 
+      
+      //
+      // Send Header
+      //
+
+      h(SendHeader, {
+        title: 'Send',
+      }),
+
       //
       // Sender Profile
       //
 
       h(SendProfile),
 
-      //
-      // Send Header
-      //
 
-      h(SendHeader, {
-        title: 'Send Transaction',
-      }),
-
-      // error message
-      h(ErrorComponent, {
-        error,
-      }),
-
+      
       // 'to' field
       h('section.flex-row.flex-center', [
         h(EnsInput, {
           name: 'address',
-          placeholder: 'Recipient Address',
+          placeholder: 'Wallet Address',
           onChange: this.recipientDidChange.bind(this),
           network,
           identities,
@@ -92,55 +90,82 @@ SendTransactionScreen.prototype.render = function () {
         }),
       ]),
 
-      // 'amount' and send button
-      h('section.flex-row.flex-center', [
-
+      // 'amount'
+      h('div',{style:{
+        fontSize: '12px',
+        fontFamily: 'Inter-Semibold',
+        lineHeight: '25px',
+        marginLeft: '46px',
+        marginTop: '15px',
+      }},'Amount'),
+      h('section.flex-column.flex-center', {style:{
+        width: '265px',
+        margin: '-5px 0 0 46px',
+      }},
+      [
         h('input.large-input', {
           name: 'amount',
-          placeholder: 'Amount',
+          placeholder: '0.00',
           type: 'number',
           style: {
-            marginRight: '6px',
           },
           dataset: {
             persistentFormId: 'tx-amount',
           },
         }),
-
-        h('button', {
-          onClick: this.onSubmit.bind(this),
-        }, 'Next'),
-
       ]),
 
       //
       // Optional Fields
       //
-      h('h3.flex-center', {
+      h('div', {
         style: {
-          background: '#ffffff',
-          color: '#333333',
-          marginTop: '16px',
-          marginBottom: '16px',
+          fontSize: '12px',
+          fontFamily: 'Inter-Semibold',
+          lineHeight: '25px',
+          marginLeft: '46px',
+          marginTop: '30px',
         },
       }, [
-        'Transaction Data (optional)',
+        'Transaction Note (optional)',
       ]),
 
       // 'data' field
       h('section.flex-column.flex-center', [
         h('input.large-input', {
           name: 'txData',
-          placeholder: '0x01234',
+          placeholder: '',
           style: {
-            width: '100%',
+            width: '265px',
             resize: 'none',
+            marginTop: '-15px'
           },
           dataset: {
             persistentFormId: 'tx-data',
           },
         }),
       ]),
+      
+      // error message
+      h('div', { style: { margin: "0 45px" },}, [
+                       
+        h(ErrorComponent, {
+          error,
+        }),
+      ]),
+      
+
+
+      // Send button
+      h('button', { style: {
+        width: '265px',
+        height: '40px',
+        marginTop: '25px',
+        marginLeft: '46px',
+      },
+        onClick: this.onSubmit.bind(this),
+      }, 'Next'),
+
     ])
   )
 }
@@ -180,7 +205,7 @@ SendTransactionScreen.prototype.onSubmit = function () {
   let message
 
   if (isNaN(input) || input === '') {
-    message = 'Invalid ether value.'
+    message = 'Invalid XDC value.'
     return this.props.dispatch(actions.displayWarning(message))
   }
 

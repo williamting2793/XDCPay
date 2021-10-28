@@ -43,7 +43,7 @@ EthBalanceComponent.prototype.renderBalance = function (value) {
   var balance
   var splitBalance = value.split(' ')
   var ethNumber = splitBalance[0]
-  var ethSuffix = splitBalance[1]
+  var ethSuffix = splitBalance[2]
   const showFiat = 'showFiat' in props ? props.showFiat : true
 
   if (props.shorten) {

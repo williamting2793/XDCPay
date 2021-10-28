@@ -289,7 +289,7 @@
   "gasLimit": {
     "message": "Gas limit"
   },
-  "gasLimitCalculation": {
+  "gasLimit": {
     "message": "Priporočen gas limit je izračunan glede na omrežje."
   },
   "gasLimitRequired": {

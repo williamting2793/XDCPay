@@ -30,6 +30,7 @@ TransactionIcon.prototype.render = function () {
         h('i.new-tx', {
           style: {
             marginLeft: '10px',
+            // marginRight: '29px',
           },
         }),
       ])
@@ -46,6 +47,7 @@ TransactionIcon.prototype.render = function () {
   if (txParams.to) {
     return h(Identicon, {
       diameter: 40,
+      
       address: txParams.to || transaction.hash,
     })
   } else {

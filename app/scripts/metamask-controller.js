@@ -62,7 +62,8 @@ const {
   CLASSIC_CODE,
   MAINNET_CODE,
   XDC_CODE,
-  XDC_TESTNET_CODE } = require('./controllers/network/enums')
+  XDC_TESTNET_CODE,
+  XDC_DEVNET_CODE} = require('./controllers/network/enums')
 const accountsPerPage = 5
 
 module.exports = class MetamaskController extends EventEmitter {
@@ -202,6 +203,8 @@ module.exports = class MetamaskController extends EventEmitter {
     this.txController.on('newUnapprovedTx', () => opts.showUnapprovedTx())
 
     this.txController.on(`tx:status-update`, (txId, status) => {
+      console.log('transaction successful')
+
       if (status === 'confirmed' || status === 'failed') {
         const txMeta = this.txController.txStateManager.getTx(txId)
         this.platform.showTransactionNotification(txMeta)
@@ -980,12 +983,12 @@ module.exports = class MetamaskController extends EventEmitter {
    */
   async importAccountWithStrategy (strategy, args) {
     let keyring
-    if (strategy === importTypes.CONTRACT.DEFAULT || strategy === importTypes.CONTRACT.PROXY) {
+    if (strategy === importTypes.PRIVATE_KEY || strategy === importTypes.PRIVATE_KEY) {
+      const privateKey = await accountImporter.importAccount(strategy, args)
+      keyring = await this.keyringController.addNewKeyring('Simple Key Pair', [privateKey])
+    } else {
       args.contractType = strategy
       keyring = await this.keyringController.addNewKeyring('Simple Address', args)
-    } else {
-      const privateKey = await accountImporter.importAccount(strategy, args)
-      keyring = await this.keyringController.addNewKeyring('Simple Key Pair', [ privateKey ])
     }
     const accounts = await keyring.getAccounts()
     // update accounts in preferences controller
@@ -1575,7 +1578,7 @@ module.exports = class MetamaskController extends EventEmitter {
     })
     .map(number => number && number.div(GWEI_BN).toNumber()).filter(number => typeof number !== 'undefined' && number !== 0)
 
-    if (networkId === XDC_CODE || networkId === XDC_TESTNET_CODE) {
+    if (networkId === XDC_CODE || networkId === XDC_TESTNET_CODE || networkId === XDC_DEVNET_CODE)  {
       if (lowestPrices.length === 0) {
         lowestPrices.push(1)
       }

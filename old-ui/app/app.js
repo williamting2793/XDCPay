@@ -115,7 +115,7 @@ App.prototype.render = function () {
   const isLoadingNetwork = network === 'loading' && currentView.name !== 'config' && currentView.name !== 'delete-rpc'
   const networkName = provider.type === 'rpc' ? `${this.getNetworkName()} (${provider.rpcTarget})` : this.getNetworkName()
   const loadMessage = loadingMessage || isLoadingNetwork ?
-    `Connecting to ${networkName}` : null
+    `Connecting to selected network` : null
   log.debug('Main ui render function')
 
   const confirmMsgTx = (props.currentView.name === 'confTx' && Object.keys(props.unapprovedTxs).length === 0)
@@ -319,22 +319,24 @@ App.prototype.renderPrimary = function () {
           width: '100%',
         },
       }, [
-        h('.section-title.flex-row.flex-center', [
-          h('i.fa.fa-arrow-left.fa-lg.cursor-pointer', {
+        h('.section-title.flex-row.flex-center', {style:{marginTop: '38px',},},[
+          h('img', { src: "/images/Assets/BackArrow.svg",
             onClick: () => props.dispatch(actions.backToAccountDetail(props.selectedAddress)),
             style: {
-              marginLeft: '30px',
-              marginTop: '5px',
+              marginLeft: '15px',
+              marginTop: '-17px',
               position: 'absolute',
               left: '0',
+              cursor: 'pointer',
             },
           }),
           h('h2.page-subtitle', {
             style: {
-              fontFamily: 'Nunito SemiBold',
-              marginTop: '10px',
+              // fontFamily: 'Nunito SemiBold',
+              marginTop: '-14px',
               marginBottom: '0px',
               textAlign: 'center',
+              fontWeight: 'bold',
             },
           }, 'QR Code'),
         ]),

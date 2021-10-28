@@ -27,7 +27,8 @@ MenuDroppoComponent.prototype.render = function () {
   style.overflow = 'hidden'
 
   return (
-    h('.menu-droppo-container', {
+    h('.menu-droppo-container',
+     {
       ref: 'menuDroppoContainer',
       style,
     }, [

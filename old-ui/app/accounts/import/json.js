@@ -24,18 +24,20 @@ class JsonImportSubview extends Component {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          padding: '5px 0px 0px 0px',
+          padding: '0 20px',
         },
       }, [
 
-        h('p', 'Used by a variety of different clients'),
+        h('p',{style:{fontSize: '14.5px', fontfamily: 'Inter-Regular'}}, 'Used by a variety of different clients'),
 
         h(FileInput, {
           readAs: 'text',
           onLoad: this.onLoad.bind(this),
           style: {
-            margin: '20px 0px 12px 20px',
+            marginTop: '25px',
             fontSize: '15px',
+            width: '257px',
+            fontFamily: 'Inter-Regular',
           },
         }),
 
@@ -46,19 +48,21 @@ class JsonImportSubview extends Component {
           onKeyPress: this.createKeyringOnEnter.bind(this),
           style: {
             width: '100%',
-            marginTop: 12,
-            border: '1px solid #e2e2e2',
+            marginTop: '25px',
+            border: '2px solid #C7CDD8',
           },
         }),
 
         h('button', {
           onClick: this.createNewKeychain.bind(this),
           style: {
-            margin: 20,
+            marginTop: '25px',
+            width: '257px',
+            height: '40px',
           },
         }, 'Import'),
 
-        error ? h('span.error', error) : null,
+        error ? h('span.error',{style: {marginTop: '20px',}}, error) : null,
       ])
     )
   }

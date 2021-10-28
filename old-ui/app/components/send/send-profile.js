@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import Identicon from '../identicon'
 import { addressSummary } from '../../util'
-import EthBalance from '../eth-balance'
-import TokenBalance from '../token-balance'
+import EthBalance from '../eth-balance-send'
+import TokenBalance from '../token-balance-send'
 import { getMetaMaskAccounts } from '../../../../ui/app/selectors'
 
 class SendProfile extends Component {
@@ -21,50 +21,69 @@ class SendProfile extends Component {
 		} = props
 		return (
 			<div
-				className="account-data-subsection flex-row flex-grow"
+				className="account-data-subsection flex-column flex-grow"
 				style={{
-					background: '#2050fd',
-					padding: '30px',
-					minHeight: '178px',
+					marginLeft: '46px',
+					marginTop: '37px',
 				}}
 			>
 				{/* header - identicon + nav */}
-				<div className="flex-row flex-space-between">
+				{/* <div className="flex-row flex-space-between">
 					{/* large identicon*/}
-					<div
-					className="identicon-wrapper flex-column flex-center select-none"
-					style={{ display: 'inline-block' }}
-					>
-						<Identicon diameter={62} address={address} />
-					</div>
+					{/* <div */}
+					{/* className="identicon-wrapper flex-column flex-center select-none" */}
+					{/* style={{ display: 'inline-block' }} */}
+					{/* > */}
+						{/* <Identicon diameter={62} address={address} /> */}
+					{/* </div> */}
 					{/* invisible place holder */}
-					<i className="fa fa-users fa-lg invisible" style={{ marginTop: '28px' }} />
-				</div>
+					{/* <i className="fa fa-users fa-lg invisible" style={{ marginTop: '28px' }} /> */}
+				{/* </div> */}
 				{/* account label */}
-				<div className="flex-column" style={{ alignItems: 'flex-start' }} >
-					<h2
+				<div style={{
+					textAlign: 'left',
+					fontSize:'12px', 
+					fontFamily: 'Inter-Semibold',
+					lineHeight: '15px',
+					}}>
+						Send From
+				</div>
+				<div style={{
+					background: '#F8F8F8',
+					border: '2px solid #C7CDD8',
+					borderRadius: '4px',
+					width:'265px',
+					height: '32px',
+					paddingLeft: '9px',
+					paddingTop: '4px',
+				}}>
+				<div className="flex-row" style={{ alignItems: 'flex-start' }} >
+					<div
 						className="send-profile-identity-name font-medium flex-center"
 						style={{
-							color: '#ffffff',
-							paddingTop: '8px',
-							marginBottom: '8px',
+							color: '#2A2A2A',
+							fontSize: '14px',
 						}}
-					>{identity && identity.name}</h2>
+					>{identity && identity.name}</div>
 					{/* address and getter actions */}
 					<div
 						className="flex-row flex-center"
 						style={{
-							color: 'rgba(255, 255, 255, 0.7)',
-							marginBottom: '30px',
+							color: '#2A2A2A',
+							fontSize: '14px',
+							paddingLeft: '4px',
+							paddingRight: '4px',
 						}}
 					>
-						<div className="send-profile-address" style={{ lineHeight: '16px', fontSize: '14px' }}>
+						-
+					</div>
+						<div className="send-profile-address" style={{ fontSize: '14px', }}>
 							{addressSummary(network, address)}
 						</div>
 					</div>
 					{/* balance */}
-					<div className="flex-row flex-center">
-						{isToken ? <TokenBalance token={token} /> : <EthBalance {...{
+					<div className="send-eth-container">
+					{isToken ? <TokenBalance token={token} /> : <EthBalance {...{
 							value: account && account.balance,
 							conversionRate,
 							currentCurrency,

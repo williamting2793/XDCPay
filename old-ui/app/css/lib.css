@@ -123,9 +123,9 @@
   transform-origin: center center;
   transition: transform 50ms ease-in-out;
 }
-.cursor-pointer:hover {
+/* .cursor-pointer:hover {
   transform: scale(1.1);
-}
+} */
 .cursor-pointer:active {
   transform: scale(0.95);
 }
@@ -298,8 +298,8 @@ i.fa.fa-question-circle.fa-lg.menu-icon {
 
 @media screen and (min-width: 575px) and (max-width: 800px) {
   .account-data-subsection {
-    flex: 0 0 auto !important; // reset flex
-    margin-left: 10px !important; // create additional horizontal space
+    flex: 0 0 auto !important; /*reset flex */
+    margin-left: 10px !important; /* create additional horizontal space */
     margin-right: 10px !important;
     width: 40%;
   }

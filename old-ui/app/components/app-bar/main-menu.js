@@ -37,27 +37,37 @@ class MainMenu extends Component {
         }}
         style={{
           position: 'absolute',
-          right: '2px',
-          top: '38px',
-          width: '126px',
+          bottom: '18px',
+          width: '317px',
           maxHeight: isOpen ? '186px' : '0px',
           overflow: 'hidden',
+          marginLeft: '19px',
         }}
       >
+        <div className='wallet-options-list'>
+          Wallet Options
+          <img className='wallet-options-close-icon' onClick={() => this.props.changeState(isMainMenuOpen)} src='/images/Assets/Close.svg'></img>
+        </div>
         <DropdownMenuItem
           closeMenu={() => this.props.changeState(isMainMenuOpen)}
           onClick={() => { this.props.showConfigPage() }}
-        >Settings</DropdownMenuItem>
-
-        <DropdownMenuItem
-          closeMenu={() => this.props.changeState(isMainMenuOpen)}
-          onClick={() => { this.props.lockMetamask() }}
-        >Log Out</DropdownMenuItem>
+        >
+          <img className='wallet-options-icon' src='/images/Assets/Settings.svg'></img>
+          Settings</DropdownMenuItem>
 
         <DropdownMenuItem
           closeMenu={() => this.props.changeState(isMainMenuOpen)}
           onClick={() => { this.props.showInfoPage() }}
-        >Info/Help</DropdownMenuItem>
+        >
+          <img className='wallet-options-icon' src='/images/Assets/Info.svg'></img>
+          Info/Help</DropdownMenuItem>
+
+        <DropdownMenuItem
+          closeMenu={() => this.props.changeState(isMainMenuOpen)}
+          onClick={() => { this.props.lockMetamask() }}
+        >
+          <img className='wallet-options-icon' src='/images/Assets/Logout.svg'></img>
+          Logout</DropdownMenuItem>
       </Dropdown>
     )
   }

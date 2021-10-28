@@ -11,26 +11,54 @@ const {
 	XDC_CODE,
 	CLASSIC_CODE,
 	XDC_TESTNET_CODE,
+	XDC_DEVNET_CODE,
 } = networkIDs
 
 const xdcLink = (prefix) => `https://explorer.${prefix}.network`
+const devLink = (prefix) =>  `https://${prefix}.apothem.network`
+
 
 const getExplorerAccountLinkFor = (account, network) => {
 	const prefix = getExplorerPrefix(network)
-	return `${xdcLink(prefix)}/addr/${account}`
+	if (prefix === 'devnetscan') {
+		return `${devLink(prefix)}/address/${account}`
+	}
+	else if (prefix === 'xinfin') {
+		return `${xdcLink(prefix)}/addr/${account}`
+	}
+	else
+	return `${xdcLink(prefix)}/address/${account}`
 }
+
 
 const getExplorerTxLinkFor = (hash, network) => {
 	const prefix = getExplorerPrefix(network)
 	// const chain = getExplorerChain(network)
+	if (prefix === 'devnetscan') {
+		return `${devLink(prefix)}/tx/${account}`
+	}
+	else if (prefix === 'xinfin') {
+		return `${xdcLink(prefix)}/tx/${account}`
+	}
+	else
 	return `${xdcLink(prefix)}/tx/${hash}`
 }
+
+
 
 const getExplorerTokenLinkFor = (tokenAddress, account, network) => {
 	const prefix = getExplorerPrefix(network)
 	// const chain = getExplorerChain(network)
-	return `${xdcLink(prefix)}/token/${tokenAddress}`
+	if (prefix === 'devnetscan') {
+		return `${devLink(prefix)}/tokens/${tokenAddress}`
+	}
+	else if (prefix === 'xinfin') {
+		return `${xdcLink(prefix)}/token/${tokenAddress}`
+	}
+	else
+	return `${xdcLink(prefix)}/tokens/${tokenAddress}`
 }
+
 
 function getExplorerChain (network) {
 	const net = parseInt(network)
@@ -92,6 +120,9 @@ function getExplorerPrefix (network) {
 		break
 	case XDC_TESTNET_CODE:
 		prefix = 'apothem'
+		break
+	case XDC_DEVNET_CODE:
+		prefix = 'devnetscan'
 		break	
 	default:
 		prefix = ''
@@ -103,4 +134,5 @@ module.exports = {
 	getExplorerAccountLinkFor,
 	getExplorerTxLinkFor,
 	getExplorerTokenLinkFor,
+	
 }

@@ -48,7 +48,7 @@ ExportAccountView.prototype.render = function () {
           h('div', {
             key: 'exporting',
             style: {
-              margin: '0 30px',
+              margin: '0 46px',
             },
           }, [
             h('p.error', {
@@ -67,22 +67,43 @@ ExportAccountView.prototype.render = function () {
                 top: '27px',
                 marginBottom: '20px',
                 width: '100%',
-                padding: '10px',
+                padding: '8px 10px',
+                border: '2px solid #C7CDD8',
               },
             }),
           ]),
           h('div', {
             key: 'buttons',
             style: {
-              margin: '25px 30px',
+              marginTop: '30px',
             },
           },
             [
               h('button.btn-violet', {
                 onClick: () => this.props.dispatch(actions.backToAccountDetail(this.props.address)),
+                style: {
+                  display: 'flex',
+            			position: 'absolute',
+            			left: '46px',
+            			height: '40px',
+        			    width: '119px',
+        			    paddingLeft: '37px',
+        			    paddingTop: '12px',
+            			background: '#FF0035',
+                },
               }, 'Cancel'),
               h('button', {
                 onClick: () => this.onExportKeyPress({ key: 'Enter', preventDefault: () => {} }),
+                style: {
+                  display: 'flex',
+            			position: 'absolute',
+            			right: '46px',
+            			height: '40px',
+        			    width: '119px',
+        			    paddingLeft: '39px',
+        			    paddingTop: '12px',
+            			// background: '#FF0035',
+                },
               }, 'Submit'),
             ]),
           (this.props.warning) && (
@@ -90,7 +111,7 @@ ExportAccountView.prototype.render = function () {
               margin: '0 30px',
             }},
             [
-              h('div.error', this.props.warning.split('-')),
+              h('div.error',{style: {marginTop: '92px', marginLeft: '16px', width: '265px'},}, this.props.warning.split('-')),
             ]
           )
         ),
@@ -144,10 +165,41 @@ ExportAccountView.prototype.render = function () {
       }, [
         h('button.btn-violet', {
           onClick: () => exportAsFile(`XDCPay ${nickname} Private Key`, plainKey),
-        }, 'Save as File'),
+          style: {
+            // marginTop: '56px',
+            fontSize: '0.9em',
+            background: '#ffffff',
+            color: '#0CBE46',
+            width: '122px',
+            height: '40px',
+            border: '1px solid #0CBE46',
+            display: 'flex',
+            position: 'absolute',
+            paddingLeft: '8px',
+            paddingTop: '7px',
+          },
+        },
+        [
+          h('img', {
+          style:{
+            marginRight: '6px',
+          },
+           src: "/images/Assets/Download.svg"}),
+           h('div',{style: {
+              marginTop: '4px',
+           },},
+        'Save as File'),]),
+        // }, 'Save as File'),
         h('button', {
           style: {
-            marginLeft: '10px',
+            display: 'flex',
+            position: 'absolute',
+            right: '30px',
+            height: '40px',
+            width: '122px',
+            paddingLeft: '45px',
+            paddingTop: '12px',
+            // background: '#FF0035',
           },
           onClick: () => this.props.dispatch(actions.backToAccountDetail(this.props.address)),
         }, 'Done'),

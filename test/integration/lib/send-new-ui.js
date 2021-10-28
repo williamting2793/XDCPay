@@ -112,7 +112,7 @@ async function runSendFlowTest (assert, done) {
   errorMessage = $('.send-v2__error')
   assert.equal(errorMessage.length, 0, 'send should stop rendering amount error message after amount is corrected')
 
-  await customizeGas(assert, 0, 21000, '0 ETH', '$0.00 USD')
+  await customizeGas(assert, 0, 21000, '0 ETH', '$1.00 USD')
   await customizeGas(assert, 1, 21000, '0.000021 ETH', '$0.03 USD')
   await customizeGas(assert, 500, 60000, '0.03 ETH', '$36.03 USD')
 

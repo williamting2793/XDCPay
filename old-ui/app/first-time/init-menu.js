@@ -59,29 +59,57 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
       // }, 'XDCPay'),
 
 
-      h('div', [
+      h('div',{
+        style:{
+          marginTop: '40px',
+          display: 'flex',
+          flexDirection: 'row-reverse',
+          marginLeft: '-22px',
+        },
+      }, 
+        [
         h('h3', {
           style: {
             fontSize: '15px',
             color: '#2a2a2a',
             display: 'inline',
-            
+            fontWeight: 'bold',
           },
         }, 'Encrypt your new DEN'),
 
-        h(Tooltip, {
-          title: 'Your DEN is your password-encrypted storage within XDCPay.',
-        }, [
-          h('i.fa.fa-question-circle.pointer', {
+      //   h(Tooltip, {
+      //     title: 'Your DEN is your password-encrypted storage within XDCPay.',
+      //   }, [
+      //     h('img', { src: "/images/Assets/QuestionMark.svg",
+      //       style: {
+      //         position: 'relative',
+      //         top: '3px',
+      //         marginLeft: '6px',
+      //         marginTop: '48px',
+      //       },
+      //     }),
+      //   ]),
+      h('div',{className:'tooltip'},
+      [
+        h('img', { src: "/images/Assets/QuestionMark.svg",
             style: {
-              fontSize: '18px',
-              position: 'relative',
-              color: '#60db97',
-              top: '2px',
-              marginLeft: '4px',
-            },
-          }),
-        ]),
+              marginRight: '-22px',
+              paddingTop: '3px',
+              paddingLeft: '5px'
+              },
+        }),
+        // h('img', onmouseover={ src: "/images/Assets/QuestionMarkActive.svg",
+        //     style: {
+        //       marginRight: '-22px',
+        //       paddingTop: '3px',
+        //       paddingLeft: '5px'
+        //       },
+        //     }),
+        h('span',{className: 'tooltiptext'},
+          'Your DEN is your password-encrypted Storage within XDC Pay'
+        ),
+      ]
+      )
       ]),
 
       state.warning ? h('div', {
@@ -99,9 +127,11 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
         id: 'password-box',
         placeholder: 'New Password (min 8 chars)',
         style: {
-          width: 260,
-          marginTop: 12,
-          borderColor: '#C7CDD8',
+          width: 265,
+          height: 40,
+          marginTop: 15,
+          border: '2px solid #C7CDD8',
+          borderRadius: 4,
         },
       }),
 
@@ -111,11 +141,12 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
         id: 'password-box-confirm',
         placeholder: 'Confirm Password',
         onKeyPress: this.createVaultOnEnter.bind(this),
-        
         style: {
-          width: 260,
-          marginTop: 16,
-          borderColor: '#C7CDD8',
+          width: 265,
+          height: 40,
+          marginTop: 15,
+          border: '2px solid #C7CDD8',
+          borderRadius: 4,
         },
       }),
 
@@ -123,7 +154,9 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
       h('button', {
         onClick: this.createNewVaultAndKeychain.bind(this),
         style: {
-          margin: 12,
+          marginTop: 29,
+          width: 265,
+          height: 40,
         },
       }, 'Create'),
 
@@ -131,10 +164,11 @@ InitializeMenuScreen.prototype.renderMenu = function (state) {
         h('p.pointer', {
           onClick: this.showRestoreVault.bind(this),
           style: {
-            fontSize: '0.8em',
+            fontSize: '14px',
             color: '#2149B9',
+            marginTop: '74px',
           },
-        }, 'Import Existing DEN'),
+        }, 'Import Existing Den'),
       ]),
 
     ])
@@ -167,12 +201,12 @@ InitializeMenuScreen.prototype.createNewVaultAndKeychain = function () {
   var passwordConfirm = passwordConfirmBox.value
 
   if (password.length < 8) {
-    this.warning = 'password not long enough'
+    this.warning = 'Password is not long enough'
     this.props.dispatch(actions.displayWarning(this.warning))
     return
   }
   if (password !== passwordConfirm) {
-    this.warning = 'passwords don\'t match'
+    this.warning = 'Passwords don\'t match'
     this.props.dispatch(actions.displayWarning(this.warning))
     return
   }

@@ -1,6 +1,7 @@
 /* cyrillic-ext */
 @import url('/fonts/Font_Awesome/font-awesome.min.css');
 
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -15,6 +16,14 @@
   font-weight: 100;
   src: local('Roboto Thin'), local('Roboto-Thin'), url('fonts/Roboto/Roboto-Thin.ttf') format('truetype');
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* Inter*/
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Inter'), local('Inter'), url('../../../app/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+  
 }
 /* greek-ext */
 @font-face {
@@ -374,7 +383,7 @@
 @font-face {
   font-family: 'Nunito Regular';
     src: url('/fonts/Nunito/Nunito-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: normal;  
   font-style: normal;
 }
 
@@ -397,4 +406,39 @@
     src: url('/fonts/Nunito/Nunito-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-Regular';
+    src: url('/fonts/Inter/static/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-Bold';
+    src: url('/fonts/Inter/static/Inter-Bold.ttf') format('truetype');
+    font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-Medium';
+    src: url('/fonts/Inter/static/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-Light';
+    src: url('/fonts/Inter/static/Inter-Light.ttf') format('truetype');
+    font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter-SemiBold';
+    src: url('/fonts/Inter/static/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+  font-style: normal;
 }

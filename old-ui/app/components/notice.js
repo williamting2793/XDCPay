@@ -19,10 +19,12 @@ Notice.prototype.render = function () {
   const disabled = state.disclaimerDisabled
 
   return (
+    
     h('.flex-column.flex-center.flex-grow', {
       style: {
         width: '100%',
         fontFamily: 'Nunito SemiBold',
+        background: '#ffffff',
       },
     }, [
       h('style', `
@@ -32,8 +34,8 @@ Notice.prototype.render = function () {
         }
 
         .markdown h1, .markdown h2, .markdown h3 {
-          margin: 20px 0;
-          line-height: 18px;
+          margin: 16px 0;
+          line-height: 16px;
           font-weight: normal;
         }
 
@@ -45,31 +47,39 @@ Notice.prototype.render = function () {
         }
 
         .markdown p {
-          margin: 20px 0;
-          line-height: 18px;
-          font-weight: normal;
+          margin: 10px 0;
+          line-height: 17px;
+        
+        }
+
+        .markdown b {
+          font-weight: bold;
         }
 
         .markdown a {
-          color: #60db97;
+          color: #2149B9;
         }
 
-        .markdown::-webkit-scrollbar {
-            width: 16px;
-        }
+        // .markdown::-webkit-scrollbar {
+        //     width: 16px;
+        // }
          
-        .markdown::-webkit-scrollbar-track {
-            background-color: transparent;
-        }
+        // .markdown::-webkit-scrollbar-track {
+        //     background-color: transparent;
+        // }
          
-        .markdown::-webkit-scrollbar-thumb {
-          background-color: #ffffff;
-          border-radius: 2px;
-          border: 6px solid transparent;
-          background-clip: content-box;
-        }
+        // .markdown::-webkit-scrollbar-thumb {
+        //   background-color: #411a6a;
+        //   border-radius: 2px;
+        //   border: 6px solid transparent;
+        //   background-clip: content-box;
+        // }
 
-      `), [
+      `),
+      h('img',{className: 'xdc-logo', src: "/images/Assets/XDCPay.svg"},
+        
+      ),
+       [
         h('h3.flex-center.terms-header', {
           key: 'notice-key',
           style: {
@@ -77,28 +87,30 @@ Notice.prototype.render = function () {
             width: '100%',
             fontSize: '16px',
             textAlign: 'center',
-            margin: '20px 0px',
+            marginTop: '27px',
+            marginBottom: '5px',
           },
         }, [
           title,
         ]),
         h('div.markdown', {
-          key: 'notice-div-key',
-          onScroll: (e) => {
-            var object = e.currentTarget
-            if (object.offsetHeight + object.scrollTop + 100 >= object.scrollHeight) {
-              this.setState({disclaimerDisabled: false})
-            }
-          },
+          // key: 'notice-div-key',
+          // onScroll: (e) => {
+          //   var object = e.currentTarget
+          //   if (object.offsetHeight + object.scrollTop + 100 >= object.scrollHeight) {
+          //     this.setState({disclaimerDisabled: false})
+          //   }
+          // },
           style: {
-            background: '#f8f8f8',
-            color: '#2a2a2a',
-            height: '430px',
-            width: '90%',
-            overflowY: 'scroll',
-            scroll: 'auto',
-            borderRadius: '3px',
-            fontSize: '14px',
+            background: '#F8F8F8',
+            color: '#2A2A2A',
+            // height: '270px',
+            width: '312px',
+            // overflowY: 'scroll',
+            // scroll: 'auto',
+            borderRadius: '4px',
+            fontSize: '13px',
+          
           },
         }, [
           h(ReactMarkdown, {
@@ -116,7 +128,10 @@ Notice.prototype.render = function () {
             onConfirm()
           },
           style: {
-            marginTop: '18px',
+            marginTop: '28px',
+            width: '312px',
+            height: '40px',
+            background: '#03BE46'
           },
         }, 'Accept'),
       ],

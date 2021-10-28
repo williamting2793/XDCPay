@@ -64,11 +64,11 @@ AccountPanel.prototype.genIcon = function (seed, picOrder) {
       order: picOrder === 'left' ? 1 : 3,
     },
   }, [
-    h(Identicon, {
-      diameter: 40,
-      address: seed,
-      imageify: props.imageifyIdenticons,
-    }),
+    // h(Identicon, {
+    //   diameter: 40,
+    //   address: seed,
+    //   imageify: props.imageifyIdenticons,
+    // }),
   ])
 }
 

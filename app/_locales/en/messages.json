@@ -268,7 +268,7 @@
     "message": "Custom RPC"
   },
   "decimalsMustZerotoTen": {
-    "message": "Decimals must be at least 0, and not over 36."
+    "message": "Decimals must be at least 0 and not over 36."
   },
   "decimal": {
     "message": "Decimals of Precision"
@@ -1109,7 +1109,7 @@
     "message": "Visit our Support Center"
   },
   "symbolBetweenZeroTen": {
-    "message": "Symbol must be between 0 and 10 characters."
+    "message": " Symbol must be between 0 and 10 characters."
   },
   "takesTooLong": {
     "message": "Taking too long?"

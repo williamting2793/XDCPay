@@ -276,6 +276,9 @@ describe('xdc-net-props', () => {
 		it(`${claimPrefix} XDC Testnet`, () => {
 			assert.equal(netProps.getNetworkDisplayName(31), 'XDC Testnet')
 		})
+		it(`${claimPrefix} XDC Devnet`, () => {
+			assert.equal(netProps.getNetworkDisplayName(551), 'XDC Devnet')
+		})
 		it(`${claimPrefix} Goerli Testnet`, () => {
 			assert.equal(netProps.getNetworkDisplayName(5), 'Görli Test Network')
 		})
@@ -314,6 +317,9 @@ describe('xdc-net-props', () => {
 		it(`${claimPrefix} XDC Testnet`, () => {
 			assert.equal(netProps.getNetworkCoinName(31), 'XDC')
 		})
+		it(`${claimPrefix} XDC Devnet`, () => {
+			assert.equal(netProps.getNetworkCoinName(551), 'XDC')
+		})
 		it(`${claimPrefix} Goerli Testnet`, () => {
 			assert.equal(netProps.getNetworkCoinName(5), 'GöETH')
 		})
@@ -347,6 +353,9 @@ describe('xdc-net-props', () => {
 		})
 		it('XDC Testnet is a testnet', () => {
 			assert.equal(netProps.isTestnet(31), true)
+		})
+		it('XDC Devnet is a Devnet', () => {
+			assert.equal(netProps.isTestnet(551), true)
 		})
 		it('Goerli Testnet is a testnet', () => {
 			assert.equal(netProps.isTestnet(5), true)

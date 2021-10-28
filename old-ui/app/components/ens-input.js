@@ -44,9 +44,17 @@ EnsInput.prototype.render = function () {
 
   return (
     h('div', {
-      style: { width: '100%' },
-    }, [
-      h('input.large-input', {
+      style: { 
+        width: '265px',
+        fontSize: '12px',
+        fontFamily: 'Inter-Semibold',
+        lineHeight: '15px',
+        marginTop: '31px',
+    },
+    }, [ 'Recipient Address',
+      h('input.large-input', { style: {
+          height: '51px',
+      },
         name: props.name,
         placeholder: props.placeholder,
         list: 'addresses',
@@ -58,7 +66,7 @@ EnsInput.prototype.render = function () {
           // Corresponds to the addresses owned.
           Object.keys(props.identities).map((key) => {
             const identity = props.identities[key]
-            return h('option', {
+            return h(/*'option'*/'div', {
               value: identity.address.replace('0x', 'xdc').toLowerCase(),
               label: identity.name,
               key: identity.address,
@@ -180,19 +188,19 @@ EnsInput.prototype.ensIconContents = function (recipient) {
     })
   }
 
-  if (ensResolution && (ensResolution !== ZERO_ADDRESS)) {
-    return h('i.fa.fa-check-circle.fa-lg.cursor-pointer', {
-      style: {
-        color: '#60db97',
-        background: 'white',
-      },
-      onClick: (event) => {
-        event.preventDefault()
-        event.stopPropagation()
-        copyToClipboard(ensResolution)
-      },
-    })
-  }
+  // if (ensResolution && (ensResolution !== ZERO_ADDRESS)) {
+  //   return h('i.fa.fa-check-circle.fa-lg.cursor-pointer', {
+  //     style: {
+  //       color: '#60db97',
+  //       background: 'white',
+  //     },
+  //     onClick: (event) => {
+  //       event.preventDefault()
+  //       event.stopPropagation()
+  //       copyToClipboard(ensResolution)
+  //     },
+  //   })
+  // }
 }
 
 function getNetworkEnsSupport (network) {
