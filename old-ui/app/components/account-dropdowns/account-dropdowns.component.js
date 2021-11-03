@@ -209,6 +209,26 @@ class AccountDropdowns extends Component {
             src="/images/Assets/Close.svg"
           ></img>
         </div>
+        {/* <DropdownMenuItem
+          closeMenu={() => {}}
+          onClick={() => global.platform.openExtensionInBrowser()}
+        >
+          <img
+            className="account-options-icon"
+            src="/images/Assets/ExpandedView.svg"
+          ></img>
+          Expand View
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          closeMenu={() => {}}
+          onClick={() => this.connectedSites()}
+        >
+          <img
+            className="account-options-icon"
+            src="/images/Assets/ConnectedSites.svg"
+          ></img>
+          Connected Sites
+        </DropdownMenuItem> */}
         <DropdownMenuItem
           closeMenu={() => {}}
           onClick={() => this.viewOnBlockExplorer()}

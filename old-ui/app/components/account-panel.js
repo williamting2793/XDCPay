@@ -18,15 +18,21 @@ AccountPanel.prototype.render = function () {
   var state = this.props
   var identity = state.identity || {}
   const { network, conversionRate, currentCurrency ,checksumAddress} = state
-  function shorten(b, amountL = 7, /*amountR = 4,*/ stars = 3) {
+  // function shorten(b, amountL = 7, /*amountR = 4,*/ stars = 3) {
 
-    return `${b.slice(0, amountL)}${".".repeat(stars)}${b.slice(
+  //   return `${b.slice(0, amountL)}${".".repeat(stars)}${b.slice(
   
+  //       b.length - 4,
+  
+  //       b.length
+  
+  //   )}`;
+  // }
+  function shorten(b, amountL = 7, /*amountR = 4,*/ stars = 3) {
+    return b ? `${b.slice(0, amountL)}${'.'.repeat(stars)}${b.slice(
         b.length - 4,
-  
         b.length
-  
-    )}`;
+    )}` : '' ;
   }
   var account = state.account || {}
   var isFauceting = state.isFauceting
