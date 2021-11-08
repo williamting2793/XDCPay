@@ -47,7 +47,7 @@ class Dropdown extends Component {
       borderRadius: '8px',
       background: '#ffffff',
       
-      boxShadow: 'rgb(0 0 0 / 50%) 0px 0px 1px',
+      boxShadow: 'rgb(0 0 0 / 50%) 0px 0px 30px',
       overflowY: 'auto',
       transition: 'max-height 300ms ease-in-out',
       marginLeft: '19px',
